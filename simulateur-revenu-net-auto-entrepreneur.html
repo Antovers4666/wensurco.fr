@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur Revenu Net Auto-Entrepreneur 2025 — Combien vous reste-t-il vraiment ?</title>
+  <meta name="description" content="Simulez votre revenu net en auto-entrepreneur après charges sociales et impôts. Graphique en camembert, comparaison avec/sans VFL, résultat instantané.">
+  <link rel="canonical" href="https://wensurco.fr/simulateur-revenu-net-auto-entrepreneur">
+  <link rel="stylesheet" href="css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2844746944687552"
+     crossorigin="anonymous"></script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4H7VPXJ6KS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4H7VPXJ6KS');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wxp28322ek");
+  </script>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/></svg></div>
+        Calc<span>Auto</span>Entrepreneur
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="calcul-charges-auto-entrepreneur.html">Charges</a></li>
+        <li><a href="plafond-chiffre-affaires-micro-entreprise.html">Plafonds</a></li>
+        <li><a href="indemnites-kilometriques-2025.html">IK 2025</a></li>
+        <li><a href="simulateur-revenu-net-auto-entrepreneur.html" class="active">Revenu net</a></li>
+        <li><a href="calcul-acre-auto-entrepreneur.html">ACRE</a></li>
+        <li><a href="faq-auto-entrepreneur.html">FAQ</a></li>
+        <li><a href="tableau-de-bord.html">Tableau de bord</a></li><li><a href="calcul-charges-auto-entrepreneur.html" class="nav-cta">Calculer maintenant</a></li><li><button class="theme-toggle" aria-label="Changer de thème"></button></li>
+      </ul>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="page-header-meta">
+      <a href="index.html">Accueil</a><span class="breadcrumb-sep">›</span><span>Simulateur revenu net</span>
+    </div>
+    <h1>Simulateur de Revenu Net Auto-Entrepreneur 2025</h1>
+    <p>Découvrez combien il vous reste réellement après le paiement des charges sociales. Visualisation graphique de la répartition de votre chiffre d'affaires.</p>
+    <div class="page-header-badges">
+      <span class="badge badge-blue">✓ Charges 2025 incluses</span>
+      <span class="badge badge-green">✓ Graphique inclus</span>
+      <span class="badge badge-amber">✓ Mensuel & annuel</span>
+    </div>
+  </div>
+</div>
+
+<main style="padding:2.5rem 0 4rem;">
+  <div class="container">
+
+    <div class="calc-layout">
+      <div>
+        <div class="calc-panel">
+          <div class="calc-panel-header">
+            <h2>
+              <svg width="20" height="20" fill="none" stroke="var(--secondary)" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-4px;margin-right:6px;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Votre simulation
+            </h2>
+          </div>
+          <div class="calc-panel-body">
+            <form id="revenu-form">
+
+              <div class="form-group">
+                <label class="form-label">Période</label>
+                <div class="radio-group">
+                  <label class="radio-option selected"><input type="radio" name="periode-rev" value="mensuel" checked><span class="radio-option-label">CA mensuel</span></label>
+                  <label class="radio-option"><input type="radio" name="periode-rev" value="annuel"><span class="radio-option-label">CA annuel</span></label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="ca-rev">Chiffre d'affaires</label>
+                <div class="input-prefix">
+                  <span class="input-prefix-symbol">€</span>
+                  <input type="number" id="ca-rev" class="form-control form-control-lg" placeholder="Ex: 4 000" min="0" step="100">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="type-rev">Type d'activité</label>
+                <select id="type-rev" class="form-control form-select">
+                  <option value="vente_marchandises">Vente de marchandises (12,3%)</option>
+                  <option value="services_commerciaux" selected>Prestations de services BIC (21,2%)</option>
+                  <option value="liberal_bnc">Profession libérale BNC (24,6%)</option>
+                  <option value="liberal_cipav">Profession libérale CIPAV (23,2%)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-check"><input type="checkbox" id="acre-rev"><div><span class="form-check-label">ACRE — 1ère année (−50% cotisations)</span></div></label>
+              </div>
+
+              <div class="form-group">
+                <label class="form-check"><input type="checkbox" id="vfl-rev"><div><span class="form-check-label">Versement libératoire de l'impôt</span><div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">Intégrer l'impôt dans la simulation</div></div></label>
+              </div>
+
+              <button type="button" id="rev-btn" class="btn btn-success btn-full">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                Simuler mon revenu
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- RÉSULTAT REVENU -->
+      <div>
+        <div class="result-placeholder" id="rev-placeholder">
+          <div style="background:white;border:2px dashed var(--border);border-radius:20px;padding:3rem 2rem;text-align:center;color:var(--text-light);">
+            <div style="font-size:3rem;margin-bottom:1rem;">💰</div>
+            <p style="margin:0;font-size:0.95rem;">Entrez votre CA pour voir la répartition de vos revenus.</p>
+          </div>
+        </div>
+
+        <div class="result-panel" id="rev-result">
+          <div class="result-panel-header" style="background:linear-gradient(135deg,#059669,#10B981);">
+            <h3>💰 Simulation de revenu net</h3>
+          </div>
+          <div class="result-panel-body">
+
+            <!-- Résumé haut -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.25rem;">
+              <div class="result-big green" style="margin-bottom:0;">
+                <span class="result-big-label">Net / mois</span>
+                <span class="result-big-value" id="rev-net-mensuel" style="font-size:1.6rem;">—</span>
+              </div>
+              <div class="result-big blue" style="margin-bottom:0;">
+                <span class="result-big-label">Net / an</span>
+                <span class="result-big-value" id="rev-net-annuel" style="font-size:1.6rem;">—</span>
+              </div>
+            </div>
+
+            <!-- Graphique camembert -->
+            <div style="background:var(--bg);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:1rem;">
+              <h4 style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:1rem;">Répartition de votre CA</h4>
+              <div class="pie-wrap">
+                <div class="pie-chart">
+                  <svg id="pie-chart" width="120" height="120" viewBox="0 0 120 120"></svg>
+                </div>
+                <div class="pie-legend" id="pie-legend"></div>
+              </div>
+            </div>
+
+            <!-- Tableau -->
+            <table class="result-table">
+              <tbody>
+                <tr><td>CA <span id="rev-periode-label"></span></td><td id="rev-ca">—</td></tr>
+                <tr><td>Cotisations sociales</td><td id="rev-cotis">—</td></tr>
+                <tr><td>Formation professionnelle</td><td id="rev-formation">—</td></tr>
+                <tr id="rev-vfl-row" style="display:none;"><td>Impôt (versement libératoire)</td><td id="rev-vfl-val">—</td></tr>
+                <tr class="total-row"><td>Total prélevé</td><td id="rev-total-preleve">—</td></tr>
+              </tbody>
+            </table>
+
+            <div style="background:var(--secondary-light);border:1px solid #A7F3D0;border-radius:var(--radius-md);padding:0.85rem 1rem;margin-top:1rem;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.875rem;color:#065F46;font-weight:600;">Taux de rétention</span>
+              <span id="rev-retention" style="font-weight:800;font-size:1.25rem;color:#065F46;font-family:var(--font-heading);">—</span>
+            </div>
+
+            <div class="action-row">
+              <button class="btn btn-sm btn-ghost" data-copy="#rev-copy">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copier
+              </button>
+              <button class="btn btn-sm btn-ghost" onclick="shareCurrentUrl()">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Partager
+              </button>
+              <a href="calcul-charges-auto-entrepreneur.html" class="btn btn-sm btn-secondary">Voir détail charges →</a>
+            </div>
+
+            <div id="rev-copy" class="hidden"></div>
+            <div class="disclaimer">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span>Simulation indicative. L'impôt réel dépend de votre situation fiscale globale (foyer, autres revenus). Consultez un expert-comptable.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content mt-4">
+      <h2>Comment calculer son revenu net en auto-entrepreneur ?</h2>
+      <p>Le revenu net d'un auto-entrepreneur se calcule simplement : <strong>Revenu net = Chiffre d'affaires − Charges sociales</strong>. Contrairement aux salariés, il n'y a pas de coefficient d'abattement forfaitaire ni de déduction de frais réels dans le régime micro (sauf si vous optez pour le régime réel).</p>
+      <p>En pratique, selon votre activité, vous conserverez :</p>
+      <ul>
+        <li><strong>Vente de marchandises :</strong> environ 87,7% de votre CA (avant impôt)</li>
+        <li><strong>Prestations de services :</strong> environ 78,8% de votre CA</li>
+        <li><strong>Professions libérales :</strong> environ 75,4% de votre CA</li>
+      </ul>
+      <p>Ces pourcentages baissent si vous ajoutez le versement libératoire de l'impôt sur le revenu.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-logo"><div class="logo-icon" style="width:30px;height:30px;"><svg width="16" height="16" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="10" x2="10" y2="10"/></svg></div>CalcAutoEntrepreneur</div><p class="footer-desc">Outils gratuits pour auto-entrepreneurs. 2025.</p></div>
+      <div class="footer-col"><h4>Outils</h4><ul class="footer-links"><li><a href="calcul-charges-auto-entrepreneur.html">Calcul charges</a></li><li><a href="plafond-chiffre-affaires-micro-entreprise.html">Plafond CA</a></li><li><a href="indemnites-kilometriques-2025.html">Indemnités km</a></li></ul></div>
+      <div class="footer-col"><h4>Ressources</h4><ul class="footer-links"><li><a href="calcul-acre-auto-entrepreneur.html">ACRE</a></li>
+        <li><a href="faq-auto-entrepreneur.html">FAQ</a></li><li><a href="guide-auto-entrepreneur-2025.html">Guide 2025</a></li></ul></div>
+      <div class="footer-col"><h4>Légal</h4><ul class="footer-links"><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="confidentialite.html">Confidentialité</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 CalcAutoEntrepreneur.fr — Calculs indicatifs.</p><div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></div></div>
+  </div>
+</footer>
+
+<script src="js/calculators.js"></script>
+<script src="js/ui.js"></script>
+<script>
+document.getElementById('ca-rev').addEventListener('input', tryAutoRev);
+document.getElementById('type-rev').addEventListener('change', tryAutoRev);
+document.getElementById('acre-rev').addEventListener('change', tryAutoRev);
+document.getElementById('vfl-rev').addEventListener('change', tryAutoRev);
+document.getElementById('rev-btn').addEventListener('click', doCalcRev);
+
+function tryAutoRev() {
+  if (parseFloat(document.getElementById('ca-rev').value) > 0) doCalcRev();
+}
+
+function doCalcRev() {
+  const ca = CAE.parseNumber(document.getElementById('ca-rev').value);
+  const type = document.getElementById('type-rev').value;
+  const periode = document.querySelector('input[name="periode-rev"]:checked').value;
+  const acre = document.getElementById('acre-rev').checked;
+  const vfl = document.getElementById('vfl-rev').checked;
+  if (!ca || ca <= 0) { showToast('Veuillez entrer un CA valide.', 'warning'); return; }
+
+  const r = CAE.simulerRevenuNet(ca, type, periode, acre, vfl);
+  if (!r) return;
+
+  document.getElementById('rev-net-mensuel').textContent = CAE.formatEuro(r.netMensuel);
+  document.getElementById('rev-net-annuel').textContent = CAE.formatEuro(r.netEstime);
+  document.getElementById('rev-ca').textContent = CAE.formatEuro(r.caAnnuel) + ' / an';
+  document.getElementById('rev-periode-label').textContent = periode === 'mensuel' ? '(annualisé)' : '';
+  document.getElementById('rev-cotis').textContent = CAE.formatEuro(r.cotisationsBase);
+  document.getElementById('rev-formation').textContent = CAE.formatEuro(r.formationPro);
+
+  const vflRow = document.getElementById('rev-vfl-row');
+  if (vfl) {
+    vflRow.style.display = '';
+    document.getElementById('rev-vfl-val').textContent = CAE.formatEuro(r.impotVfl);
+  } else { vflRow.style.display = 'none'; }
+
+  document.getElementById('rev-total-preleve').textContent = CAE.formatEuro(r.totalCharges + r.impotVfl);
+  const retention = ((r.netEstime / r.caAnnuel) * 100).toFixed(1);
+  document.getElementById('rev-retention').textContent = retention + ' %';
+
+  // Pie chart
+  drawPieChart('pie-chart', r.pieData);
+
+  // Legend
+  const legend = document.getElementById('pie-legend');
+  legend.innerHTML = r.pieData.map(d => `
+    <div class="pie-legend-item">
+      <div class="pie-legend-dot" style="background:${d.color};"></div>
+      <span>${d.label}</span>
+      <span class="pie-legend-pct">${CAE.formatEuro(d.value)}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('rev-copy').textContent =
+    `Simulation revenu net auto-entrepreneur 2025\nCA : ${CAE.formatEuro(r.caAnnuel)} / an\nCharges : ${CAE.formatEuro(r.totalCharges)}\nRevenu net : ${CAE.formatEuro(r.netEstime)} / an (${CAE.formatEuro(r.netMensuel)} / mois)\nTaux de rétention : ${retention}%`;
+
+  document.getElementById('rev-placeholder').classList.add('hidden');
+  document.getElementById('rev-result').classList.add('visible');
+}
+</script>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" class="cookie-banner" style="display:none;">
+  <div class="cookie-inner">
+    <p>&#x1F36A; Ce site utilise des cookies AdSense. En continuant, vous acceptez. <a href="confidentialite.html">En savoir plus</a></p>
+    <div class="cookie-actions">
+      <button onclick="acceptCookies()" class="btn btn-primary btn-sm">Accepter</button>
+      <button onclick="refuseCookies()" class="btn btn-ghost btn-sm" style="color:#CBD5E1;">Refuser</button>
+    </div>
+  </div>
+</div>
+<script>
+(function() { if (!localStorage.getItem('cookieConsent')) document.getElementById('cookie-banner').style.display = 'flex'; })();
+function acceptCookies() { localStorage.setItem('cookieConsent','accepted'); document.getElementById('cookie-banner').style.display='none'; }
+function refuseCookies() { localStorage.setItem('cookieConsent','refused'); document.getElementById('cookie-banner').style.display='none'; }
+</script>
+</body>
+</html>

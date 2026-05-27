@@ -1,0 +1,582 @@
+[
+  {
+    "slug": "auto-entrepreneur-photographe",
+    "title": "Auto-Entrepreneur Photographe 2025 : Guide Complet",
+    "description": "Devenir photographe auto-entrepreneur : code APE 7420Z, BNC, droits d'auteur, RC Pro et charges sociales. Tout pour se lancer en 2025.",
+    "category": "Métier",
+    "categoryColor": "#6366F1",
+    "priority": 9,
+    "targetKeywords": ["photographe", "photo", "audiovisuel", "créatif"],
+    "keyPoints": [
+      "Code APE 7420Z — activité photographique",
+      "Régime fiscal BNC (abattement 34%)",
+      "Plafond CA 77 700 € en 2025",
+      "Droits voisins et droits d'auteur : comment les protéger",
+      "RC Pro : pourquoi c'est indispensable",
+      "TVA franchise en base jusqu'à 37 500 €",
+      "Matériel déductible ou non en micro-BNC",
+      "Tarifs du marché : mariage, corporate, événements",
+      "Création d'une micro-entreprise pas à pas"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-coach",
+    "title": "Coach Auto-Entrepreneur 2025 : Statut, Tarifs et Démarches",
+    "description": "Devenir coach auto-entrepreneur : coaching de vie, sportif ou business. Code APE, tarifs du marché, certifications et assurances en 2025.",
+    "category": "Métier",
+    "categoryColor": "#059669",
+    "priority": 8,
+    "targetKeywords": ["coach", "coaching", "sportif", "personnel", "business"],
+    "keyPoints": [
+      "Coaching de vie (APE 8559B) vs coaching sportif (APE 9313Z) vs business coaching",
+      "Taux de charges sociales selon l'activité",
+      "Plafond CA 77 700 € (services) ou 33 200 € (sportif salarié)",
+      "Certifications reconnues : ICF, RNCP",
+      "RC Pro obligatoire pour les coachs",
+      "Tarifs du marché : séance individuelle, programme, groupe",
+      "Fiscalité : BNC et abattement forfaitaire 34%",
+      "Clause de non-concurrence et RGPD",
+      "Développer sa clientèle en auto-entrepreneur"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-plombier",
+    "title": "Plombier Auto-Entrepreneur 2025 : Charges, Garanties et Règles",
+    "description": "Devenir plombier auto-entrepreneur : assurances obligatoires, garantie décennale, taux de charges artisans et plafond CA en 2025.",
+    "category": "Artisan",
+    "categoryColor": "#0891B2",
+    "priority": 9,
+    "targetKeywords": ["plombier", "artisan", "bâtiment", "travaux", "décennale"],
+    "keyPoints": [
+      "Code APE 4322A — travaux d'installation d'eau et de gaz",
+      "Taux de charges sociales artisans : 12,3% du CA",
+      "Plafond CA pour ventes/travaux : 188 700 €",
+      "Garantie décennale obligatoire : coût et souscription",
+      "Assurance RC Pro chantier : montants recommandés",
+      "Qualification RGE : avantages et démarches",
+      "Immatriculation au Répertoire des Métiers (CMA)",
+      "Facturation TVA et mentions obligatoires pour artisans",
+      "Différence micro-entreprise vs EIRL pour les artisans"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-electricien",
+    "title": "Électricien Auto-Entrepreneur 2025 : Guide Pratique Complet",
+    "description": "Tout pour devenir électricien auto-entrepreneur : habilitations électriques, garantie décennale, charges artisans et plafond CA 188 700 €.",
+    "category": "Artisan",
+    "categoryColor": "#F59E0B",
+    "priority": 8,
+    "targetKeywords": ["électricien", "artisan", "habilitation", "bâtiment", "installation"],
+    "keyPoints": [
+      "Code APE 4321A — installation électrique",
+      "Habilitations électriques obligatoires : B0, BR, BC...",
+      "Qualification Qualifelec ou RGE : avantages",
+      "Taux de charges artisans : 12,3% du CA",
+      "Plafond CA travaux/ventes : 188 700 €",
+      "Garantie décennale et RC Pro chantier",
+      "Norme NF C 15-100 et conformité",
+      "Facturation et TVA pour travaux dans l'habitation",
+      "URSSAF et immatriculation CMA"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-peintre",
+    "title": "Peintre Auto-Entrepreneur 2025 : Statut, Charges et Démarches",
+    "description": "Peintre en bâtiment auto-entrepreneur : charges 12,3%, garantie décennale, plafond 188 700 €, immatriculation CMA et assurances obligatoires.",
+    "category": "Artisan",
+    "categoryColor": "#DC2626",
+    "priority": 7,
+    "targetKeywords": ["peintre", "peinture", "bâtiment", "artisan", "décoration"],
+    "keyPoints": [
+      "Code APE 4334Z — peinture et vitrerie",
+      "Micro-entreprise artisanale : spécificités",
+      "Plafond CA ventes/travaux : 188 700 €",
+      "Taux cotisations sociales : 12,3% du CA",
+      "Garantie décennale et assurance RC Pro chantier",
+      "Immatriculation CMA et stage de préparation",
+      "TVA sur travaux d'entretien vs travaux neufs",
+      "Matériaux : achat-revente ou fourni par le client",
+      "Tarif journalier peintre indépendant"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-aide-domicile",
+    "title": "Auto-Entrepreneur Aide à Domicile 2025 : Guide et Avantages",
+    "description": "Services à la personne en auto-entrepreneur : agrément SAP, crédit d'impôt client, charges 24,6% et déclaration NOVA. Tout pour se lancer.",
+    "category": "Services",
+    "categoryColor": "#10B981",
+    "priority": 9,
+    "targetKeywords": ["aide domicile", "services à la personne", "SAP", "ménage", "garde enfant"],
+    "keyPoints": [
+      "Code APE 8810A — aide à domicile",
+      "Agrément ou déclaration SAP auprès de la DDETS",
+      "Crédit d'impôt à 50% pour vos clients particuliers",
+      "Déclaration NOVA : fonctionnement et obligation",
+      "Taux de charges sociales prestataires de services : 24,6%",
+      "Plafond CA 77 700 €",
+      "Tarifs pratiqués : ménage, repassage, garde d'enfants",
+      "Chèque Emploi Service Universel (CESU) : accepter les paiements",
+      "Avantage fiscal massif : atout commercial majeur"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-traducteur",
+    "title": "Traducteur Auto-Entrepreneur 2025 : Statut et Revenus",
+    "description": "Devenir traducteur-interprète auto-entrepreneur : code APE, régime BNC, tarifs par mot, marchés porteurs et protection de vos traductions.",
+    "category": "Métier",
+    "categoryColor": "#6366F1",
+    "priority": 7,
+    "targetKeywords": ["traducteur", "traduction", "interprète", "freelance", "langues"],
+    "keyPoints": [
+      "Code APE 7430Z — traduction et interprétation",
+      "Régime fiscal BNC — abattement 34%",
+      "Plafond CA 77 700 €",
+      "Tarifs du marché : par mot, par heure, forfait",
+      "Traducteur assermenté vs non-assermenté",
+      "Marchés porteurs : juridique, technique, médical, jeu vidéo",
+      "Logiciels de TAO (SDL Trados, memoQ) et leurs coûts",
+      "Droits d'auteur sur les traductions",
+      "Trouver des clients : agences, direct, plateformes"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-redacteur-web",
+    "title": "Rédacteur Web Auto-Entrepreneur 2025 : Guide et Tarifs",
+    "description": "Devenir rédacteur web freelance : code APE, tarifs par mot et forfait, SEO, droits d'auteur et régime BNC. Tout pour lancer son activité.",
+    "category": "Métier",
+    "categoryColor": "#0891B2",
+    "priority": 8,
+    "targetKeywords": ["rédacteur web", "copywriter", "freelance", "contenu", "SEO"],
+    "keyPoints": [
+      "Code APE 9003B ou 7410Z selon l'activité",
+      "Régime fiscal BNC — abattement 34%",
+      "Tarifs du marché : au mot (0,05€ à 0,15€), au forfait",
+      "SEO : compétence valorisante et différenciante",
+      "Droits d'auteur et cession de droits",
+      "Plafond CA 77 700 €",
+      "Outils : Semrush, Surfer SEO, IA générative et limites légales",
+      "Trouver ses premiers clients : plateformes, agences, réseaux",
+      "Facturation et mentions légales obligatoires"
+    ]
+  },
+  {
+    "slug": "declaration-impots-auto-entrepreneur",
+    "title": "Déclaration Impôts Auto-Entrepreneur 2025 : Guide Complet",
+    "description": "Comment déclarer ses revenus en auto-entrepreneur : case 5HQ/5KO, versement libératoire, abattement, et éviter les erreurs sur la déclaration 2042.",
+    "category": "Fiscalité",
+    "categoryColor": "#DC2626",
+    "priority": 10,
+    "targetKeywords": ["impôts", "déclaration", "fiscal", "2042", "revenus"],
+    "keyPoints": [
+      "Formulaire 2042-C PRO : case 5HQ, 5HY, 5KO, 5KP selon l'activité",
+      "Abattement forfaitaire selon le type d'activité (71%, 50%, 34%)",
+      "Versement libératoire : qui peut opter, à quel moment",
+      "Impôt sur le revenu : barème progressif après abattement",
+      "Prélèvement à la source et auto-entrepreneur",
+      "Calendrier déclaration : revenus N, déclaration en mai N+1",
+      "Erreurs fréquentes et comment les éviter",
+      "Cas particulier : cumul salaire + auto-entrepreneur",
+      "Lien avec la déclaration URSSAF mensuelle/trimestrielle"
+    ]
+  },
+  {
+    "slug": "versement-liberatoire-auto-entrepreneur",
+    "title": "Versement Libératoire Auto-Entrepreneur 2025 : Avantages et Calcul",
+    "description": "Le versement libératoire : comment fonctionne cette option fiscale pour les auto-entrepreneurs, qui peut en bénéficier et comment calculer l'économie.",
+    "category": "Fiscalité",
+    "categoryColor": "#1D4ED8",
+    "priority": 8,
+    "targetKeywords": ["versement libératoire", "VFL", "fiscal", "impôt", "taux"],
+    "keyPoints": [
+      "Définition et principe du versement libératoire de l'IR",
+      "Conditions d'éligibilité : plafond de revenu fiscal de référence",
+      "Taux 2025 : 1% (ventes), 1,7% (services BIC), 2,2% (BNC)",
+      "Avantages et inconvénients vs barème classique",
+      "Comment opter : délai du 30 septembre pour N+1",
+      "Simulation comparative : exemple chiffré avec calcul",
+      "Lien avec la déclaration de revenus (case 8UY)",
+      "Cas où le versement libératoire est désavantageux",
+      "Comment révoquer l'option"
+    ]
+  },
+  {
+    "slug": "assurance-auto-entrepreneur",
+    "title": "Assurances Auto-Entrepreneur 2025 : Obligatoires et Recommandées",
+    "description": "Quelles assurances pour un auto-entrepreneur ? RC Pro, garantie décennale, prévoyance, mutuelle TNS — comparatif complet avec les tarifs 2025.",
+    "category": "Protection",
+    "categoryColor": "#059669",
+    "priority": 9,
+    "targetKeywords": ["assurance", "RC Pro", "garantie décennale", "protection", "prévoyance"],
+    "keyPoints": [
+      "RC Pro : obligatoire ou fortement recommandée selon les métiers",
+      "Garantie décennale : obligatoire pour les artisans du bâtiment",
+      "Multirisque professionnelle : protéger son matériel",
+      "Prévoyance individuelle : arrêt maladie, invalidité, décès",
+      "Mutuelle TNS : complémentaire santé et optimisation fiscale",
+      "Assurance cyber-risques : de plus en plus recommandée",
+      "Tarifs moyens selon le secteur d'activité",
+      "Comment choisir et comparer les assureurs",
+      "Déduction fiscale des cotisations assurance"
+    ]
+  },
+  {
+    "slug": "portage-salarial-vs-auto-entrepreneur",
+    "title": "Portage Salarial vs Auto-Entrepreneur 2025 : Quel Choix ?",
+    "description": "Portage salarial ou micro-entreprise ? Comparatif complet : charges nettes, protection sociale, chômage, responsabilité et liberté. Guide 2025.",
+    "category": "Comparatif",
+    "categoryColor": "#6366F1",
+    "priority": 8,
+    "targetKeywords": ["portage salarial", "comparatif", "statut", "freelance", "charges"],
+    "keyPoints": [
+      "Définition du portage salarial : fonctionnement et acteurs",
+      "Charges du portage salarial vs micro-entrepreneur (45-50% vs 24,6%)",
+      "Protection sociale : droits au chômage, arrêt maladie, retraite",
+      "Responsabilité civile : qui supporte le risque",
+      "Liberté de gestion vs contraintes du portage",
+      "Revenus nets comparés : simulation chiffrée",
+      "Quand le portage devient avantageux malgré les charges",
+      "Accès aux grands comptes et appels d'offres",
+      "Transition portage → micro-entreprise ou inversement"
+    ]
+  },
+  {
+    "slug": "aides-creation-auto-entrepreneur",
+    "title": "Aides à la Création d'Entreprise 2025 : ACRE, NACRE et Plus",
+    "description": "Toutes les aides pour créer son auto-entreprise en 2025 : ACRE, NACRE, ARE maintien, exonérations et dispositifs locaux. Guide pratique complet.",
+    "category": "Aides",
+    "categoryColor": "#059669",
+    "priority": 9,
+    "targetKeywords": ["aide création", "ACRE", "NACRE", "ARE", "exonération", "subvention"],
+    "keyPoints": [
+      "ACRE : exonération partielle de charges la première année (50%)",
+      "Conditions d'éligibilité ACRE : demandeur d'emploi, jeune, RSA...",
+      "NACRE : accompagnement et prêt à taux zéro",
+      "ARE (maintien allocation chômage) : comment combiner avec l'AE",
+      "ARCE : toucher 60% de ses droits en capital",
+      "Aides locales : régions, départements, communes",
+      "Prêt d'honneur Initiative France",
+      "Aides spécifiques : femmes, quartiers prioritaires (QPV), ZRR",
+      "Cumul d'aides : quels dispositifs sont cumulables"
+    ]
+  },
+  {
+    "slug": "protection-sociale-auto-entrepreneur",
+    "title": "Protection Sociale Auto-Entrepreneur 2025 : Droits et Lacunes",
+    "description": "La protection sociale du micro-entrepreneur en 2025 : maladie, maternité, invalidité, retraite, chômage — droits réels et lacunes à combler.",
+    "category": "Protection",
+    "categoryColor": "#1D4ED8",
+    "priority": 9,
+    "targetKeywords": ["protection sociale", "sécurité sociale", "retraite", "maladie", "cotisations"],
+    "keyPoints": [
+      "Affiliation à la Sécurité Sociale des Indépendants (SSI)",
+      "Remboursement maladie : conditions de revenus minimum requis",
+      "Indemnités journalières maladie : montant et durée",
+      "Congé maternité / paternité : droits spécifiques aux AE",
+      "Invalidité et décès : protection de base vs lacunes",
+      "Retraite : calcul des trimestres validés selon le CA",
+      "Absence de chômage : solutions alternatives (PRP, prévoyance)",
+      "Comment améliorer sa protection sociale en AE",
+      "Comparaison avec le régime général salarié"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-commerce",
+    "title": "Auto-Entrepreneur Commerce 2025 : Vente de Produits et Plafond",
+    "description": "Vendre des produits en auto-entrepreneur : plafond CA 188 700 €, charges 12,3%, TVA et règles spécifiques au commerce. Guide 2025.",
+    "category": "Commerce",
+    "categoryColor": "#F59E0B",
+    "priority": 7,
+    "targetKeywords": ["commerce", "vente", "produits", "e-commerce", "boutique"],
+    "keyPoints": [
+      "Plafond CA activité commerciale/vente : 188 700 € en 2025",
+      "Taux de cotisations sociales commerce : 12,3% du CA",
+      "Abattement fiscal forfaitaire : 71% pour les activités de vente",
+      "Achat-revente : stocks, incoterms et TVA",
+      "E-commerce en auto-entrepreneur : règles spécifiques",
+      "TVA sur les ventes : franchise en base jusqu'à 91 900 €",
+      "Marchés, brocantes et vide-greniers : réglementation",
+      "Dropshipping en micro-entreprise : est-ce possible ?",
+      "Complémentaire vs principale : comment combiner avec un emploi"
+    ]
+  },
+  {
+    "slug": "prime-activite-auto-entrepreneur",
+    "title": "Prime d'Activité et Auto-Entrepreneur 2025 : Êtes-Vous Éligible ?",
+    "description": "La prime d'activité pour les auto-entrepreneurs : conditions de revenus, calcul du montant, démarche CAF et compatibilité avec le statut AE en 2025.",
+    "category": "Aides",
+    "categoryColor": "#059669",
+    "priority": 7,
+    "targetKeywords": ["prime activité", "CAF", "revenus", "allocation", "aide"],
+    "keyPoints": [
+      "Définition et objectif de la prime d'activité",
+      "Conditions d'éligibilité : âge, revenus, activité",
+      "Comment sont pris en compte les revenus AE : moyenne sur 3 mois",
+      "Calcul du montant : simulateur CAF et exemple chiffré",
+      "Démarche de demande sur CAF.fr",
+      "Déclaration trimestrielle : quand et comment déclarer son CA",
+      "Impact d'une forte variation de CA sur la prime",
+      "Cumul prime d'activité et ACRE",
+      "Cas pratiques : CA 1 000 €/mois, 2 000 €/mois, 3 000 €/mois"
+    ]
+  },
+  {
+    "slug": "declaration-urssaf-pas-a-pas",
+    "title": "Déclarer à l'URSSAF en Auto-Entrepreneur 2025 : Guide Pas à Pas",
+    "description": "Comment déclarer son chiffre d'affaires à l'URSSAF en auto-entrepreneur : connexion autoentrepreneur.urssaf.fr, périodicité, erreurs à éviter.",
+    "category": "Gestion",
+    "categoryColor": "#0891B2",
+    "priority": 10,
+    "targetKeywords": ["URSSAF", "déclaration", "chiffre d'affaires", "cotisations", "mensuel"],
+    "keyPoints": [
+      "Site autoentrepreneur.urssaf.fr : connexion et navigation",
+      "Choisir sa périodicité : mensuelle ou trimestrielle — avantages de chaque",
+      "Saisir son CA : par catégorie si multi-activités",
+      "Délais : dates limites mensuelles et trimestrielles 2025",
+      "Déclaration à zéro : obligatoire même si aucun CA",
+      "Paiement : modes acceptés, échéances",
+      "Que faire en cas d'erreur ou d'oubli",
+      "Régularisation : comment corriger une déclaration passée",
+      "Contrôle URSSAF : risques et droits"
+    ]
+  },
+  {
+    "slug": "logiciel-comptabilite-auto-entrepreneur",
+    "title": "Meilleur Logiciel Comptabilité Auto-Entrepreneur 2025 : Comparatif",
+    "description": "Quel logiciel de comptabilité pour auto-entrepreneur ? Comparatif Shine, Indy, Freebe, Henrri et Excel. Fonctionnalités, prix et avis 2025.",
+    "category": "Outils",
+    "categoryColor": "#6366F1",
+    "priority": 7,
+    "targetKeywords": ["logiciel", "comptabilité", "facture", "Shine", "Indy", "gestion"],
+    "keyPoints": [
+      "Obligations comptables simplifiées de l'auto-entrepreneur",
+      "Livre de recettes : format légal et tenue correcte",
+      "Logiciels gratuits : Henrri, Freebe, Obliger",
+      "Logiciels payants : Shine (~8€/mois), Indy (~9€/mois), QuickBooks",
+      "Facturation : numérotation, mentions légales obligatoires",
+      "Suivi du plafond CA : alertes automatiques",
+      "Export pour la déclaration URSSAF",
+      "Banque pro intégrée : avantages du combo banque + compta",
+      "Tableur Excel : modèle gratuit pour les non-équipés"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-artisan",
+    "title": "Auto-Entrepreneur Artisan 2025 : Spécificités et Obligations",
+    "description": "Micro-entrepreneur artisan : immatriculation CMA obligatoire, stage de préparation, garantie décennale, plafond 188 700 € et charges 12,3%.",
+    "category": "Artisan",
+    "categoryColor": "#D97706",
+    "priority": 8,
+    "targetKeywords": ["artisan", "CMA", "artisanat", "métier manuel", "stage"],
+    "keyPoints": [
+      "Définition de l'activité artisanale : liste des métiers concernés",
+      "Immatriculation obligatoire au Répertoire des Métiers (CMA)",
+      "Stage de Préparation à l'Installation (SPI) : durée et coût",
+      "Plafond CA pour les artisans : 188 700 €",
+      "Taux de cotisations sociales artisans : 12,3% du CA",
+      "Assurances obligatoires selon la spécialité",
+      "Qualification professionnelle requise ou appréciée",
+      "TVA et facturation pour travaux",
+      "Différence micro-artisan vs artisan classique"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-transport",
+    "title": "Auto-Entrepreneur VTC et Transport 2025 : Licences et Charges",
+    "description": "Devenir chauffeur VTC ou taxi en auto-entrepreneur : licence, formation, carte professionnelle, charges et revenus nets en 2025.",
+    "category": "Transport",
+    "categoryColor": "#0891B2",
+    "priority": 8,
+    "targetKeywords": ["VTC", "taxi", "transport", "chauffeur", "Uber", "Bolt"],
+    "keyPoints": [
+      "Différence VTC vs taxi vs LOTI : droits et obligations",
+      "Carte professionnelle VTC : formation CCPCT et examen",
+      "Assurance RC Pro spécifique transport de personnes",
+      "Véhicule : normes, contrôle technique renforcé",
+      "Taux de charges VTC : activité de services BIC (21,2%)",
+      "Plafond CA 77 700 € et passage à la TVA",
+      "Plateformes Uber/Bolt : conditions, commission et revenus bruts",
+      "Revenus nets réels : simulation chiffrée après charges",
+      "Obligations sociales vis-à-vis des plateformes (loi El Khomri)"
+    ]
+  },
+  {
+    "slug": "exoneration-cfe-auto-entrepreneur",
+    "title": "Exonération CFE Auto-Entrepreneur 2025 : Qui Est Dispensé ?",
+    "description": "CFE et auto-entrepreneur : exonération la 1ère année, dispense si CA < 5 000 €, exonérations permanentes selon l'activité. Guide complet 2025.",
+    "category": "Fiscalité",
+    "categoryColor": "#DC2626",
+    "priority": 7,
+    "targetKeywords": ["CFE", "exonération", "cotisation foncière", "taxe", "dispense"],
+    "keyPoints": [
+      "Rappel : qu'est-ce que la CFE et qui la paye",
+      "Exonération automatique la 1ère année d'activité",
+      "Dispense totale si CA < 5 000 € sur l'année",
+      "Activités exonérées de CFE de manière permanente",
+      "Exonérations liées à la localisation : ZFU, ZRR, QPV",
+      "Comment calculer sa CFE : base minimum et taux communal",
+      "Date limite de paiement : 15 décembre chaque année",
+      "Avis CFE : comment le recevoir et le contester",
+      "CFE et activité principale : quelle commune ?"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-jardinier",
+    "title": "Jardinier Auto-Entrepreneur 2025 : Paysagiste et Services Verts",
+    "description": "Devenir jardinier ou paysagiste auto-entrepreneur : code APE, SAP, charges 12,3%, agrément et tarifs du marché en 2025.",
+    "category": "Services",
+    "categoryColor": "#059669",
+    "priority": 7,
+    "targetKeywords": ["jardinier", "paysagiste", "jardinage", "espaces verts", "tonte"],
+    "keyPoints": [
+      "Code APE 8130Z — services d'aménagement paysager",
+      "Jardinage en services à la personne (SAP) : avantages fiscaux clients",
+      "Agrément ou déclaration SAP selon les prestations",
+      "Taux de charges selon catégorie : artisan (12,3%) ou service (24,6%)",
+      "Plafond CA selon le régime applicable",
+      "Tarifs du marché : tonte, taille, entretien courant",
+      "Matériel et véhicule : achat ou location",
+      "Assurance RC Pro et garantie décennale si gros travaux",
+      "Trouver des clients : plateformes, bouche-à-oreille, réseaux sociaux"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-informatique",
+    "title": "Auto-Entrepreneur Informatique 2025 : IT, ESN et Freelance Tech",
+    "description": "Exercer en informatique en auto-entrepreneur : code APE, TJM, plafond CA 77 700 €, RC Pro et comparaison micro vs SASU pour les développeurs.",
+    "category": "Métier",
+    "categoryColor": "#6366F1",
+    "priority": 8,
+    "targetKeywords": ["informatique", "IT", "développeur", "ESN", "freelance tech"],
+    "keyPoints": [
+      "Code APE 6201Z (programmation) ou 6202A (conseil)",
+      "Taux de charges prestataires de services : 24,6%",
+      "Plafond CA 77 700 € : atteint rapidement en IT",
+      "TJM du marché : de 400 à 1 500 €/jour selon la spécialité",
+      "RC Pro IT : couverture nécessaire et tarifs",
+      "Portage salarial : alternative pour démarrer",
+      "Quand passer en SASU : simulation chiffrée",
+      "Intermédiation ESN vs client direct : avantages de chaque",
+      "Cloud, cybersécurité, DevOps : spécialités les plus recherchées"
+    ]
+  },
+  {
+    "slug": "contrat-auto-entrepreneur",
+    "title": "Contrat Auto-Entrepreneur 2025 : CGV, Devis et Facturation",
+    "description": "Les contrats indispensables pour un auto-entrepreneur : CGV obligatoires, devis valant contrat, clauses essentielles et mentions légales sur les factures.",
+    "category": "Gestion",
+    "categoryColor": "#6366F1",
+    "priority": 7,
+    "targetKeywords": ["contrat", "CGV", "devis", "facturation", "mentions légales"],
+    "keyPoints": [
+      "CGV (Conditions Générales de Vente) : obligatoires entre professionnels",
+      "Clauses essentielles : délais, paiement, litige, propriété intellectuelle",
+      "Devis valant contrat : force probante et conditions",
+      "Bon de commande vs devis vs contrat de prestation",
+      "Acompte et accompte : quelle différence et comment les réclamer",
+      "Délais de paiement légaux : B2B (60 jours max) et B2C",
+      "Mentions obligatoires sur la facture auto-entrepreneur",
+      "Que faire en cas d'impayé : relance, mise en demeure, injonction",
+      "RGPD et protection des données clients"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-psychologue-therapeute",
+    "title": "Psychologue et Thérapeute Auto-Entrepreneur 2025 : Cadre Légal",
+    "description": "Exercer en psychologie ou thérapie en auto-entrepreneur : titre protégé, code APE, BNC, tarifs secteur libéral et conventions Sécurité Sociale.",
+    "category": "Métier",
+    "categoryColor": "#059669",
+    "priority": 6,
+    "targetKeywords": ["psychologue", "thérapeute", "psy", "santé mentale", "libéral"],
+    "keyPoints": [
+      "Titre de psychologue protégé : conditions d'exercice légales",
+      "Code APE 8690C pour les psychologues cliniciens",
+      "Coach, thérapeute, sophrologue : titres non protégés et limites",
+      "Régime fiscal BNC — abattement 34%",
+      "Plafond CA 77 700 €",
+      "Convention Sécurité Sociale : secteur 1, 2 ou 3",
+      "Tarifs pratiqués : consultation individuelle, groupe",
+      "Supervision obligatoire et déontologie",
+      "RC Pro et assurance spécifique santé mentale"
+    ]
+  },
+  {
+    "slug": "charges-sociales-taux-2026",
+    "title": "Taux de Charges Auto-Entrepreneur 2026 : Évolutions et Calcul",
+    "description": "Les taux de cotisations sociales auto-entrepreneur en 2026 : évolutions par rapport à 2025, calcul par catégorie d'activité et simulations chiffrées.",
+    "category": "Charges",
+    "categoryColor": "#DC2626",
+    "priority": 6,
+    "targetKeywords": ["charges 2026", "taux cotisations", "URSSAF", "évolution", "cotisations"],
+    "keyPoints": [
+      "Rappel des taux 2025 par catégorie d'activité",
+      "Évolutions prévues pour 2026 (annonces PLFSS)",
+      "Taux ventes/achat-revente 2026",
+      "Taux prestataires de services BIC 2026",
+      "Taux professions libérales BNC 2026",
+      "Taux artisans 2026",
+      "Impact sur le revenu net : simulations comparatives",
+      "Formation professionnelle (CFP) : taux inchangé",
+      "Date d'entrée en vigueur des nouveaux taux"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-infirmier",
+    "title": "Infirmier Libéral Auto-Entrepreneur 2025 : Possible ou Non ?",
+    "description": "Un infirmier peut-il être auto-entrepreneur ? Secteur conventionné, IDEL, charges libérales CARPIMKO et alternatives au statut micro-entreprise.",
+    "category": "Santé",
+    "categoryColor": "#059669",
+    "priority": 6,
+    "targetKeywords": ["infirmier", "libéral", "IDEL", "conventionné", "CARPIMKO"],
+    "keyPoints": [
+      "Infirmier libéral : pourquoi la micro-entreprise est inadaptée",
+      "Obligation d'adhérer à la CARPIMKO (retraite libérale)",
+      "Convention nationale avec l'Assurance Maladie : secteur 1",
+      "Secteur non conventionné : compatibilité avec l'auto-entrepreneur",
+      "Entreprise individuelle BNC classique : le bon statut pour les IDEL",
+      "Charges sociales libérales réelles vs micro-entreprise",
+      "Déduction des frais réels : avantage du régime réel",
+      "Alternatives : SELARL infirmière, SCM",
+      "Remplaçant infirmier : statut et facturation"
+    ]
+  },
+  {
+    "slug": "micro-entreprise-et-chomage",
+    "title": "Micro-Entreprise et Chômage 2025 : Droits et Compatibilité",
+    "description": "Peut-on toucher le chômage en étant auto-entrepreneur ? ARE maintien, cumul, plafond de cumul et impact sur les droits Pôle Emploi en 2025.",
+    "category": "Cumul",
+    "categoryColor": "#6366F1",
+    "priority": 9,
+    "targetKeywords": ["chômage", "ARE", "Pôle Emploi", "cumul", "allocations"],
+    "keyPoints": [
+      "ARE maintien : comment cumuler chômage et auto-entreprise",
+      "Plafond de cumul mensuel : formule de calcul",
+      "Déclaration mensuelle à France Travail : ce qu'il faut déclarer",
+      "Impact sur la durée des droits : allongement ou épuisement",
+      "ARCE : alternative — toucher 60% en capital",
+      "Créer son auto-entreprise après une rupture conventionnelle",
+      "Perte involontaire d'emploi en auto-entrepreneur : droit au chômage ?",
+      "Dispositif ATI : Allocation Travailleur Indépendant",
+      "Cas pratiques : CA 0 €/mois, CA partiel, CA au plafond"
+    ]
+  },
+  {
+    "slug": "auto-entrepreneur-architecte",
+    "title": "Architecte et Designer Auto-Entrepreneur 2025 : Ordre et Statut",
+    "description": "Architecte DPLG ou designer en auto-entrepreneur : inscription à l'Ordre, assurance RCD, code APE et régime BNC pour les professions du design.",
+    "category": "Métier",
+    "categoryColor": "#6366F1",
+    "priority": 5,
+    "targetKeywords": ["architecte", "designer", "design intérieur", "Ordre", "DPLG"],
+    "keyPoints": [
+      "Architecte DPLG : titre protégé et inscription à l'Ordre obligatoire",
+      "L'Ordre des Architectes interdit-il la micro-entreprise ?",
+      "Designer d'intérieur : titre non protégé, liberté de statut",
+      "Code APE 7111Z (architecture) ou 7410Z (design)",
+      "Régime fiscal BNC — abattement 34%",
+      "Plafond CA 77 700 €",
+      "Assurance RC décennale spécifique architecture",
+      "Maîtrise d'œuvre et responsabilité : limites du statut AE",
+      "Tarifs du marché : honoraires architecte et designer"
+    ]
+  }
+]

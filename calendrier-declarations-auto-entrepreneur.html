@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendrier Déclarations URSSAF Auto-Entrepreneur 2025 — Toutes les dates</title>
+  <meta name="description" content="Toutes les dates de déclaration URSSAF pour auto-entrepreneurs en 2025. Mensuel ou trimestriel, calendrier personnalisé avec export Google Calendar.">
+  <link rel="canonical" href="https://wensurco.fr/calendrier-declarations-auto-entrepreneur">
+  <link rel="stylesheet" href="css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2844746944687552"
+     crossorigin="anonymous"></script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4H7VPXJ6KS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4H7VPXJ6KS');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wxp28322ek");
+  </script>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/></svg></div>
+        Calc<span>Auto</span>Entrepreneur
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="calcul-charges-auto-entrepreneur.html">Charges</a></li>
+        <li><a href="plafond-chiffre-affaires-micro-entreprise.html">Plafonds</a></li>
+        <li><a href="indemnites-kilometriques-2025.html">IK 2025</a></li>
+        <li><a href="simulateur-revenu-net-auto-entrepreneur.html">Revenu net</a></li>
+        <li><a href="calcul-acre-auto-entrepreneur.html">ACRE</a></li>
+        <li><a href="faq-auto-entrepreneur.html">FAQ</a></li>
+        <li><a href="tableau-de-bord.html">Tableau de bord</a></li><li><a href="calcul-charges-auto-entrepreneur.html" class="nav-cta">Calculer</a></li><li><button class="theme-toggle" aria-label="Changer de thème"></button></li>
+      </ul>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="page-header-meta">
+      <a href="index.html">Accueil</a><span class="breadcrumb-sep">›</span><span>Calendrier déclarations</span>
+    </div>
+    <h1>Calendrier des Déclarations URSSAF — Auto-Entrepreneur 2025</h1>
+    <p>Toutes vos dates de déclaration URSSAF en un coup d'œil. Ne manquez plus aucune échéance et évitez les pénalités de retard.</p>
+    <div class="page-header-badges">
+      <span class="badge badge-blue">✓ Mensuel & trimestriel</span>
+      <span class="badge badge-green">✓ Dates 2025 officielles</span>
+      <span class="badge badge-amber">✓ Export calendrier</span>
+    </div>
+  </div>
+</div>
+
+<main style="padding:2.5rem 0 4rem;">
+  <div class="container-narrow">
+
+    <!-- Sélecteur -->
+    <div class="calc-panel" style="margin-bottom:2rem;">
+      <div class="calc-panel-header">
+        <h2>
+          <svg width="20" height="20" fill="none" stroke="#F43F5E" stroke-width="2" viewBox="0 0 24 24" style="vertical-align:-4px;margin-right:6px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Générer mon calendrier
+        </h2>
+      </div>
+      <div class="calc-panel-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:end;">
+          <div class="form-group" style="margin:0;">
+            <label class="form-label">Ma périodicité de déclaration</label>
+            <select id="periodicite" class="form-control form-select">
+              <option value="trimestriel" selected>Trimestrielle</option>
+              <option value="mensuel">Mensuelle</option>
+            </select>
+          </div>
+          <div>
+            <button type="button" id="gen-btn" class="btn btn-primary btn-full" style="background:linear-gradient(135deg,#1A56DB,#0EA5E9);">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Afficher les dates
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calendrier trimestriel (par défaut) -->
+    <div id="calendrier-output">
+
+      <!-- TRIMESTRIEL (default) -->
+      <div id="cal-trimestriel">
+        <div class="alert alert-info" style="margin-bottom:1.5rem;">
+          <svg class="alert-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>📅 <strong>Déclaration trimestrielle :</strong> Vous déclarez votre CA du trimestre <strong>avant le dernier jour ouvrable du mois suivant la fin du trimestre.</strong></span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:2rem;">
+
+          <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);">
+            <div style="background:linear-gradient(135deg,#2563EB,#1D4ED8);padding:1rem 1.25rem;color:white;">
+              <div style="font-size:0.75rem;font-weight:700;opacity:0.8;text-transform:uppercase;letter-spacing:0.06em;">Trimestre 1</div>
+              <div style="font-size:1.1rem;font-weight:700;margin-top:0.2rem;">Janvier — Mars 2025</div>
+            </div>
+            <div style="padding:1.25rem;">
+              <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+                <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:0.75rem;text-align:center;min-width:56px;"><div style="font-size:1.3rem;font-weight:800;color:#991B1B;">30</div><div style="font-size:0.65rem;color:#991B1B;font-weight:600;">AVRIL</div></div>
+                <div><div style="font-weight:600;font-size:0.95rem;">Date limite : 30 avril 2025</div><div style="font-size:0.8rem;color:var(--text-muted);">Déclaration CA T1 + paiement des cotisations</div></div>
+              </div>
+              <div class="badge badge-blue" style="font-size:0.72rem;">CA à déclarer : jan + fév + mars</div>
+            </div>
+          </div>
+
+          <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);">
+            <div style="background:linear-gradient(135deg,#10B981,#059669);padding:1rem 1.25rem;color:white;">
+              <div style="font-size:0.75rem;font-weight:700;opacity:0.8;text-transform:uppercase;letter-spacing:0.06em;">Trimestre 2</div>
+              <div style="font-size:1.1rem;font-weight:700;margin-top:0.2rem;">Avril — Juin 2025</div>
+            </div>
+            <div style="padding:1.25rem;">
+              <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+                <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:0.75rem;text-align:center;min-width:56px;"><div style="font-size:1.3rem;font-weight:800;color:#991B1B;">31</div><div style="font-size:0.65rem;color:#991B1B;font-weight:600;">JUILLET</div></div>
+                <div><div style="font-weight:600;font-size:0.95rem;">Date limite : 31 juillet 2025</div><div style="font-size:0.8rem;color:var(--text-muted);">Déclaration CA T2 + paiement des cotisations</div></div>
+              </div>
+              <div class="badge badge-green" style="font-size:0.72rem;">CA à déclarer : avr + mai + juin</div>
+            </div>
+          </div>
+
+          <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);">
+            <div style="background:linear-gradient(135deg,#F59E0B,#D97706);padding:1rem 1.25rem;color:white;">
+              <div style="font-size:0.75rem;font-weight:700;opacity:0.8;text-transform:uppercase;letter-spacing:0.06em;">Trimestre 3</div>
+              <div style="font-size:1.1rem;font-weight:700;margin-top:0.2rem;">Juillet — Septembre 2025</div>
+            </div>
+            <div style="padding:1.25rem;">
+              <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+                <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:0.75rem;text-align:center;min-width:56px;"><div style="font-size:1.3rem;font-weight:800;color:#991B1B;">31</div><div style="font-size:0.65rem;color:#991B1B;font-weight:600;">OCTOBRE</div></div>
+                <div><div style="font-weight:600;font-size:0.95rem;">Date limite : 31 octobre 2025</div><div style="font-size:0.8rem;color:var(--text-muted);">Déclaration CA T3 + paiement des cotisations</div></div>
+              </div>
+              <div class="badge badge-amber" style="font-size:0.72rem;">CA à déclarer : juil + août + sep</div>
+            </div>
+          </div>
+
+          <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);">
+            <div style="background:linear-gradient(135deg,#0C1E45,#1A3A7C);padding:1rem 1.25rem;color:white;">
+              <div style="font-size:0.75rem;font-weight:700;opacity:0.8;text-transform:uppercase;letter-spacing:0.06em;">Trimestre 4</div>
+              <div style="font-size:1.1rem;font-weight:700;margin-top:0.2rem;">Octobre — Décembre 2025</div>
+            </div>
+            <div style="padding:1.25rem;">
+              <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+                <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:0.75rem;text-align:center;min-width:56px;"><div style="font-size:1.3rem;font-weight:800;color:#991B1B;">31</div><div style="font-size:0.65rem;color:#991B1B;font-weight:600;">JAN 26</div></div>
+                <div><div style="font-weight:600;font-size:0.95rem;">Date limite : 31 janvier 2026</div><div style="font-size:0.8rem;color:var(--text-muted);">Déclaration CA T4 + paiement des cotisations</div></div>
+              </div>
+              <div class="badge badge-blue" style="font-size:0.72rem;background:#F5F3FF;color:#2563EB;border-color:#DDD6FE;">CA à déclarer : oct + nov + déc</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Résumé trimestriel -->
+        <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;">
+          <div style="padding:1.25rem;border-bottom:1px solid var(--border);">
+            <h3 style="font-size:1rem;margin:0;">📋 Récapitulatif — Déclaration trimestrielle 2025</h3>
+          </div>
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.875rem;">
+              <thead><tr style="background:var(--bg);">
+                <th style="padding:0.75rem;text-align:left;font-weight:700;color:var(--text-muted);">Période</th>
+                <th style="padding:0.75rem;text-align:center;font-weight:700;color:var(--text-muted);">CA à déclarer</th>
+                <th style="padding:0.75rem;text-align:center;font-weight:700;color:var(--danger);">Date limite</th>
+              </tr></thead>
+              <tbody>
+                <tr style="border-top:1px solid var(--border);"><td style="padding:0.65rem 0.75rem;font-weight:600;">T1 (jan — mars)</td><td style="padding:0.65rem;text-align:center;color:var(--text-muted);">CA des 3 premiers mois</td><td style="padding:0.65rem;text-align:center;font-weight:700;color:var(--danger);">30 avril 2025</td></tr>
+                <tr style="border-top:1px solid var(--border);background:var(--bg);"><td style="padding:0.65rem 0.75rem;font-weight:600;">T2 (avr — juin)</td><td style="padding:0.65rem;text-align:center;color:var(--text-muted);">CA des mois 4, 5 et 6</td><td style="padding:0.65rem;text-align:center;font-weight:700;color:var(--danger);">31 juillet 2025</td></tr>
+                <tr style="border-top:1px solid var(--border);"><td style="padding:0.65rem 0.75rem;font-weight:600;">T3 (juil — sep)</td><td style="padding:0.65rem;text-align:center;color:var(--text-muted);">CA des mois 7, 8 et 9</td><td style="padding:0.65rem;text-align:center;font-weight:700;color:var(--danger);">31 octobre 2025</td></tr>
+                <tr style="border-top:1px solid var(--border);background:var(--bg);"><td style="padding:0.65rem 0.75rem;font-weight:600;">T4 (oct — déc)</td><td style="padding:0.65rem;text-align:center;color:var(--text-muted);">CA des mois 10, 11 et 12</td><td style="padding:0.65rem;text-align:center;font-weight:700;color:var(--danger);">31 janvier 2026</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- MENSUEL (caché) -->
+      <div id="cal-mensuel" style="display:none;">
+        <div class="alert alert-info" style="margin-bottom:1.5rem;">
+          <svg class="alert-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>📅 <strong>Déclaration mensuelle :</strong> Chaque mois, déclarez le CA du mois précédent avant le <strong>dernier jour du mois en cours.</strong></span>
+        </div>
+        <div id="mensuel-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.75rem;"></div>
+      </div>
+
+    </div>
+
+    <!-- Actions export -->
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;padding:1.5rem;background:white;border:1px solid var(--border);border-radius:var(--radius-lg);">
+      <div style="flex:1;min-width:200px;">
+        <h4 style="margin-bottom:0.25rem;">📲 Rappels automatiques</h4>
+        <p style="font-size:0.85rem;margin:0;">Ajoutez les dates à votre agenda pour ne plus les oublier.</p>
+      </div>
+      <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
+        <button class="btn btn-secondary" onclick="showToast('Export .ics en cours de développement. Disponible bientôt !','info')">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Exporter Google Calendar (.ics)
+        </button>
+        <button class="btn btn-ghost" onclick="window.print()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Imprimer
+        </button>
+      </div>
+    </div>
+
+    <!-- Pénalités info -->
+    <div class="alert alert-warning mt-3">
+      <svg class="alert-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <div>
+        <strong>Pénalités de retard :</strong> En cas de déclaration tardive, l'URSSAF applique une majoration de <strong>1,5% du montant dû</strong> par mois de retard, avec un minimum de 60 €. En cas de non-déclaration, l'URSSAF peut émettre une cotisation forfaitaire majorée de 15%.
+      </div>
+    </div>
+
+    <!-- SEO Content -->
+    <div class="seo-content mt-4">
+      <h2>Tout savoir sur les dates de déclaration URSSAF 2025</h2>
+      <p>La déclaration du chiffre d'affaires est l'une des obligations les plus importantes de l'auto-entrepreneur. Elle se fait exclusivement en ligne, sur le site <strong>autoentrepreneur.urssaf.fr</strong> ou via l'application mobile, et déclenche automatiquement le calcul et le prélèvement des cotisations sociales.</p>
+      <h3 style="margin-top:1.25rem;margin-bottom:0.5rem;">Mensuel ou trimestriel : comment choisir ?</h3>
+      <p>La périodicité de déclaration est à choisir lors de l'inscription. Il est possible de passer de trimestriel à mensuel (et inversement) une fois par an, avant le 31 octobre pour l'année suivante.</p>
+      <ul>
+        <li><strong>Déclaration mensuelle :</strong> Avantage pour les revenus irréguliers. Les cotisations sont prélevées plus régulièrement, ce qui évite les grosses surprises. Obligatoire si vous optez pour le versement libératoire de l'impôt.</li>
+        <li><strong>Déclaration trimestrielle :</strong> Plus simple à gérer, 4 déclarations par an. Préférable si votre CA est stable. Mais attention aux "gros" prélèvements trimestriels.</li>
+      </ul>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-logo"><div class="logo-icon" style="width:30px;height:30px;"><svg width="16" height="16" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="10" x2="10" y2="10"/></svg></div>CalcAutoEntrepreneur</div><p class="footer-desc">Outils gratuits pour auto-entrepreneurs. 2025.</p></div>
+      <div class="footer-col"><h4>Outils</h4><ul class="footer-links"><li><a href="calcul-charges-auto-entrepreneur.html">Calcul charges</a></li><li><a href="plafond-chiffre-affaires-micro-entreprise.html">Plafond CA</a></li><li><a href="indemnites-kilometriques-2025.html">Indemnités km</a></li></ul></div>
+      <div class="footer-col"><h4>Ressources</h4><ul class="footer-links"><li><a href="calcul-acre-auto-entrepreneur.html">ACRE</a></li>
+        <li><a href="faq-auto-entrepreneur.html">FAQ</a></li><li><a href="guide-auto-entrepreneur-2025.html">Guide 2025</a></li></ul></div>
+      <div class="footer-col"><h4>Légal</h4><ul class="footer-links"><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="confidentialite.html">Confidentialité</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 CalcAutoEntrepreneur.fr — Dates indicatives. Vérifiez sur autoentrepreneur.urssaf.fr.</p><div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></div></div>
+  </div>
+</footer>
+
+<script src="js/calculators.js"></script>
+<script src="js/ui.js"></script>
+<script>
+const MOIS_COURTS = ['Jan','Fév','Mars','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc'];
+const MOIS_LONGS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const COULEURS = ['#2563EB','#10B981','#F59E0B','#F43F5E','#6366F1','#0EA5E9','#84CC16','#FB923C','#A855F7','#14B8A6','#F472B6','#64748B'];
+
+document.getElementById('gen-btn').addEventListener('click', () => {
+  const p = document.getElementById('periodicite').value;
+  document.getElementById('cal-trimestriel').style.display = p === 'trimestriel' ? '' : 'none';
+  document.getElementById('cal-mensuel').style.display = p === 'mensuel' ? '' : 'none';
+
+  if (p === 'mensuel') {
+    const grid = document.getElementById('mensuel-grid');
+    grid.innerHTML = '';
+    for (let m = 0; m < 12; m++) {
+      const moisDecl = m === 11 ? 0 : m + 1;
+      const anneeDecl = m === 11 ? 2026 : 2025;
+      const dernierJour = new Date(anneeDecl, moisDecl + 1, 0).getDate();
+      grid.innerHTML += `
+        <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);">
+          <div style="background:${COULEURS[m]};padding:0.85rem 1rem;color:white;">
+            <div style="font-size:0.7rem;font-weight:700;opacity:0.85;text-transform:uppercase;">CA de ${MOIS_LONGS[m]} 2025</div>
+            <div style="font-size:1rem;font-weight:700;margin-top:0.15rem;">Déclarer avant le</div>
+          </div>
+          <div style="padding:1rem;display:flex;align-items:center;gap:0.75rem;">
+            <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:0.6rem 0.75rem;text-align:center;min-width:52px;">
+              <div style="font-size:1.25rem;font-weight:800;color:#991B1B;line-height:1;">${dernierJour}</div>
+              <div style="font-size:0.62rem;color:#991B1B;font-weight:700;">${MOIS_COURTS[moisDecl]} ${anneeDecl}</div>
+            </div>
+            <div style="font-size:0.82rem;color:var(--text-muted);">Déclaration + paiement en ligne</div>
+          </div>
+        </div>
+      `;
+    }
+  }
+});
+</script>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" class="cookie-banner" style="display:none;">
+  <div class="cookie-inner">
+    <p>&#x1F36A; Ce site utilise des cookies AdSense. En continuant, vous acceptez. <a href="confidentialite.html">En savoir plus</a></p>
+    <div class="cookie-actions">
+      <button onclick="acceptCookies()" class="btn btn-primary btn-sm">Accepter</button>
+      <button onclick="refuseCookies()" class="btn btn-ghost btn-sm" style="color:#CBD5E1;">Refuser</button>
+    </div>
+  </div>
+</div>
+<script>
+(function() { if (!localStorage.getItem('cookieConsent')) document.getElementById('cookie-banner').style.display = 'flex'; })();
+function acceptCookies() { localStorage.setItem('cookieConsent','accepted'); document.getElementById('cookie-banner').style.display='none'; }
+function refuseCookies() { localStorage.setItem('cookieConsent','refused'); document.getElementById('cookie-banner').style.display='none'; }
+</script>
+</body>
+</html>

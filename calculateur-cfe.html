@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur CFE 2025 : Estimer votre impôt local — wensurco.fr</title>
+  <meta name="description" content="Simulez le montant de votre CFE en auto-entrepreneur pour 2025. Calculez les exonérations et estimez votre base d'imposition municipale.">
+  <link rel="canonical" href="https://wensurco.fr/calculateur-cfe">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"WebApplication",
+    "name":"Calculateur CFE Auto-entrepreneur 2025",
+    "url":"https://wensurco.fr/calculateur-cfe",
+    "description":"Estimateur de la Cotisation Foncière des Entreprises pour les micro-entrepreneurs en France.",
+    "applicationCategory":"FinanceApplication",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2844746944687552"
+     crossorigin="anonymous"></script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4H7VPXJ6KS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4H7VPXJ6KS');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wxp28322ek");
+  </script>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/></svg></div>
+        Calc<span>Auto</span>Entrepreneur
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="calcul-charges-auto-entrepreneur.html">Charges</a></li>
+        <li><a href="plafond-chiffre-affaires-micro-entreprise.html">Plafonds</a></li>
+        <li><a href="indemnites-kilometriques-2025.html">IK 2025</a></li>
+        <li><a href="simulateur-revenu-net-auto-entrepreneur.html">Revenu net</a></li>
+        <li><a href="calcul-acre-auto-entrepreneur.html">ACRE</a></li>
+        <li><a href="faq-auto-entrepreneur.html">FAQ</a></li>
+        <li><a href="tableau-de-bord.html">Tableau de bord</a></li><li><a href="calcul-charges-auto-entrepreneur.html" class="nav-cta">Calculer</a></li>
+      <li><button class="theme-toggle" aria-label="Changer de thème"></button></li></ul>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="page-header-meta">
+      <a href="index.html">Accueil</a><span class="breadcrumb-sep">›</span><span>Calculateur CFE</span>
+    </div>
+    <h1>Calculateur CFE 2025 : Estimer votre Cotisation Foncière</h1>
+    <p>La Cotisation Foncière des Entreprises (CFE) est un impôt local obligatoire. Simulez en quelques clics le montant minimum de votre CFE selon votre tranche de revenus et votre localité.</p>
+    <div class="page-header-badges">
+      <span class="badge badge-blue">✓ Barème officiel 2025</span>
+      <span class="badge badge-green">✓ Exonérations incluses</span>
+      <span class="badge badge-amber">✓ Estimation rapide</span>
+    </div>
+  </div>
+</div>
+
+<main style="padding:2.5rem 0 4rem;">
+  <div class="container">
+
+    <div class="calc-layout">
+      <!-- FORMULAIRE -->
+      <div>
+        <div class="calc-panel">
+          <div class="calc-panel-header">
+            <h2>🏢 Paramètres de calcul</h2>
+          </div>
+          <div class="calc-panel-body">
+            <form id="cfe-form">
+              <div class="form-group">
+                <label class="form-label" for="cfe-ca">Chiffre d'affaires de référence (Année N-2)</label>
+                <div class="input-prefix">
+                  <span class="input-prefix-symbol">€</span>
+                  <input type="number" id="cfe-ca" class="form-control form-control-lg" placeholder="Ex: 28 000" min="0" step="500">
+                </div>
+                <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.4rem;">La CFE est calculée sur la base du CA réalisé 2 ans auparavant.</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="cfe-town">Niveau de taux de votre commune</label>
+                <select id="cfe-town" class="form-control form-select">
+                  <option value="faible">Faible (Petites communes ou zones spéciales)</option>
+                  <option value="moyen" selected>Moyen (Moyenne nationale)</option>
+                  <option value="eleve">Élevé (Grandes métropoles, Paris, Lyon, Marseille)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-check"><input type="checkbox" id="cfe-first-year"><div><span class="form-check-label">Première année civile d'activité</span><div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px;">Exonération totale si vous avez créé votre entreprise cette année.</div></div></label>
+              </div>
+
+              <button type="button" id="cfe-btn" class="btn btn-success btn-full">
+                🏢 Calculer mon estimation de CFE
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTATS -->
+      <div>
+        <div class="result-placeholder" id="cfe-placeholder">
+          <div style="background:white;border:2px dashed var(--border);border-radius:20px;padding:3rem 2rem;text-align:center;color:var(--text-light);">
+            <div style="font-size:3.5rem;margin-bottom:1rem;">🏢</div>
+            <p style="margin:0;font-size:0.95rem;">Entrez vos revenus de référence et votre localité pour simuler votre Cotisation Foncière des Entreprises.</p>
+          </div>
+        </div>
+
+        <div class="result-panel" id="cfe-result">
+          <div class="result-panel-header" style="background:linear-gradient(135deg,var(--primary),#10B981);">
+            <h3>🏢 Votre estimation de CFE (2025)</h3>
+          </div>
+          <div class="result-panel-body">
+            
+            <!-- Estimation principale -->
+            <div class="result-big blue" id="cfe-status-card" style="margin-bottom:1.5rem;">
+              <span class="result-big-label" id="cfe-status-label">Estimation CFE due</span>
+              <span class="result-big-value" id="cfe-status-value">—</span>
+              <span class="result-big-sub" id="cfe-status-sub">—</span>
+            </div>
+
+            <!-- Tableau -->
+            <table class="result-table">
+              <tbody>
+                <tr><td>CA de référence déclaré</td><td id="cell-cfe-ca">—</td></tr>
+                <tr><td>Exonération applicable</td><td id="cell-cfe-exo">—</td></tr>
+                <tr><td>Tranche de CFE minimum (Fourchette)</td><td id="cell-cfe-bracket">—</td></tr>
+                <tr class="total-row"><td>CFE estimée</td><td id="cell-cfe-total">—</td></tr>
+              </tbody>
+            </table>
+
+            <div class="action-row">
+              <button class="btn btn-sm btn-ghost" data-copy="#cfe-copy">📄 Copier l'estimation</button>
+              <button class="btn btn-sm btn-ghost" onclick="shareCurrentUrl()">🔗 Partager</button>
+            </div>
+            <div id="cfe-copy" class="hidden"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO Content -->
+    <div class="seo-content mt-4">
+      <h2>Comment fonctionne la CFE pour l'auto-entrepreneur ?</h2>
+      <p>La **Cotisation Foncière des Entreprises (CFE)** est un impôt local dû par tous les travailleurs indépendants en France, y compris sous le régime micro-entreprise, quel que soit le lieu d'exercice de l'activité (y compris à domicile).</p>
+      
+      <h3>1. L'exonération de première année civile</h3>
+      <p>L'année civile de création de votre auto-entreprise, **vous bénéficiez d'une exonération totale de CFE**. Par exemple, si vous créez votre entreprise le 1er mars 2024, vous ne paierez pas de CFE pour l'année 2024. Pour en bénéficier, vous devez simplement remplir le formulaire initial 1447-C envoyé par le service des impôts des entreprises (SIE).</p>
+
+      <h3>2. L'exonération liée au Chiffre d'Affaires</h3>
+      <p>Depuis la loi de finances de 2019, les auto-entrepreneurs réalisant un **chiffre d'affaires de référence annuel inférieur ou égal à 5 000 € sont totalement exonérés de CFE**. C'est une aide importante pour les petites activités et les indépendants en début d'activité.</p>
+
+      <h3>3. La CFE minimale (cotisation à domicile)</h3>
+      <p>Si vous n'avez pas de local commercial et travaillez depuis votre bureau à domicile, vous êtes soumis à une **cotisation minimale** votée par votre commune. Elle est calculée en fonction d'un barème de tranches de CA fixé à l'échelle nationale :
+      - Moins de 10 000 € : Base de cotisation réduite.
+      - 10 001 € à 32 600 € : Base de cotisation intermédiaire.
+      - 32 601 € à 100 000 € : Base de cotisation standard.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-logo"><div class="logo-icon" style="width:30px;height:30px;"><svg width="16" height="16" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="10" x2="10" y2="10"/></svg></div>CalcAutoEntrepreneur</div><p class="footer-desc">Outils gratuits pour auto-entrepreneurs. Taux 2025 officiels.</p></div>
+      <div class="footer-col"><h4>Outils</h4><ul class="footer-links"><li><a href="calcul-charges-auto-entrepreneur.html">Calcul charges</a></li><li><a href="simulateur-revenu-net-auto-entrepreneur.html">Revenu net</a></li><li><a href="plafond-chiffre-affaires-micro-entreprise.html">Plafond CA</a></li><li><a href="indemnites-kilometriques-2025.html">Indemnités km</a></li></ul></div>
+      <div class="footer-col"><h4>Ressources</h4><ul class="footer-links"><li><a href="faq-auto-entrepreneur.html">FAQ</a></li><li><a href="guide-auto-entrepreneur-2025.html">Guide 2025</a></li></ul></div>
+      <div class="footer-col"><h4>Légal</h4><ul class="footer-links"><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="confidentialite.html">Confidentialité</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 wensurco.fr — Guide à titre informatif. Consultez l'URSSAF.</p><div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></div></div>
+  </div>
+</footer>
+
+<script src="js/calculators.js"></script>
+<script src="js/ui.js"></script>
+<script>
+document.getElementById('cfe-ca').addEventListener('input', tryCfe);
+document.getElementById('cfe-town').addEventListener('change', tryCfe);
+document.getElementById('cfe-first-year').addEventListener('change', tryCfe);
+document.getElementById('cfe-btn').addEventListener('click', doCfe);
+
+function tryCfe() {
+  if (parseFloat(document.getElementById('cfe-ca').value) > 0) doCfe();
+}
+
+function doCfe() {
+  const ca = CAE.parseNumber(document.getElementById('cfe-ca').value);
+  const town = document.getElementById('cfe-town').value;
+  const firstYear = document.getElementById('cfe-first-year').checked;
+
+  if (!ca || ca <= 0) { showToast('Veuillez entrer un chiffre d\'affaires valide.', 'warning'); return; }
+
+  const card = document.getElementById('cfe-status-card');
+  const label = document.getElementById('cfe-status-label');
+  const value = document.getElementById('cfe-status-value');
+  const sub = document.getElementById('cfe-status-sub');
+
+  const cellCa = document.getElementById('cell-cfe-ca');
+  const cellExo = document.getElementById('cell-cfe-exo');
+  const cellBracket = document.getElementById('cell-cfe-bracket');
+  const cellTotal = document.getElementById('cell-cfe-total');
+
+  cellCa.textContent = CAE.formatEuro(ca);
+
+  if (firstYear) {
+    card.className = 'result-big green';
+    label.textContent = '💚 Statut d\'exonération';
+    value.textContent = 'Exonéré (0 €)';
+    sub.textContent = 'Première année civile d\'activité (100% exonéré d\'office)';
+    cellExo.textContent = 'Exonéré (Création)';
+    cellBracket.textContent = '0 €';
+    cellTotal.textContent = '0 €';
+    document.getElementById('cfe-copy').textContent = `Estimation CFE 2025\nCA de référence : ${CAE.formatEuro(ca)}\nStatut : Exonéré (Première année)`;
+  } else if (ca <= 5000) {
+    card.className = 'result-big green';
+    label.textContent = '💚 Statut d\'exonération';
+    value.textContent = 'Exonéré (0 €)';
+    sub.textContent = 'Chiffre d\'affaires annuel inférieur à 5 000 € (100% exonéré d\'office)';
+    cellExo.textContent = 'Exonéré (CA < 5k€)';
+    cellBracket.textContent = '0 €';
+    cellTotal.textContent = '0 €';
+    document.getElementById('cfe-copy').textContent = `Estimation CFE 2025\nCA de référence : ${CAE.formatEuro(ca)}\nStatut : Exonéré (CA < 5 000 €)`;
+  } else {
+    const r = CAE.calculerCfe(ca, town);
+    card.className = 'result-big blue';
+    label.textContent = '🏢 Estimation CFE due';
+    value.textContent = CAE.formatEuro(r.estimation);
+    sub.textContent = `Fourchette estimée : entre ${CAE.formatEuro(r.min)} et ${CAE.formatEuro(r.max)} selon la commune`;
+    
+    cellExo.textContent = 'Aucune (Impôt dû)';
+    cellBracket.textContent = `${CAE.formatEuro(r.min)} - ${CAE.formatEuro(r.max)}`;
+    cellTotal.textContent = CAE.formatEuro(r.estimation);
+    document.getElementById('cfe-copy').textContent = `Estimation CFE 2025\nCA de référence : ${CAE.formatEuro(ca)}\nEstime CFE : ${CAE.formatEuro(r.estimation)} (Fourchette : ${CAE.formatEuro(r.min)} - ${CAE.formatEuro(r.max)})`;
+  }
+
+  document.getElementById('cfe-placeholder').classList.add('hidden');
+  document.getElementById('cfe-result').classList.add('visible');
+}
+</script>
+</body>
+</html>

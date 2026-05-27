@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(all)",
+      "WebFetch(domain:wensurco.fr)",
+      "Bash(python3 -c \"import playwright\")",
+      "Bash(pip3 show *)"
+    ]
+  }
+}

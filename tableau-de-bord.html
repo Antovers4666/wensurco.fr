@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Tableau de Bord Auto-Entrepreneur : Suivi CA et URSSAF — wensurco.fr</title>
+  <meta name="description" content="Gérez gratuitement votre comptabilité d'auto-entrepreneur : suivi de chiffre d'affaires, seuils de TVA, livre des recettes et estimations URSSAF.">
+  <link rel="canonical" href="https://wensurco.fr/tableau-de-bord">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"WebApplication",
+    "name":"Tableau de Bord Personnel Auto-entrepreneur",
+    "url":"https://wensurco.fr/tableau-de-bord",
+    "description":"Tableau de bord local de gestion comptable et suivi de chiffre d'affaires pour les micro-entrepreneurs.",
+    "applicationCategory":"FinanceApplication",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2844746944687552"
+     crossorigin="anonymous"></script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4H7VPXJ6KS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4H7VPXJ6KS');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wxp28322ek");
+  </script>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/></svg></div>
+        Calc<span>Auto</span>Entrepreneur
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="calcul-charges-auto-entrepreneur.html">Charges</a></li>
+        <li><a href="plafond-chiffre-affaires-micro-entreprise.html">Plafonds</a></li>
+        <li><a href="indemnites-kilometriques-2025.html">IK 2025</a></li>
+        <li><a href="simulateur-revenu-net-auto-entrepreneur.html">Revenu net</a></li>
+        <li><a href="calcul-acre-auto-entrepreneur.html">ACRE</a></li>
+        <li><a href="faq-auto-entrepreneur.html">FAQ</a></li>
+        <li><a href="tableau-de-bord.html" class="active">Tableau de bord</a></li><li><a href="calcul-charges-auto-entrepreneur.html" class="nav-cta">Calculer</a></li>
+      <li><button class="theme-toggle" aria-label="Changer de thème"></button></li></ul>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="page-header-meta">
+      <a href="index.html">Accueil</a><span class="breadcrumb-sep">›</span><span>Mon Tableau de Bord</span>
+    </div>
+    <h1>Mon Tableau de Bord Auto-Entrepreneur</h1>
+    <p>Pilotez votre chiffre d'affaires, gérez votre livre des recettes et suivez en temps réel vos cotisations URSSAF ainsi que vos seuils de TVA 2025.</p>
+    <div class="page-header-badges">
+      <span class="badge badge-green">✓ Données stockées en local</span>
+      <span class="badge badge-blue">✓ Calculs URSSAF 2025</span>
+      <span class="badge badge-amber">✓ Jauges de TVA</span>
+    </div>
+  </div>
+</div>
+
+<main style="padding:2.5rem 0 4rem;">
+  <div class="container">
+
+    <!-- KPI Row -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem;margin-bottom:2.5rem;">
+      <!-- CA Annuel -->
+      <div class="result-big blue" style="margin-bottom:0;">
+        <span class="result-big-label">💶 Chiffre d'Affaires cumulé (2025)</span>
+        <span class="result-big-value" id="kpi-ca-total">0 €</span>
+        <span class="result-big-sub" id="kpi-ca-sub">Aucune facture enregistrée</span>
+      </div>
+
+      <!-- URSSAF estimé -->
+      <div class="result-big amber" style="margin-bottom:0;position:relative;">
+        <span class="result-big-label">📊 Cotisations URSSAF Estimées</span>
+        <span class="result-big-value" id="kpi-urssaf-total">0 €</span>
+        <span class="result-big-sub" id="kpi-urssaf-sub">Charges sociales + CFP de l'année</span>
+        <!-- Checkbox ACRE intégrée dans le KPI pour faire rêver -->
+        <label style="position:absolute;top:10px;right:15px;font-size:0.75rem;font-weight:600;display:flex;align-items:center;gap:4px;cursor:pointer;color:#92400E;">
+          <input type="checkbox" id="kpi-acre-checkbox" style="cursor:pointer;accent-color:#F59E0B;"> Option ACRE
+        </label>
+      </div>
+
+      <!-- Net estimé -->
+      <div class="result-big green" style="margin-bottom:0;">
+        <span class="result-big-label">🌱 Revenu Net Disponible Estimé</span>
+        <span class="result-big-value" id="kpi-net-total">0 €</span>
+        <span class="result-big-sub" id="kpi-net-sub">Net après charges (hors impôts)</span>
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:start;margin-bottom:2.5rem;">
+      
+      <!-- GAUCHE: Livre des Recettes (CRUD) -->
+      <div class="calc-panel">
+        <div class="calc-panel-header" style="display:flex;justify-content:between;align-items:center;flex-wrap:wrap;gap:0.75rem;">
+          <h2 style="margin:0;">📋 Livre des Recettes (Factures)</h2>
+          <button class="btn btn-sm btn-primary" onclick="openInvoiceModal()" id="add-btn">
+            ＋ Ajouter une facture
+          </button>
+        </div>
+        <div class="calc-panel-body" style="padding:1.25rem;">
+          
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.875rem;" id="invoices-table">
+              <thead>
+                <tr style="border-bottom:2px solid var(--border);text-align:left;color:var(--text-muted);">
+                  <th style="padding:0.75rem 0.5rem;">Date</th>
+                  <th style="padding:0.75rem 0.5rem;">Client</th>
+                  <th style="padding:0.75rem 0.5rem;">Activité</th>
+                  <th style="padding:0.75rem 0.5rem;text-align:right;">Montant</th>
+                  <th style="padding:0.75rem 0.5rem;text-align:center;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="invoices-body">
+                <!-- Injecté via JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div id="no-invoices" style="text-align:center;padding:3rem 1.5rem;color:var(--text-light);">
+            <div style="font-size:3rem;margin-bottom:1rem;">📂</div>
+            <p style="margin:0;font-size:0.95rem;">Votre livre de recettes est vide. Enregistrez votre première facture ci-dessus.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DROITE: Seuils de TVA & Graphique CA Mensuel -->
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        
+        <!-- Jauges de Seuils -->
+        <div class="calc-panel">
+          <div class="calc-panel-header">
+            <h2 style="margin:0;">🚨 Suivi des Seuils & Plafonds 2025</h2>
+          </div>
+          <div class="calc-panel-body">
+            
+            <!-- Seuil Services (TVA) -->
+            <div class="progress-wrap" style="margin-top:0;">
+              <div class="progress-label">
+                <span style="font-size:0.85rem;font-weight:600;">Seuil TVA : Prestations de services</span>
+                <span class="progress-pct" id="seuil-tva-services-lbl">0 %</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-bar" id="seuil-tva-services-bar" style="width:0%;"></div>
+              </div>
+              <div class="progress-markers">
+                <span class="progress-marker">0 €</span>
+                <span class="progress-marker" id="seuil-tva-services-val">Sur 36 800 €</span>
+              </div>
+            </div>
+
+            <!-- Seuil Vente (TVA) -->
+            <div class="progress-wrap">
+              <div class="progress-label">
+                <span style="font-size:0.85rem;font-weight:600;">Seuil TVA : Vente de marchandises</span>
+                <span class="progress-pct" id="seuil-tva-vente-lbl">0 %</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-bar" id="seuil-tva-vente-bar" style="width:0%;"></div>
+              </div>
+              <div class="progress-markers">
+                <span class="progress-marker">0 €</span>
+                <span class="progress-marker" id="seuil-tva-vente-val">Sur 91 900 €</span>
+              </div>
+            </div>
+
+            <!-- Plafond global Services -->
+            <div class="progress-wrap" style="margin-bottom:0;">
+              <div class="progress-label">
+                <span style="font-size:0.85rem;font-weight:700;color:var(--primary);">Plafond Micro-entreprise (Services)</span>
+                <span class="progress-pct" id="seuil-ca-services-lbl">0 %</span>
+              </div>
+              <div class="progress-track" style="border:1.5px solid var(--primary-border);">
+                <div class="progress-bar" id="seuil-ca-services-bar" style="width:0%;"></div>
+              </div>
+              <div class="progress-markers">
+                <span class="progress-marker">0 €</span>
+                <span class="progress-marker" id="seuil-ca-services-val">Sur 77 700 €</span>
+              </div>
+            </div>
+
+            <!-- Zone alertes de seuil -->
+            <div id="threshold-alerts" style="display:none;margin-top:1rem;"></div>
+
+          </div>
+        </div>
+
+        <!-- Graphique CA Mensuel -->
+        <div class="calc-panel">
+          <div class="calc-panel-header">
+            <h2 style="margin:0;">📈 Chiffre d'Affaires Mensuel (2025)</h2>
+          </div>
+          <div class="calc-panel-body" style="padding:1.25rem;">
+            <svg id="monthly-chart" width="100%" height="150" viewBox="0 0 400 150"></svg>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Modale Ajout de Facture -->
+    <div id="invoice-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,0.6);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center;padding:1.5rem;">
+      <div class="calc-panel" style="width:100%;max-width:480px;box-shadow:var(--shadow-lg);animation:scaleIn 0.25s ease;">
+        <div class="calc-panel-header" style="display:flex;justify-content:between;align-items:center;">
+          <h3 style="margin:0;">📝 Ajouter une facture encaissée</h3>
+          <button onclick="closeInvoiceModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-light);font-size:1.25rem;">&times;</button>
+        </div>
+        <div class="calc-panel-body">
+          <form id="add-invoice-form">
+            <div class="form-group">
+              <label class="form-label" for="inv-client">Nom du Client</label>
+              <input type="text" id="inv-client" class="form-control" placeholder="Ex: Client ABC SAS" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="inv-amount">Montant encaissé (TTC / HT)</label>
+              <div class="input-prefix">
+                <span class="input-prefix-symbol">€</span>
+                <input type="number" id="inv-amount" class="form-control" placeholder="Ex: 1500" min="1" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inv-date">Date d'encaissement</label>
+              <input type="date" id="inv-date" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="inv-type">Type d'activité</label>
+              <select id="inv-type" class="form-control form-select">
+                <option value="services_commerciaux" selected>Prestations de services (BIC)</option>
+                <option value="liberal_bnc">Profession libérale (BNC)</option>
+                <option value="vente_marchandises">Vente de marchandises (BIC)</option>
+              </select>
+            </div>
+
+            <div style="display:flex;gap:0.75rem;margin-top:1.5rem;">
+              <button type="submit" class="btn btn-primary" style="flex:1;">Valider l'encaissement</button>
+              <button type="button" class="btn btn-ghost" onclick="closeInvoiceModal()">Annuler</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-logo"><div class="logo-icon" style="width:30px;height:30px;"><svg width="16" height="16" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="10" x2="10" y2="10"/></svg></div>CalcAutoEntrepreneur</div><p class="footer-desc">Outils gratuits pour auto-entrepreneurs. Taux 2025 officiels.</p></div>
+      <div class="footer-col"><h4>Outils</h4><ul class="footer-links"><li><a href="calcul-charges-auto-entrepreneur.html">Calcul charges</a></li><li><a href="simulateur-revenu-net-auto-entrepreneur.html">Revenu net</a></li><li><a href="plafond-chiffre-affaires-micro-entreprise.html">Plafond CA</a></li><li><a href="indemnites-kilometriques-2025.html">Indemnités km</a></li></ul></div>
+      <div class="footer-col"><h4>Ressources</h4><ul class="footer-links"><li><a href="faq-auto-entrepreneur.html">FAQ</a></li><li><a href="guide-auto-entrepreneur-2025.html">Guide 2025</a></li></ul></div>
+      <div class="footer-col"><h4>Légal</h4><ul class="footer-links"><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="confidentialite.html">Confidentialité</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 wensurco.fr — Guide à titre informatif. Consultez l'URSSAF.</p><div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></div></div>
+  </div>
+</footer>
+
+<script src="js/calculators.js"></script>
+<script src="js/ui.js"></script>
+<script>
+// Livre de Recettes local
+let invoices = JSON.parse(localStorage.getItem('cae_invoices')) || [];
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Set default date in modal to today
+  document.getElementById('inv-date').value = new Date().toISOString().substring(0, 10);
+  
+  // ACRE toggle listener
+  document.getElementById('kpi-acre-checkbox').addEventListener('change', () => {
+    updateDashboard();
+  });
+
+  // Form submission handler
+  document.getElementById('add-invoice-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const client = document.getElementById('inv-client').value;
+    const amount = CAE.parseNumber(document.getElementById('inv-amount').value);
+    const date = document.getElementById('inv-date').value;
+    const type = document.getElementById('inv-type').value;
+
+    const invoice = {
+      id: Date.now().toString(),
+      client,
+      amount,
+      date,
+      type
+    };
+
+    invoices.push(invoice);
+    saveInvoices();
+    closeInvoiceModal();
+    updateDashboard();
+    showToast('Facture ajoutée au livre de recettes !', 'success');
+
+    // Vérifier les seuils après ajout
+    const allAmounts = invoices.reduce((acc, i) => {
+      if (i.type === 'vente_marchandises') acc.goods += i.amount;
+      else acc.services += i.amount;
+      return acc;
+    }, { services: 0, goods: 0 });
+    checkAndNotifyThresholds(
+      Math.min((allAmounts.services / 36800) * 100, 100),
+      Math.min((allAmounts.goods / 91900) * 100, 100),
+      Math.min((allAmounts.services / 77700) * 100, 100)
+    );
+  });
+
+  // Load dashboard
+  updateDashboard();
+});
+
+function saveInvoices() {
+  localStorage.setItem('cae_invoices', JSON.stringify(invoices));
+}
+
+function openInvoiceModal() {
+  document.getElementById('invoice-modal').style.display = 'flex';
+  document.getElementById('inv-client').focus();
+}
+
+function closeInvoiceModal() {
+  document.getElementById('invoice-modal').style.display = 'none';
+  document.getElementById('add-invoice-form').reset();
+  document.getElementById('inv-date').value = new Date().toISOString().substring(0, 10);
+}
+
+function deleteInvoice(id) {
+  invoices = invoices.filter(inv => inv.id !== id);
+  saveInvoices();
+  updateDashboard();
+  showToast('Facture supprimée du livre de recettes.', 'info');
+}
+
+function updateDashboard() {
+  const body = document.getElementById('invoices-body');
+  const noInvoices = document.getElementById('no-invoices');
+  const table = document.getElementById('invoices-table');
+  const acre = document.getElementById('kpi-acre-checkbox').checked;
+
+  if (invoices.length === 0) {
+    noInvoices.style.display = 'block';
+    table.style.display = 'none';
+  } else {
+    noInvoices.style.display = 'none';
+    table.style.display = 'table';
+  }
+
+  // Sort invoices by date desc
+  invoices.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // Render Table rows
+  body.innerHTML = invoices.map(inv => `
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:0.75rem 0.5rem;white-space:nowrap;">${formatDate(inv.date)}</td>
+      <td style="padding:0.75rem 0.5rem;font-weight:600;">${inv.client}</td>
+      <td style="padding:0.75rem 0.5rem;color:var(--text-muted);font-size:0.8rem;">${CAE.TYPE_LABELS[inv.type] || inv.type}</td>
+      <td style="padding:0.75rem 0.5rem;text-align:right;font-weight:700;">${CAE.formatEuro(inv.amount)}</td>
+      <td style="padding:0.75rem 0.5rem;text-align:center;">
+        <button onclick="deleteInvoice('${inv.id}')" style="background:transparent;border:none;cursor:pointer;color:var(--danger);font-weight:600;padding:2px 8px;" title="Supprimer">Supprimer</button>
+      </td>
+    </tr>
+  `).join('');
+
+  // Calculate totals and statistics
+  let caTotal = 0;
+  let urssafTotal = 0;
+  let serviceCa = 0;
+  let goodsCa = 0;
+
+  // Monthly values array for chart
+  const monthlyValues = Array(12).fill(0);
+
+  invoices.forEach(inv => {
+    const amt = inv.amount;
+    caTotal += amt;
+    
+    // Sum charges per invoice dynamically
+    const chargesRes = CAE.calculerCharges(amt, inv.type, acre, false);
+    if (chargesRes) {
+      urssafTotal += chargesRes.totalCharges;
+    }
+
+    if (inv.type === 'vente_marchandises') {
+      goodsCa += amt;
+    } else {
+      serviceCa += amt;
+    }
+
+    // Month parsing (0-11)
+    const month = new Date(inv.date).getMonth();
+    monthlyValues[month] += amt;
+  });
+
+  const netTotal = caTotal - urssafTotal;
+
+  // Update KPIs
+  document.getElementById('kpi-ca-total').textContent = CAE.formatEuro(caTotal);
+  document.getElementById('kpi-ca-sub').textContent = invoices.length > 0 
+    ? `${invoices.length} facture(s) enregistrée(s)` 
+    : 'Aucune facture enregistrée';
+  
+  document.getElementById('kpi-urssaf-total').textContent = CAE.formatEuro(urssafTotal);
+  document.getElementById('kpi-net-total').textContent = CAE.formatEuro(netTotal);
+  const retentionRate = caTotal > 0 ? ((netTotal / caTotal) * 100).toFixed(0) : null;
+  document.getElementById('kpi-net-sub').textContent = retentionRate
+    ? `Taux de rétention : ${retentionRate} % de votre CA`
+    : 'Net après charges (hors impôts)';
+
+  // Update Progress bars (TVA and CA ceilings)
+  // 1. TVA services (threshold: 36,800 €)
+  const tvaServicesPct = Math.min((serviceCa / 36800) * 100, 100);
+  document.getElementById('seuil-tva-services-lbl').textContent = tvaServicesPct.toFixed(0) + ' %';
+  const tvaServicesBar = document.getElementById('seuil-tva-services-bar');
+  tvaServicesBar.style.width = tvaServicesPct + '%';
+  setBarColorClass(tvaServicesBar, tvaServicesPct);
+  document.getElementById('seuil-tva-services-val').textContent = `${CAE.formatEuro(serviceCa)} / 36 800 €`;
+
+  // 2. TVA Goods (threshold: 91,900 €)
+  const tvaVentePct = Math.min((goodsCa / 91900) * 100, 100);
+  document.getElementById('seuil-tva-vente-lbl').textContent = tvaVentePct.toFixed(0) + ' %';
+  const tvaVenteBar = document.getElementById('seuil-tva-vente-bar');
+  tvaVenteBar.style.width = tvaVentePct + '%';
+  setBarColorClass(tvaVenteBar, tvaVentePct);
+  document.getElementById('seuil-tva-vente-val').textContent = `${CAE.formatEuro(goodsCa)} / 91 900 €`;
+
+  // 3. CA Services Ceiling (threshold: 77,700 €)
+  const caServicesPct = Math.min((serviceCa / 77700) * 100, 100);
+  document.getElementById('seuil-ca-services-lbl').textContent = caServicesPct.toFixed(0) + ' %';
+  const caServicesBar = document.getElementById('seuil-ca-services-bar');
+  caServicesBar.style.width = caServicesPct + '%';
+  setBarColorClass(caServicesBar, caServicesPct);
+  document.getElementById('seuil-ca-services-val').textContent = `${CAE.formatEuro(serviceCa)} / 77 700 €`;
+
+  // Alertes de seuil dynamiques
+  renderThresholdAlerts(tvaServicesPct, tvaVentePct, caServicesPct, serviceCa, goodsCa);
+
+  // Render SVG Monthly CA Chart
+  drawMonthlyChart('monthly-chart', monthlyValues);
+}
+
+function setBarColorClass(barElement, percentage) {
+  barElement.className = 'progress-bar';
+  if (percentage >= 95) {
+    barElement.classList.add('danger');
+  } else if (percentage >= 80) {
+    barElement.classList.add('warn');
+  }
+}
+
+function renderThresholdAlerts(tvaServicesPct, tvaVentePct, caServicesPct, serviceCa, goodsCa) {
+  const alerts = [];
+
+  if (tvaServicesPct >= 100) {
+    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Prestations <strong>dépassé</strong> (${CAE.formatEuro(serviceCa)} / 36 800 €) — Vous devez facturer la TVA immédiatement.`, link: { href: 'tva-auto-entrepreneur.html', label: 'En savoir plus sur la TVA →' } });
+  } else if (tvaServicesPct >= 90) {
+    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Prestations à <strong>${tvaServicesPct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(36800 - serviceCa)} avant assujettissement à la TVA.`, link: { href: 'tva-auto-entrepreneur.html', label: 'Comprendre la TVA →' } });
+  } else if (tvaServicesPct >= 75) {
+    alerts.push({ type: 'warning', msg: `⚠️ Seuil TVA Prestations à <strong>${tvaServicesPct.toFixed(0)} %</strong> — Anticipez votre passage à la TVA (reste ${CAE.formatEuro(36800 - serviceCa)}).` });
+  }
+
+  if (tvaVentePct >= 90) {
+    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Ventes à <strong>${tvaVentePct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(91900 - goodsCa)} avant assujettissement.` });
+  } else if (tvaVentePct >= 75) {
+    alerts.push({ type: 'warning', msg: `⚠️ Seuil TVA Ventes à <strong>${tvaVentePct.toFixed(0)} %</strong> — Surveillez votre CA marchandises.` });
+  }
+
+  if (caServicesPct >= 100) {
+    alerts.push({ type: 'danger', msg: `🚨 Plafond micro-entreprise <strong>dépassé</strong> — Vous risquez la requalification. Consultez un expert-comptable urgemment.`, link: { href: 'comparateur-statuts.html', label: 'Comparer les statuts →' } });
+  } else if (caServicesPct >= 90) {
+    alerts.push({ type: 'danger', msg: `🚨 Plafond micro-entreprise à <strong>${caServicesPct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(77700 - serviceCa)}. Anticipez une transition de statut.`, link: { href: 'comparateur-statuts.html', label: 'Comparer SASU / EURL →' } });
+  } else if (caServicesPct >= 75) {
+    alerts.push({ type: 'warning', msg: `⚠️ Plafond micro-entreprise à <strong>${caServicesPct.toFixed(0)} %</strong> — Commencez à évaluer une transition vers SASU ou EURL.`, link: { href: 'comparateur-statuts.html', label: 'Voir le comparateur →' } });
+  }
+
+  const alertsDiv = document.getElementById('threshold-alerts');
+  if (alerts.length === 0) {
+    alertsDiv.style.display = 'none';
+    alertsDiv.innerHTML = '';
+    return;
+  }
+
+  alertsDiv.style.display = 'block';
+  alertsDiv.innerHTML = alerts.map(a => `
+    <div class="alert alert-${a.type === 'danger' ? 'danger' : 'warning'}" style="margin-bottom:0.5rem;">
+      <span>${a.msg}${a.link ? ` <a href="${a.link.href}" style="font-weight:700;text-decoration:underline;">${a.link.label}</a>` : ''}</span>
+    </div>
+  `).join('');
+}
+
+// Seuils déjà notifiés (pour ne pas répéter le toast)
+const _notifiedThresholds = new Set(JSON.parse(sessionStorage.getItem('cae_notified') || '[]'));
+
+function checkAndNotifyThresholds(tvaServicesPct, tvaVentePct, caServicesPct) {
+  const notify = (key, msg, type) => {
+    if (!_notifiedThresholds.has(key)) {
+      _notifiedThresholds.add(key);
+      sessionStorage.setItem('cae_notified', JSON.stringify([..._notifiedThresholds]));
+      setTimeout(() => showToast(msg, type), 300);
+    }
+  };
+
+  if (tvaServicesPct >= 75) notify('tva-srv-75', '⚠️ Seuil TVA Prestations : 75 % atteint !', 'warning');
+  if (tvaServicesPct >= 90) notify('tva-srv-90', '🚨 Seuil TVA Prestations : 90 % — Agissez vite !', 'warning');
+  if (caServicesPct >= 75) notify('ca-srv-75', '⚠️ Plafond micro-entreprise : 75 % atteint !', 'warning');
+  if (caServicesPct >= 90) notify('ca-srv-90', '🚨 Plafond micro-entreprise : 90 % — Anticipez la transition !', 'warning');
+  if (caServicesPct >= 100) notify('ca-srv-100', '🚨 Plafond micro-entreprise DÉPASSÉ !', 'warning');
+}
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short' });
+}
+
+function drawMonthlyChart(svgId, values) {
+  const svg = document.getElementById(svgId);
+  if (!svg) return;
+  
+  const maxValue = Math.max(...values, 1000); // Base minimum for scale
+  const width = 400;
+  const height = 150;
+  const paddingLeft = 30;
+  const paddingRight = 10;
+  const paddingTop = 15;
+  const paddingBottom = 20;
+
+  svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  svg.innerHTML = '';
+
+  const chartWidth = width - paddingLeft - paddingRight;
+  const chartHeight = height - paddingTop - paddingBottom;
+  const barWidth = chartWidth / 12 - 4;
+
+  const monthsAbbr = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
+
+  // Draw X axis label / months
+  monthsAbbr.forEach((m, i) => {
+    const x = paddingLeft + i * (chartWidth / 12) + (chartWidth / 24);
+    
+    // Bar
+    const val = values[i];
+    const barH = (val / maxValue) * chartHeight;
+    const barY = height - paddingBottom - barH;
+    const barX = paddingLeft + i * (chartWidth / 12) + 2;
+
+    // Bar background
+    const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    bg.setAttribute('x', barX);
+    bg.setAttribute('y', paddingTop);
+    bg.setAttribute('width', barWidth);
+    bg.setAttribute('height', chartHeight);
+    bg.setAttribute('fill', 'var(--border)');
+    bg.setAttribute('opacity', '0.2');
+    bg.setAttribute('rx', '2');
+    svg.appendChild(bg);
+
+    // Foreground Bar
+    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    rect.setAttribute('x', barX);
+    rect.setAttribute('y', height - paddingBottom);
+    rect.setAttribute('width', barWidth);
+    rect.setAttribute('height', '0');
+    rect.setAttribute('fill', 'var(--primary)');
+    rect.setAttribute('rx', '2');
+    rect.style.transition = 'y 0.6s ease, height 0.6s ease';
+    
+    // Tooltip effect
+    rect.addEventListener('mouseenter', () => {
+      rect.setAttribute('fill', 'var(--secondary)');
+      showToast(`${CAE.formatEuro(val)} en ${CAE.genererCalendrierDeclarations('mensuel')[i] ? CAE.genererCalendrierDeclarations('mensuel')[i].periode : m}`, 'info');
+    });
+    rect.addEventListener('mouseleave', () => {
+      rect.setAttribute('fill', 'var(--primary)');
+    });
+
+    svg.appendChild(rect);
+
+    setTimeout(() => {
+      rect.setAttribute('y', barY);
+      rect.setAttribute('height', barH);
+    }, 50);
+
+    // Month Label
+    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    text.setAttribute('x', x);
+    text.setAttribute('y', height - 5);
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('fill', 'var(--text-muted)');
+    text.style.cssText = 'font-size: 10px; font-family: var(--font-main); font-weight: 600;';
+    text.textContent = m;
+    svg.appendChild(text);
+  });
+}
+</script>
+</body>
+</html>

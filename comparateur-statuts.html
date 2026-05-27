@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparateur de Statuts 2025 : AE, SASU, EURL — wensurco.fr</title>
+  <meta name="description" content="Comparez gratuitement votre revenu net de poche entre auto-entrepreneur, SASU et EURL en 2025. Entrez votre CA et vos frais pour simuler le meilleur statut.">
+  <link rel="canonical" href="https://wensurco.fr/comparateur-statuts">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"WebApplication",
+    "name":"Comparateur de Statuts Auto-entrepreneur vs SASU vs EURL",
+    "url":"https://wensurco.fr/comparateur-statuts",
+    "description":"Simulez et comparez le revenu net restant sous différents statuts juridiques en France.",
+    "applicationCategory":"FinanceApplication",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}
+  }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2844746944687552"
+     crossorigin="anonymous"></script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4H7VPXJ6KS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4H7VPXJ6KS');
+  </script>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wxp28322ek");
+  </script>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/></svg></div>
+        Calc<span>Auto</span>Entrepreneur
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="calcul-charges-auto-entrepreneur.html">Charges</a></li>
+        <li><a href="plafond-chiffre-affaires-micro-entreprise.html">Plafonds</a></li>
+        <li><a href="indemnites-kilometriques-2025.html">IK 2025</a></li>
+        <li><a href="simulateur-revenu-net-auto-entrepreneur.html">Revenu net</a></li>
+        <li><a href="calcul-acre-auto-entrepreneur.html">ACRE</a></li>
+        <li><a href="faq-auto-entrepreneur.html">FAQ</a></li>
+        <li><a href="tableau-de-bord.html">Tableau de bord</a></li><li><a href="calcul-charges-auto-entrepreneur.html" class="nav-cta">Calculer</a></li>
+      <li><button class="theme-toggle" aria-label="Changer de thème"></button></li></ul>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <div class="page-header-meta">
+      <a href="index.html">Accueil</a><span class="breadcrumb-sep">›</span><span>Comparateur de statuts</span>
+    </div>
+    <h1>Comparateur de Statuts : Auto-entrepreneur, EURL et SASU</h1>
+    <p>Simulez et comparez le montant net restant après prélèvements (charges sociales, impôt sur les sociétés et impôt sur le revenu) selon votre chiffre d'affaires et vos frais réels.</p>
+    <div class="page-header-badges">
+      <span class="badge badge-blue">✓ Données fiscales 2025</span>
+      <span class="badge badge-green">✓ Graphique dynamique</span>
+      <span class="badge badge-amber">✓ Conseils personnalisés</span>
+    </div>
+  </div>
+</div>
+
+<main style="padding:2.5rem 0 4rem;">
+  <div class="container">
+
+    <div class="calc-layout">
+      <!-- FORMULAIRE -->
+      <div>
+        <div class="calc-panel">
+          <div class="calc-panel-header">
+            <h2>📊 Vos prévisions financières</h2>
+          </div>
+          <div class="calc-panel-body">
+            <form id="comp-form">
+              <div class="form-group">
+                <label class="form-label" for="comp-ca">Chiffre d'affaires annuel estimé</label>
+                <div class="input-prefix">
+                  <span class="input-prefix-symbol">€</span>
+                  <input type="number" id="comp-ca" class="form-control form-control-lg" placeholder="Ex: 60 000" min="0" step="1000">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="comp-expenses">Frais professionnels réels (annuels)</label>
+                <div class="input-prefix">
+                  <span class="input-prefix-symbol">€</span>
+                  <input type="number" id="comp-expenses" class="form-control form-control-lg" placeholder="Ex: 8 000" min="0" step="500">
+                </div>
+                <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.4rem;">Déplacements, abonnements, matériel, assurances, local commercial, etc.</p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="comp-type">Type d'activité</label>
+                <select id="comp-type" class="form-control form-select">
+                  <option value="vente_marchandises">Vente de marchandises (BIC)</option>
+                  <option value="services_commerciaux" selected>Prestations de services BIC</option>
+                  <option value="liberal_bnc">Profession libérale BNC</option>
+                </select>
+              </div>
+
+              <button type="button" id="comp-btn" class="btn btn-success btn-full">
+                ⚖️ Lancer le comparatif de statuts
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTATS -->
+      <div>
+        <div class="result-placeholder" id="comp-placeholder">
+          <div style="background:white;border:2px dashed var(--border);border-radius:20px;padding:3rem 2rem;text-align:center;color:var(--text-light);">
+            <div style="font-size:3.5rem;margin-bottom:1rem;">⚖️</div>
+            <p style="margin:0;font-size:0.95rem;">Entrez votre CA et vos frais professionnels annuels prévus pour comparer les statuts.</p>
+          </div>
+        </div>
+
+        <div class="result-panel" id="comp-result">
+          <div class="result-panel-header" style="background:linear-gradient(135deg,#0C1E45,#1A3A7C);">
+            <h3>⚖️ Revenu net de poche comparatif (Annuel)</h3>
+          </div>
+          <div class="result-panel-body">
+            
+            <!-- Graphique en barres -->
+            <div style="background:var(--bg);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:1.5rem;">
+              <h4 style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:1rem;">Revenu Net Restant par An</h4>
+              <svg id="comp-chart" width="100%" height="220" viewBox="0 0 400 220"></svg>
+            </div>
+
+            <!-- Conseil automatique -->
+            <div id="comp-advice" class="alert alert-info" style="margin-bottom:1.5rem;">
+              <!-- Injecté via JS -->
+            </div>
+
+            <!-- Tableau -->
+            <div style="overflow-x:auto;">
+              <table style="width:100%;border-collapse:collapse;font-size:0.875rem;">
+                <thead>
+                  <tr style="background:var(--bg);border-bottom:2px solid var(--border);">
+                    <th style="padding:0.65rem;text-align:left;font-weight:700;">Statut</th>
+                    <th style="padding:0.65rem;text-align:right;font-weight:700;color:var(--text-muted);">Charges & IS</th>
+                    <th style="padding:0.65rem;text-align:right;font-weight:700;color:var(--text-muted);">Impôts IR</th>
+                    <th style="padding:0.65rem;text-align:right;font-weight:700;color:var(--secondary);">Net de Poche</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--border);" id="row-ae">
+                    <td style="padding:0.75rem 0.65rem;font-weight:700;">Micro-entreprise (AE)</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;" id="cell-ae-charges">—</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;" id="cell-ae-impot">—</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;font-weight:700;color:var(--secondary);" id="cell-ae-net">—</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border);" id="row-eurl">
+                    <td style="padding:0.75rem 0.65rem;font-weight:700;">EURL (Régime IS)</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;" id="cell-eurl-charges">—</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;" id="cell-eurl-impot">—</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;font-weight:700;color:var(--secondary);" id="cell-eurl-net">—</td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border);" id="row-sasu-div">
+                    <td style="padding:0.75rem 0.65rem;font-weight:700;">SASU (IS + Dividendes)</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;" id="cell-sasu-div-charges">—</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;" id="cell-sasu-div-impot">—</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;font-weight:700;color:var(--secondary);" id="cell-sasu-div-net">—</td>
+                  </tr>
+                  <tr id="row-sasu-sal">
+                    <td style="padding:0.75rem 0.65rem;font-weight:700;">SASU (IS + Rémunération)</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;" id="cell-sasu-sal-charges">—</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;" id="cell-sasu-sal-impot">—</td>
+                    <td style="padding:0.75rem 0.65rem;text-align:right;font-weight:700;color:var(--secondary);" id="cell-sasu-sal-net">—</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="action-row">
+              <button class="btn btn-sm btn-ghost" data-copy="#comp-copy">📄 Copier les résultats</button>
+              <button class="btn btn-sm btn-ghost" onclick="shareCurrentUrl()">🔗 Partager</button>
+            </div>
+            <div id="comp-copy" class="hidden"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO Content -->
+    <div class="seo-content mt-4">
+      <h2>Micro-entreprise vs SASU vs EURL : Comment choisir ?</h2>
+      <p>Le choix du statut juridique dépend principalement de deux critères fondamentaux : **le niveau de chiffre d'affaires** et **le montant de vos frais réels professionnels**.</p>
+      
+      <h3>1. Le régime de l'Auto-entrepreneur (Micro-entreprise)</h3>
+      <p>Idéal pour démarrer, la micro-entreprise propose des obligations comptables minimales. Cependant, **vous ne pouvez pas déduire vos charges professionnelles de votre chiffre d'affaires** pour le calcul des cotisations sociales. Si vous avez beaucoup de déplacements, de matériel à acheter, ou de loyers, l'abattement forfaitaire appliqué par l'État peut s'avérer insuffisant, pénalisant votre rentabilité.</p>
+
+      <h3>2. L'EURL (Entreprise Unipersonnelle à Responsabilité Limitée)</h3>
+      <p>L'EURL au régime réel avec option pour l'impôt sur les sociétés (IS) est souvent le choix privilégié des artisans et prestataires ayant des frais professionnels importants. Vos cotisations sociales sont calculées sur votre rémunération nette réelle (environ 45% de charges). C'est beaucoup plus avantageux que la SASU sur le plan des charges sociales courantes, et vous pouvez déduire l'intégralité de vos charges de structure.</p>
+
+      <h3>3. La SASU (Société par Actions Simplifiée Unipersonnelle)</h3>
+      <p>La SASU est plébiscitée pour sa souplesse de gestion et la protection de son président (assimilé-salarié cotisant au régime général de la sécurité sociale). Toutefois, les charges sociales sur salaires sont élevées (environ 75-80% du salaire net). L'une des stratégies couramment utilisées en SASU est de **ne pas se verser de salaire et de se rémunérer exclusivement en dividendes** à la fin de l'exercice, soumis au prélèvement forfaitaire unique (Flat Tax de 30%).</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><div class="footer-logo"><div class="logo-icon" style="width:30px;height:30px;"><svg width="16" height="16" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="10" x2="10" y2="10"/></svg></div>CalcAutoEntrepreneur</div><p class="footer-desc">Outils gratuits pour auto-entrepreneurs. Taux 2025 officiels.</p></div>
+      <div class="footer-col"><h4>Outils</h4><ul class="footer-links"><li><a href="calcul-charges-auto-entrepreneur.html">Calcul charges</a></li><li><a href="simulateur-revenu-net-auto-entrepreneur.html">Revenu net</a></li><li><a href="plafond-chiffre-affaires-micro-entreprise.html">Plafond CA</a></li><li><a href="indemnites-kilometriques-2025.html">Indemnités km</a></li></ul></div>
+      <div class="footer-col"><h4>Ressources</h4><ul class="footer-links"><li><a href="faq-auto-entrepreneur.html">FAQ</a></li><li><a href="guide-auto-entrepreneur-2025.html">Guide 2025</a></li></ul></div>
+      <div class="footer-col"><h4>Légal</h4><ul class="footer-links"><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="confidentialite.html">Confidentialité</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 wensurco.fr — Guide à titre informatif. Consultez un expert-comptable.</p><div class="footer-legal"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></div></div>
+  </div>
+</footer>
+
+<script src="js/calculators.js"></script>
+<script src="js/ui.js"></script>
+<script>
+document.getElementById('comp-ca').addEventListener('input', tryComp);
+document.getElementById('comp-expenses').addEventListener('input', tryComp);
+document.getElementById('comp-type').addEventListener('change', tryComp);
+document.getElementById('comp-btn').addEventListener('click', doComp);
+
+function tryComp() {
+  if (parseFloat(document.getElementById('comp-ca').value) > 0) doComp();
+}
+
+function doComp() {
+  const ca = CAE.parseNumber(document.getElementById('comp-ca').value);
+  const expenses = CAE.parseNumber(document.getElementById('comp-expenses').value);
+  const type = document.getElementById('comp-type').value;
+  
+  if (!ca || ca <= 0) { showToast('Veuillez entrer un chiffre d\'affaires valide.', 'warning'); return; }
+
+  const r = CAE.comparerStatuts(ca, expenses, type);
+  if (!r) return;
+
+  // Render SVG comparison chart
+  const chartData = [
+    { label: 'Auto-Entr.', value: r.ae.net, color: '#10B981' },
+    { label: 'EURL (IS)', value: r.eurl.net, color: '#2563EB' },
+    { label: 'SASU (Div)', value: r.sasuDiv.net, color: '#6366F1' },
+    { label: 'SASU (Sal)', value: r.sasuSal.net, color: '#EF4444' }
+  ];
+  drawBarChart('comp-chart', chartData);
+
+  // Fill table cells
+  document.getElementById('cell-ae-charges').textContent = CAE.formatEuro(r.ae.cotis);
+  document.getElementById('cell-ae-impot').textContent = CAE.formatEuro(r.ae.impot);
+  document.getElementById('cell-ae-net').textContent = CAE.formatEuro(r.ae.net);
+
+  document.getElementById('cell-eurl-charges').textContent = CAE.formatEuro(r.eurl.cotis);
+  document.getElementById('cell-eurl-impot').textContent = CAE.formatEuro(r.eurl.impot);
+  document.getElementById('cell-eurl-net').textContent = CAE.formatEuro(r.eurl.net);
+
+  document.getElementById('cell-sasu-div-charges').textContent = CAE.formatEuro(r.sasuDiv.is);
+  document.getElementById('cell-sasu-div-impot').textContent = CAE.formatEuro(r.sasuDiv.impot);
+  document.getElementById('cell-sasu-div-net').textContent = CAE.formatEuro(r.sasuDiv.net);
+
+  document.getElementById('cell-sasu-sal-charges').textContent = CAE.formatEuro(r.sasuSal.cotis);
+  document.getElementById('cell-sasu-sal-impot').textContent = CAE.formatEuro(r.sasuSal.impot);
+  document.getElementById('cell-sasu-sal-net').textContent = CAE.formatEuro(r.sasuSal.net);
+
+  // Generate automated recommendation text
+  let best = 'ae';
+  let bestNet = r.ae.net;
+  if (r.eurl.net > bestNet) { best = 'eurl'; bestNet = r.eurl.net; }
+  if (r.sasuDiv.net > bestNet) { best = 'sasuDiv'; bestNet = r.sasuDiv.net; }
+
+  const adviceEl = document.getElementById('comp-advice');
+  if (best === 'ae') {
+    adviceEl.innerHTML = `🌟 **Recommandation** : Le statut d'**Auto-entrepreneur** reste le plus avantageux pour votre situation financière, vous laissant environ **${CAE.formatEuro(r.ae.net)}** net de poche par an. C'est le choix de la simplicité et du gain maximal si vos charges professionnelles réelles sont faibles.`;
+    adviceEl.className = 'alert alert-success';
+  } else if (best === 'eurl') {
+    adviceEl.innerHTML = `🌟 **Recommandation** : Le statut d'**EURL (IS / Réel)** est financièrement le plus intéressant dans votre cas, vous permettant de conserver environ **${CAE.formatEuro(r.eurl.net)}** net par an. La déduction de vos frais réels et les charges sociales TNS modérées (~45%) compensent largement le coût de gestion.`;
+    adviceEl.className = 'alert alert-info';
+  } else {
+    adviceEl.innerHTML = `🌟 **Recommandation** : La **SASU avec rémunération en dividendes** est la plus optimale, vous laissant environ **${CAE.formatEuro(r.sasuDiv.net)}** net de poche. Cette option vous permet de tirer profit de la Flat Tax (PFU) à 30% sur les bénéfices de la société après Impôt sur les Sociétés.`;
+    adviceEl.className = 'alert alert-warning';
+  }
+
+  // Set up copy text
+  document.getElementById('comp-copy').textContent = 
+    `Comparatif de statuts professionnels 2025\nCA annuel : ${CAE.formatEuro(ca)}\nFrais réels : ${CAE.formatEuro(expenses)}\n- Auto-entrepreneur net : ${CAE.formatEuro(r.ae.net)} / an\n- EURL (IS) net : ${CAE.formatEuro(r.eurl.net)} / an\n- SASU (Dividendes) net : ${CAE.formatEuro(r.sasuDiv.net)} / an\n- SASU (Salaires) net : ${CAE.formatEuro(r.sasuSal.net)} / an`;
+
+  document.getElementById('comp-placeholder').classList.add('hidden');
+  document.getElementById('comp-result').classList.add('visible');
+}
+</script>
+</body>
+</html>
