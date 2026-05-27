@@ -56,7 +56,7 @@ body.dark-theme {
 }
 
 body.dark-theme .navbar {
-  background: rgba(30, 41, 59, 0.95);
+  background: rgba(28, 10, 0, 0.97);
 }
 
 body.dark-theme .card,
@@ -490,7 +490,7 @@ section { padding: 4rem 0; }
 .form-control:focus {
   border-color: var(--primary);
   background: white;
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+  box-shadow: 0 0 0 3px rgba(192,86,33,0.12);
 }
 .form-control::placeholder { color: var(--text-light); }
 
@@ -507,7 +507,7 @@ section { padding: 4rem 0; }
 .input-prefix:focus-within {
   border-color: var(--primary);
   background: white;
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+  box-shadow: 0 0 0 3px rgba(192,86,33,0.12);
 }
 .input-prefix-symbol {
   padding: 0 0.9rem;

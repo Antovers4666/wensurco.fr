@@ -4,10 +4,10 @@
   "private": true,
   "description": "Directeur autonome wensurco.fr — génération SEO + déploiement Netlify",
   "scripts": {
-    "start":    "node automation/director.js",
-    "audit":    "node automation/director.js --audit",
-    "ga4":      "node automation/director.js --ga4",
-    "dry-run":  "node automation/director.js --dry-run"
+    "start": "node automation/director.js",
+    "audit": "node automation/director.js --audit",
+    "ga4": "node automation/director.js --ga4",
+    "dry-run": "node automation/director.js --dry-run"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.52.0",
@@ -15,5 +15,8 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.1.0"
   }
 }

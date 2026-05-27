@@ -5,26 +5,26 @@ const path = require('path');
 const INDEX = path.join(__dirname, '..', 'index.html');
 
 const COLORS = [
-  '#1D4ED8', '#059669', '#6366F1', '#0891B2',
-  '#DC2626', '#D97706', '#F59E0B', '#6366F1', '#10B981',
+  '#9C4221', '#059669', '#C05621', '#0891B2',
+  '#DC2626', '#D97706', '#F59E0B', '#C05621', '#10B981',
 ];
 
 function colorForCategory(category) {
   const map = {
-    'Métier':      '#6366F1',
+    'Métier':      '#C05621',
     'Artisan':     '#D97706',
     'Services':    '#059669',
     'Fiscalité':   '#DC2626',
     'Gestion':     '#0891B2',
-    'Comparatif':  '#6366F1',
+    'Comparatif':  '#C05621',
     'Aides':       '#10B981',
-    'Protection':  '#1D4ED8',
+    'Protection':  '#9C4221',
     'Commerce':    '#F59E0B',
     'Transport':   '#0891B2',
-    'Cumul':       '#6366F1',
+    'Cumul':       '#C05621',
     'Charges':     '#DC2626',
     'Santé':       '#059669',
-    'Outils':      '#6366F1',
+    'Outils':      '#C05621',
   };
   return map[category] || COLORS[Math.floor(Math.random() * COLORS.length)];
 }
