@@ -131,7 +131,7 @@
         </div>
 
         <div class="result-panel" id="comp-result">
-          <div class="result-panel-header" style="background:linear-gradient(135deg,#0C1E45,#1A3A7C);">
+          <div class="result-panel-header" style="background:linear-gradient(135deg,#1C0A00,#7C2D12);">
             <h3>⚖️ Revenu net de poche comparatif (Annuel)</h3>
           </div>
           <div class="result-panel-body">
@@ -252,8 +252,8 @@ function doComp() {
   // Render SVG comparison chart
   const chartData = [
     { label: 'Auto-Entr.', value: r.ae.net, color: '#10B981' },
-    { label: 'EURL (IS)', value: r.eurl.net, color: '#2563EB' },
-    { label: 'SASU (Div)', value: r.sasuDiv.net, color: '#6366F1' },
+    { label: 'EURL (IS)', value: r.eurl.net, color: '#C05621' },
+    { label: 'SASU (Div)', value: r.sasuDiv.net, color: '#C05621' },
     { label: 'SASU (Sal)', value: r.sasuSal.net, color: '#EF4444' }
   ];
   drawBarChart('comp-chart', chartData);

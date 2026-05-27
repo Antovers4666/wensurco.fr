@@ -86,7 +86,7 @@
             </select>
           </div>
           <div>
-            <button type="button" id="gen-btn" class="btn btn-primary btn-full" style="background:linear-gradient(135deg,#1A56DB,#0EA5E9);">
+            <button type="button" id="gen-btn" class="btn btn-primary btn-full" style="background:linear-gradient(135deg,#C05621,#D97706);">
               <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               Afficher les dates
             </button>
@@ -108,7 +108,7 @@
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-bottom:2rem;">
 
           <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);">
-            <div style="background:linear-gradient(135deg,#2563EB,#1D4ED8);padding:1rem 1.25rem;color:white;">
+            <div style="background:linear-gradient(135deg,#C05621,#9C4221);padding:1rem 1.25rem;color:white;">
               <div style="font-size:0.75rem;font-weight:700;opacity:0.8;text-transform:uppercase;letter-spacing:0.06em;">Trimestre 1</div>
               <div style="font-size:1.1rem;font-weight:700;margin-top:0.2rem;">Janvier — Mars 2025</div>
             </div>
@@ -150,7 +150,7 @@
           </div>
 
           <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);">
-            <div style="background:linear-gradient(135deg,#0C1E45,#1A3A7C);padding:1rem 1.25rem;color:white;">
+            <div style="background:linear-gradient(135deg,#1C0A00,#7C2D12);padding:1rem 1.25rem;color:white;">
               <div style="font-size:0.75rem;font-weight:700;opacity:0.8;text-transform:uppercase;letter-spacing:0.06em;">Trimestre 4</div>
               <div style="font-size:1.1rem;font-weight:700;margin-top:0.2rem;">Octobre — Décembre 2025</div>
             </div>
@@ -159,7 +159,7 @@
                 <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:8px;padding:0.75rem;text-align:center;min-width:56px;"><div style="font-size:1.3rem;font-weight:800;color:#991B1B;">31</div><div style="font-size:0.65rem;color:#991B1B;font-weight:600;">JAN 26</div></div>
                 <div><div style="font-weight:600;font-size:0.95rem;">Date limite : 31 janvier 2026</div><div style="font-size:0.8rem;color:var(--text-muted);">Déclaration CA T4 + paiement des cotisations</div></div>
               </div>
-              <div class="badge badge-blue" style="font-size:0.72rem;background:#F5F3FF;color:#2563EB;border-color:#DDD6FE;">CA à déclarer : oct + nov + déc</div>
+              <div class="badge badge-blue" style="font-size:0.72rem;background:#F5F3FF;color:#C05621;border-color:#DDD6FE;">CA à déclarer : oct + nov + déc</div>
             </div>
           </div>
 
@@ -258,7 +258,7 @@
 <script>
 const MOIS_COURTS = ['Jan','Fév','Mars','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc'];
 const MOIS_LONGS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-const COULEURS = ['#2563EB','#10B981','#F59E0B','#F43F5E','#6366F1','#0EA5E9','#84CC16','#FB923C','#A855F7','#14B8A6','#F472B6','#64748B'];
+const COULEURS = ['#C05621','#10B981','#F59E0B','#F43F5E','#C05621','#D97706','#84CC16','#FB923C','#A855F7','#14B8A6','#F472B6','#64748B'];
 
 document.getElementById('gen-btn').addEventListener('click', () => {
   const p = document.getElementById('periodicite').value;
