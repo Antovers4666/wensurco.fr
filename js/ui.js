@@ -169,7 +169,7 @@ function showToast(message, type = 'info') {
     document.body.appendChild(toastContainer);
   }
 
-  const colors = { info: '#2563EB', success: '#10B981', warning: '#F59E0B', error: '#EF4444' };
+  const colors = { info: '#C05621', success: '#10B981', warning: '#F59E0B', error: '#EF4444' };
   const toast = document.createElement('div');
   toast.style.cssText = `background:white;border-left:4px solid ${colors[type]};border-radius:8px;padding:0.85rem 1.1rem;box-shadow:0 8px 32px rgba(0,0,0,0.15);font-size:0.875rem;font-weight:500;color:#1E293B;max-width:320px;animation:fadeInUp 0.3s ease;`;
   toast.textContent = message;

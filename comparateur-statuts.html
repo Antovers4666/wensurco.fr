@@ -228,6 +228,16 @@
 </footer>
 
 <script src="js/calculators.js"></script>
+<div id="cookie-banner" class="cookie-banner" style="display:none;">
+  <div class="cookie-inner">
+    <p>🍪 Ce site utilise des cookies publicitaires (Google AdSense). En continuant, vous acceptez. <a href="confidentialite.html">En savoir plus</a></p>
+    <div class="cookie-actions">
+      <button onclick="acceptCookies()" class="btn btn-primary btn-sm">Accepter</button>
+      <button onclick="refuseCookies()" class="btn btn-ghost btn-sm" style="color:#CBD5E1;">Refuser</button>
+    </div>
+  </div>
+</div>
+<script>(function(){if(!localStorage.getItem('cookieConsent'))document.getElementById('cookie-banner').style.display='flex';})();function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookie-banner').style.display='none';}function refuseCookies(){localStorage.setItem('cookieConsent','refused');document.getElementById('cookie-banner').style.display='none';}</script>
 <script src="js/ui.js"></script>
 <script>
 document.getElementById('comp-ca').addEventListener('input', tryComp);
