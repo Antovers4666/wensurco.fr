@@ -234,22 +234,19 @@ async function main() {
   }
 
   // ── ÉTAPE 7 : DÉPLOIEMENT ────────────────────────────────────────────────
-  log.step('7/7  NETLIFY — Déploiement en cours...');
+  log.step('7/7  GITHUB PAGES — Déploiement en cours...');
 
-  if (!NETLIFY_TOKEN || !NETLIFY_SITE_ID) {
-    log.error('NETLIFY_TOKEN ou NETLIFY_SITE_ID manquant dans .env');
-    process.exit(1);
-  }
-
-  let deployResult;
+  const { execSync } = require('child_process');
   try {
-    deployResult = await deploy(PROJECT_ROOT, NETLIFY_TOKEN, NETLIFY_SITE_ID, log);
+    execSync('git add -A', { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    execSync(`git commit -m "Article: ${topic.title}"`, { cwd: PROJECT_ROOT, stdio: 'pipe' });
+    execSync('git push origin main', { cwd: PROJECT_ROOT, stdio: 'pipe' });
   } catch (err) {
-    log.error(`Échec du déploiement : ${err.message}`);
+    log.error(`Échec du déploiement git : ${err.message}`);
     process.exit(1);
   }
 
-  const deployUrl = deployResult.deploy_ssl_url || deployResult.ssl_url || `https://wensurco.fr/${topic.slug}`;
+  const deployUrl = `https://wensurco.fr/${topic.slug}`;
   log.ok(`Déployé : ${deployUrl}`);
 
   // ── FINALISATION ──────────────────────────────────────────────────────────
