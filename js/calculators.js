@@ -478,6 +478,71 @@ function calculerCfe(ca, communeTaux = 'moyen') {
 }
 
 // ============================================================
+// SIMULATEUR VFL vs IR (Versement Libératoire)
+// Barème IR 2024 sur revenus 2024 — source : legifrance.gouv.fr
+// Seuil accès VFL 2025 : RFR N-2 ≤ 27 794 € par part (à vérifier BOFiP chaque année)
+// ============================================================
+
+const BAREME_IR_2024 = [
+  { jusqu_a: 11294, taux: 0 },
+  { jusqu_a: 28797, taux: 0.11 },
+  { jusqu_a: 82341, taux: 0.30 },
+  { jusqu_a: 177106, taux: 0.41 },
+  { jusqu_a: Infinity, taux: 0.45 },
+];
+
+const SEUIL_RFR_VFL_2025_PAR_PART = 27794; // RFR N-2 par part — à vérifier BOFiP
+
+function calculerImpositionIR(revenuImposable, nbParts) {
+  // Quotient familial
+  const qi = revenuImposable / nbParts;
+  let impotParPart = 0;
+  let prev = 0;
+  for (const tranche of BAREME_IR_2024) {
+    const base = Math.min(qi, tranche.jusqu_a) - prev;
+    if (base <= 0) break;
+    impotParPart += base * tranche.taux;
+    prev = tranche.jusqu_a;
+  }
+  return Math.round(impotParPart * nbParts);
+}
+
+function comparerVflVsIr(ca, type, nbParts) {
+  const tauxVfl = VFL_TAUX_2025[type] || 0.017;
+  const tauxAbattement = ABATTEMENTS_2025[type] || 0.50;
+  const tauxCharges = TAUX_COTISATIONS_2025[type] || 0.212;
+
+  // Charges sociales (identiques dans les deux cas)
+  const charges = ca * tauxCharges;
+
+  // VFL : impôt = CA × taux VFL
+  const impotVfl = Math.round(ca * tauxVfl);
+  const netVfl = Math.round(ca - charges - impotVfl);
+
+  // IR classique : base imposable = CA × (1 - abattement)
+  const baseImposable = Math.max(0, ca * (1 - tauxAbattement));
+  const impotIr = calculerImpositionIR(baseImposable, nbParts);
+  const netIr = Math.round(ca - charges - impotIr);
+
+  const avantageVfl = netVfl - netIr;
+  const meilleureOption = avantageVfl >= 0 ? 'vfl' : 'ir';
+
+  // Taux marginal effectif IR
+  const tmeMarginalIr = baseImposable > 0 ? (impotIr / baseImposable * 100) : 0;
+
+  return {
+    ca, type, nbParts,
+    charges: Math.round(charges),
+    tauxCharges,
+    vfl: { taux: tauxVfl, impot: impotVfl, net: netVfl },
+    ir: { tauxAbattement, baseImposable: Math.round(baseImposable), impot: impotIr, net: netIr, tmeMarginal: Math.round(tmeMarginalIr) },
+    avantageVfl,
+    meilleureOption,
+    seuilRfrAcces: SEUIL_RFR_VFL_2025_PAR_PART,
+  };
+}
+
+// ============================================================
 // SIMULATEUR TJM (Taux Journalier Moyen)
 // ============================================================
 
@@ -640,6 +705,8 @@ window.CAE = {
   comparerStatuts,
   calculerCfe,
   genererCalendrierDeclarations,
+  comparerVflVsIr,
+  calculerImpositionIR,
   calculerTjm,
   projeterSeuilTva,
   calculerAbattement,

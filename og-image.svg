@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#431407"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#grad)"/>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#431407"/>
+      <stop offset="50%" style="stop-color:#9C4221"/>
+      <stop offset="100%" style="stop-color:#C05621"/>
+    </linearGradient>
+  </defs>
+  <!-- Logo icon -->
+  <rect x="80" y="60" width="64" height="80" rx="8" fill="none" stroke="white" stroke-width="4"/>
+  <line x1="100" y1="85" x2="124" y2="85" stroke="white" stroke-width="3"/>
+  <line x1="100" y1="100" x2="110" y2="100" stroke="white" stroke-width="3"/>
+  <line x1="114" y1="100" x2="124" y2="100" stroke="white" stroke-width="3"/>
+  <line x1="100" y1="115" x2="110" y2="115" stroke="white" stroke-width="3"/>
+  <line x1="114" y1="115" x2="124" y2="115" stroke="white" stroke-width="3"/>
+  <!-- Title -->
+  <text x="80" y="250" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="white">CalcAutoEntrepreneur.fr</text>
+  <text x="80" y="340" font-family="Arial, sans-serif" font-size="40" fill="rgba(255,255,255,0.85)">Calculateurs gratuits pour auto-entrepreneurs</text>
+  <text x="80" y="410" font-family="Arial, sans-serif" font-size="32" fill="rgba(255,255,255,0.65)">Taux URSSAF 2025 officiels • Résultats instantanés</text>
+  <!-- Bottom badges -->
+  <rect x="80" y="490" width="200" height="50" rx="25" fill="rgba(255,255,255,0.15)"/>
+  <text x="180" y="521" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle">Charges URSSAF</text>
+  <rect x="300" y="490" width="160" height="50" rx="25" fill="rgba(255,255,255,0.15)"/>
+  <text x="380" y="521" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle">Revenu net</text>
+  <rect x="480" y="490" width="150" height="50" rx="25" fill="rgba(255,255,255,0.15)"/>
+  <text x="555" y="521" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle">Plafonds CA</text>
+  <rect x="650" y="490" width="110" height="50" rx="25" fill="rgba(255,255,255,0.15)"/>
+  <text x="705" y="521" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle">TJM</text>
+</svg>
