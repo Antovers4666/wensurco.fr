@@ -154,6 +154,18 @@ document.addEventListener('DOMContentLoaded', () => {
     el.style.visibility = 'visible';
   });
 
+  // ---- Barre de progression lecture (articles uniquement) ----
+  if (document.querySelector('.seo-content')) {
+    const bar = document.createElement('div');
+    bar.id = 'reading-progress';
+    document.body.prepend(bar);
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + '%' : '0%';
+    }, { passive: true });
+  }
+
 });
 
 // ============================================================

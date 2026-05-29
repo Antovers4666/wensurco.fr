@@ -920,13 +920,44 @@ footer {
   .pie-wrap { flex-direction: column; align-items: flex-start; }
 }
 
+/* ---- Barre de progression lecture ---- */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #C05621, #D97706);
+  z-index: 10000;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ---- Blocs CTA intégrés aux articles ---- */
+.article-cta {
+  background: var(--primary-light);
+  border: 1px solid var(--primary-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+.article-cta-gradient {
+  background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+  border: 1px solid var(--primary-border);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
 /* ---- Cookie Banner RGPD ---- */
 .cookie-banner {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #1E293B;
+  background: #2D0C00;
   color: #F1F5F9;
   z-index: 9999;
   padding: 1rem 1.5rem;
