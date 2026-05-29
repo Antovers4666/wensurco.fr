@@ -1,3 +1,14 @@
 User-agent: *
 Allow: /
+Disallow: /CLAUDE.md
+Disallow: /GEMINI_BRIEFING.md
+Disallow: /MODIFICATIONS.md
+Disallow: /PROPOSALS.md
+Disallow: /DEPLOYMENT_READY.txt
+Disallow: /ANTIGRAVITY_CONTEXT.md
+Disallow: /ANTIGRAVITY_CONTEXT.md
+Disallow: /automation/
+Disallow: /node_modules/
+Disallow: /_template-article.html
+
 Sitemap: https://wensurco.fr/sitemap.xml

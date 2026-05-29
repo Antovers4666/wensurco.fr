@@ -3,7 +3,7 @@
    Palette: Terracotta #C05621 | Ambre #D97706 | Vert #059669
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap');
+/* Google Fonts chargées via <link> dans chaque page HTML (preconnect) — ne pas réintroduire @import */
 
 /* ---- Reset & Variables ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -989,3 +989,37 @@ footer {
 .cookie-inner a { color: #93C5FD; text-decoration: underline; }
 .cookie-inner a:hover { color: white; }
 .cookie-actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+
+/* ---- Réservation espace AdSense — prévention CLS (P1) ---- */
+ins.adsbygoogle { display: block; min-height: 90px; }
+ins.adsbygoogle[data-ad-layout="in-article"] { min-height: 250px; }
+
+/* ---- Accessibilité — focus visible (A3) ---- */
+.form-control:focus,
+.form-select:focus {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* ---- Skip link (A1) ---- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  font-weight: 600;
+  z-index: 10001;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+
+/* ---- prefers-reduced-motion (accessibilité) ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

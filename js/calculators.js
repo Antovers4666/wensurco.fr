@@ -41,10 +41,8 @@ const PLAFONDS_TVA_2025 = {
   services:           { normal: 36800, majoré: 39100 },
 };
 
-// ACRE : réduction 50% première année sur cotisations
+// ACRE : réduction 50% première année uniquement (B1 — suppression code mort années 2 et 3)
 const ACRE_TAUX_REDUCTION_ANNEE_1 = 0.50;
-const ACRE_TAUX_REDUCTION_ANNEE_2 = 0.25;
-const ACRE_TAUX_REDUCTION_ANNEE_3 = 0.00;
 
 // Taux d'imposition VFL (Versement Libératoire Forfaitaire)
 const VFL_TAUX_2025 = {
@@ -357,11 +355,12 @@ function genererCalendrierDeclarations(periodicite = 'trimestriel', moisDebut = 
   return dates.slice(moisDebut - 1);
 }
 
-const MOIS_NOMS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
-
 // ============================================================
 // UTILITAIRES DE FORMATAGE
 // ============================================================
+
+// B2 — MOIS_NOMS déplacé avant genererCalendrierDeclarations qui l'utilise
+const MOIS_NOMS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 
 function formatEuro(montant, decimales = 0) {
   return new Intl.NumberFormat('fr-FR', {
@@ -478,6 +477,159 @@ function calculerCfe(ca, communeTaux = 'moyen') {
   };
 }
 
+// ============================================================
+// SIMULATEUR TJM (Taux Journalier Moyen)
+// ============================================================
+
+function calculerTjm(netSouhaite, type, joursCongesAnnuels, tauxOccupation, acre, vfl) {
+  const tauxTotal = TAUX_COTISATIONS_2025[type] || 0.212;
+  const tauxVfl = VFL_TAUX_2025[type] || 0;
+  const tauxAcre = acre ? tauxTotal * (1 - ACRE_TAUX_REDUCTION_ANNEE_1) : tauxTotal;
+  const tauxChargesEffectif = acre ? tauxAcre : tauxTotal;
+
+  // CA nécessaire pour atteindre le net souhaité
+  const tauxPrelevement = tauxChargesEffectif + (vfl ? tauxVfl : 0);
+  if (tauxPrelevement >= 1) return null;
+  const caAnnuelNecessaire = netSouhaite / (1 - tauxPrelevement);
+
+  // Jours facturables
+  const joursOuvrables = 365 - 104 - joursCongesAnnuels; // 365 - WE - congés
+  const joursConges_ = Math.max(0, Math.min(joursCongesAnnuels, 200));
+  const joursFacturables = Math.max(1, Math.round(joursOuvrables * (tauxOccupation / 100)));
+
+  const tjm = caAnnuelNecessaire / joursFacturables;
+
+  // Vérification plafond micro
+  const plafond = PLAFONDS_CA_2025[type] || 77700;
+  const depassePlafond = caAnnuelNecessaire > plafond;
+
+  // Tableau de sensibilité selon taux d'occupation
+  const sensibilite = [50, 60, 70, 80, 90, 100].map(taux => {
+    const jours = Math.max(1, Math.round(joursOuvrables * (taux / 100)));
+    return { taux, jours, tjm: Math.ceil(caAnnuelNecessaire / jours) };
+  });
+
+  return {
+    caAnnuelNecessaire: Math.round(caAnnuelNecessaire),
+    tjm: Math.ceil(tjm),
+    tjmMensuel: Math.ceil(tjm * joursFacturables / 12),
+    joursFacturables,
+    joursOuvrables,
+    tauxOccupation,
+    depassePlafond,
+    plafond,
+    sensibilite,
+    netMensuel: Math.round(netSouhaite / 12),
+  };
+}
+
+// ============================================================
+// CALCULATEUR SEUIL TVA — Projection date dépassement
+// ============================================================
+
+function projeterSeuilTva(caCumule, type, moisEcoules) {
+  const seuilMicro = PLAFONDS_CA_2025[type] || 77700;
+  const estVente = type === 'vente_marchandises' || type === 'meuble_tourisme';
+  const seuilTva = estVente ? PLAFONDS_TVA_2025.vente_marchandises.normal : PLAFONDS_TVA_2025.services.normal;
+
+  const tendanceMensuelle = moisEcoules > 0 ? caCumule / moisEcoules : 0;
+
+  function projeterMois(seuil) {
+    if (caCumule >= seuil) return 0;
+    if (tendanceMensuelle <= 0) return null;
+    return Math.ceil((seuil - caCumule) / tendanceMensuelle);
+  }
+
+  const moisAvantTva = projeterMois(seuilTva);
+  const moisAvantMicro = projeterMois(seuilMicro);
+
+  const pctTva = Math.min(100, seuilTva > 0 ? (caCumule / seuilTva) * 100 : 0);
+  const pctMicro = Math.min(100, seuilMicro > 0 ? (caCumule / seuilMicro) * 100 : 0);
+
+  let alerteTva = 'ok';
+  if (pctTva >= 100) alerteTva = 'depasse';
+  else if (pctTva >= 90) alerteTva = 'danger';
+  else if (pctTva >= 70) alerteTva = 'attention';
+
+  return {
+    caCumule, moisEcoules, tendanceMensuelle: Math.round(tendanceMensuelle),
+    seuilTva, seuilMicro,
+    pctTva: Math.round(pctTva * 10) / 10,
+    pctMicro: Math.round(pctMicro * 10) / 10,
+    moisAvantTva, moisAvantMicro,
+    alerteTva,
+    caRestantTva: Math.max(0, seuilTva - caCumule),
+    caRestantMicro: Math.max(0, seuilMicro - caCumule),
+  };
+}
+
+// ============================================================
+// CALCULATEUR ABATTEMENT FORFAITAIRE
+// ============================================================
+
+const ABATTEMENTS_2025 = {
+  vente_marchandises:    0.71,
+  meuble_tourisme:       0.71,
+  services_commerciaux:  0.50,
+  artisanal:             0.50,
+  liberal_bnc:           0.34,
+  liberal_cipav:         0.34,
+};
+const ABATTEMENT_MINIMUM_2025 = 305; // art. 50-0 CGI
+
+function calculerAbattement(ca, type) {
+  const taux = ABATTEMENTS_2025[type] || 0.50;
+  const abattementCalc = ca * taux;
+  const abattementApplique = Math.max(abattementCalc, ABATTEMENT_MINIMUM_2025);
+  const baseImposable = Math.max(0, ca - abattementApplique);
+
+  return {
+    ca, type,
+    tauxAbattement: taux,
+    abattementCalc: Math.round(abattementCalc),
+    abattementApplique: Math.round(abattementApplique),
+    baseImposable: Math.round(baseImposable),
+    abattementMinimumApplique: abattementCalc < ABATTEMENT_MINIMUM_2025,
+    comparaison: [
+      { label: 'Vente marchandises', taux: 0.71, base: Math.max(0, ca - Math.max(ca * 0.71, 305)) },
+      { label: 'Prestations services', taux: 0.50, base: Math.max(0, ca - Math.max(ca * 0.50, 305)) },
+      { label: 'Professions libérales', taux: 0.34, base: Math.max(0, ca - Math.max(ca * 0.34, 305)) },
+    ],
+  };
+}
+
+// ============================================================
+// SIMULATEUR RETRAITE — Trimestres CNAV validés
+// Source : CNAV, SMIC horaire 1er nov 2024 = 11,88 €/h
+// ============================================================
+
+const SMIC_HORAIRE_2025 = 11.88; // À vérifier annuellement sur legifrance.gouv.fr
+const SEUIL_TRIMESTRE_2025 = Math.round(150 * SMIC_HORAIRE_2025); // = 1 782 €
+
+function calculerTrimestresRetraite(caAnnuel, type) {
+  const tauxAbattement = ABATTEMENTS_2025[type] || 0.50;
+  const baseCotisation = caAnnuel * (1 - tauxAbattement);
+
+  // CIPAV : régime par points différent de CNAV — calcul approximatif seulement
+  const estCipav = type === 'liberal_cipav';
+  const nbTrimestres = estCipav ? null : Math.min(4, Math.floor(baseCotisation / SEUIL_TRIMESTRE_2025));
+
+  const caParTrimestre = [1, 2, 3, 4].map(n => ({
+    trimestres: n,
+    caRequis: Math.ceil((n * SEUIL_TRIMESTRE_2025) / (1 - tauxAbattement)),
+  }));
+
+  return {
+    caAnnuel, type,
+    baseCotisation: Math.round(baseCotisation),
+    seuilParTrimestre: SEUIL_TRIMESTRE_2025,
+    nbTrimestres,
+    estCipav,
+    caParTrimestre,
+    smicHoraire: SMIC_HORAIRE_2025,
+  };
+}
+
 // Export pour usage dans les pages HTML
 window.CAE = {
   calculerCharges,
@@ -488,6 +640,10 @@ window.CAE = {
   comparerStatuts,
   calculerCfe,
   genererCalendrierDeclarations,
+  calculerTjm,
+  projeterSeuilTva,
+  calculerAbattement,
+  calculerTrimestresRetraite,
   formatEuro,
   formatPct,
   formatNombre,
@@ -496,5 +652,7 @@ window.CAE = {
   PLAFONDS_CA_2025,
   PLAFONDS_TVA_2025,
   TAUX_COTISATIONS_2025,
+  VFL_TAUX_2025,
+  ABATTEMENTS_2025,
   ANNEE_EN_COURS,
 };

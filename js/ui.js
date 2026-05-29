@@ -19,15 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (navbar) {
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 20);
-    });
+    }, { passive: true }); // P4 — passive pour perf INP mobile
   }
 
-  // ---- Mobile hamburger ----
+  // ---- Mobile hamburger (A2 — aria-expanded) ----
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+      const isOpen = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      hamburger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
     });
   }
 
@@ -135,17 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
 
-    animatables.forEach(el => {
-      el.style.opacity = '0';
-      observer.observe(el);
-      // Fallback : si l'Observer ne se déclenche pas dans 2s, afficher quand même
-      setTimeout(() => {
-        if (el.style.opacity === '0') {
-          el.style.opacity = '1';
-          el.style.animation = 'none';
-        }
-      }, 2000);
-    });
+    animatables.forEach(el => { el.style.opacity = '0'; observer.observe(el); });
+
+    // P6 — Fallback unique (1 timer au lieu de N timers) pour éviter le batch layout
+    setTimeout(() => {
+      animatables.forEach(el => {
+        if (el.style.opacity === '0') { el.style.opacity = '1'; el.style.animation = 'none'; }
+      });
+    }, 2000);
   }
 
   // S'assurer que .seo-content est TOUJOURS visible (jamais caché)

@@ -1,0 +1,12 @@
+{
+  "name": "CalcAutoEntrepreneur.fr",
+  "short_name": "CalcAE",
+  "description": "Calculateurs gratuits pour auto-entrepreneurs français",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FAFAF8",
+  "theme_color": "#C05621",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
