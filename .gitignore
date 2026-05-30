@@ -3,3 +3,8 @@ node_modules/
 *.log
 automation/director.log
 automation/state.json
+
+# Artefacts de test navigateur (Playwright MCP) — ne jamais publier
+.playwright-mcp/
+qa-*.png
+page-*.png
