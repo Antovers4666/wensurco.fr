@@ -1,55 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://wensurco.fr/</loc><changefreq>monthly</changefreq><priority>1.0</priority><lastmod>2025-05-26</lastmod></url>
-  <url><loc>https://wensurco.fr/calcul-charges-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2025-05-26</lastmod></url>
-  <url><loc>https://wensurco.fr/simulateur-revenu-net-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2025-05-26</lastmod></url>
-  <url><loc>https://wensurco.fr/plafond-chiffre-affaires-micro-entreprise</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2025-05-26</lastmod></url>
+  <url><loc>https://wensurco.fr/</loc><changefreq>monthly</changefreq><priority>1.0</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/calcul-charges-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/simulateur-revenu-net-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/plafond-chiffre-affaires-micro-entreprise</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://wensurco.fr/indemnites-kilometriques-2025</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-26</lastmod></url>
   <url><loc>https://wensurco.fr/calendrier-declarations-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-26</lastmod></url>
-  <url><loc>https://wensurco.fr/calcul-acre-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-26</lastmod></url>
-  <url><loc>https://wensurco.fr/guide-auto-entrepreneur-2025</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2025-05-26</lastmod></url>
-  <url><loc>https://wensurco.fr/faq-auto-entrepreneur</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2025-05-26</lastmod></url>
+  <url><loc>https://wensurco.fr/calcul-acre-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/guide-auto-entrepreneur-2025</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/faq-auto-entrepreneur</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://wensurco.fr/cfe-auto-entrepreneur-2025</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-26</lastmod></url>
   <url><loc>https://wensurco.fr/arret-maladie-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-26</lastmod></url>
   <url><loc>https://wensurco.fr/cumul-chomage-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-26</lastmod></url>
   <url><loc>https://wensurco.fr/retraite-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-26</lastmod></url>
   <url><loc>https://wensurco.fr/frais-deductibles-micro-entreprise</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-26</lastmod></url>
-  <url><loc>https://wensurco.fr/tva-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-26</lastmod></url>
+  <url><loc>https://wensurco.fr/tva-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/facturation-electronique-auto-entrepreneur</loc><changefreq>monthly</changefreq><priority>0.9</priority><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://wensurco.fr/compte-bancaire-pro-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2025-05-26</lastmod></url>
   <url><loc>https://wensurco.fr/rc-pro-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-26</lastmod></url>
-  <url><loc>https://wensurco.fr/passer-salarie-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
+  <url><loc>https://wensurco.fr/passer-salarie-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://wensurco.fr/mutuelle-tns-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
-  <url><loc>https://wensurco.fr/auto-entrepreneur-graphiste</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2025-05-27</lastmod></url>
-  <url><loc>https://wensurco.fr/auto-entrepreneur-developpeur-web</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2025-05-27</lastmod></url>
-  <url><loc>https://wensurco.fr/auto-entrepreneur-consultant</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
-  <url><loc>https://wensurco.fr/auto-entrepreneur-formateur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
+  <url><loc>https://wensurco.fr/auto-entrepreneur-graphiste</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/auto-entrepreneur-developpeur-web</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/auto-entrepreneur-consultant</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/auto-entrepreneur-formateur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://wensurco.fr/radiation-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
   <url><loc>https://wensurco.fr/auto-entrepreneur-et-salarie</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
-  <url><loc>https://wensurco.fr/facturer-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
+  <url><loc>https://wensurco.fr/facturer-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://wensurco.fr/siren-siret-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2025-05-27</lastmod></url>
   <url><loc>https://wensurco.fr/bilan-comptable-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2025-05-27</lastmod></url>
   <url><loc>https://wensurco.fr/auto-entrepreneur-etranger</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2025-05-27</lastmod></url>
-  <url><loc>https://wensurco.fr/micro-entreprise-vs-sasu</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
-  <url><loc>https://wensurco.fr/auto-entrepreneur-immobilier</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
+  <url><loc>https://wensurco.fr/micro-entreprise-vs-sasu</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/auto-entrepreneur-immobilier</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://wensurco.fr/comparateur-statuts</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
   <url><loc>https://wensurco.fr/calculateur-cfe</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
-  <url><loc>https://wensurco.fr/tableau-de-bord</loc><changefreq>yearly</changefreq><priority>0.5</priority><lastmod>2025-05-27</lastmod></url>
+  <url><loc>https://wensurco.fr/tableau-de-bord</loc><changefreq>yearly</changefreq><priority>0.5</priority><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://wensurco.fr/mentions-legales</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>2025-05-26</lastmod></url>
   <url><loc>https://wensurco.fr/confidentialite</loc><changefreq>yearly</changefreq><priority>0.3</priority><lastmod>2025-05-26</lastmod></url>
   <url><loc>https://wensurco.fr/declaration-impots-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-27</lastmod></url>
-  <url><loc>https://wensurco.fr/simulateur-tjm-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2025-05-29</lastmod></url>
-  <url><loc>https://wensurco.fr/seuil-tva-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2025-05-29</lastmod></url>
+  <url><loc>https://wensurco.fr/simulateur-tjm-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/seuil-tva-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://wensurco.fr/abattement-forfaitaire-micro-entreprise</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-29</lastmod></url>
   <url><loc>https://wensurco.fr/simulateur-retraite-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-29</lastmod></url>
   <url><loc>https://wensurco.fr/versement-liberatoire-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2025-05-29</lastmod></url>
-  <url><loc>https://wensurco.fr/depasser-plafond-micro-entreprise</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-29</lastmod></url>
-  <url><loc>https://wensurco.fr/micro-entreprise-vs-eurl</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-29</lastmod></url>
+  <url><loc>https://wensurco.fr/depasser-plafond-micro-entreprise</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/micro-entreprise-vs-eurl</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://wensurco.fr/immatriculation-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.9</priority><lastmod>2025-05-29</lastmod></url>
   <url><loc>https://wensurco.fr/auto-entrepreneur-artisan-batiment</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-29</lastmod></url>
   <url><loc>https://wensurco.fr/devis-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.8</priority><lastmod>2025-05-29</lastmod></url>
-  <url><loc>https://wensurco.fr/portage-salarial-vs-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2025-05-29</lastmod></url>
-  <url><loc>https://wensurco.fr/auto-entrepreneur-coach</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2025-05-29</lastmod></url>
+  <url><loc>https://wensurco.fr/portage-salarial-vs-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2026-05-30</lastmod></url>
+  <url><loc>https://wensurco.fr/auto-entrepreneur-coach</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2026-05-30</lastmod></url>
   <url><loc>https://wensurco.fr/penalites-urssaf-auto-entrepreneur</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2025-05-29</lastmod></url>
-  <url><loc>https://wensurco.fr/cotisation-formation-professionnelle-ae</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2025-05-29</lastmod></url>
+  <url><loc>https://wensurco.fr/cotisation-formation-professionnelle-ae</loc><changefreq>yearly</changefreq><priority>0.7</priority><lastmod>2026-05-30</lastmod></url>
 </urlset>
 
