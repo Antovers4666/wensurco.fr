@@ -477,6 +477,17 @@ function calculerCfe(ca, communeTaux = 'moyen') {
   };
 }
 
+// C6 — Déclarés ici avant toute fonction qui les utilise
+const ABATTEMENTS_2025 = {
+  vente_marchandises:    0.71,
+  meuble_tourisme:       0.71,
+  services_commerciaux:  0.50,
+  artisanal:             0.50,
+  liberal_bnc:           0.34,
+  liberal_cipav:         0.34,
+};
+const ABATTEMENT_MINIMUM_2025 = 305; // art. 50-0 CGI
+
 // ============================================================
 // SIMULATEUR VFL vs IR (Versement Libératoire)
 // Barème IR 2024 sur revenus 2024 — source : legifrance.gouv.fr
@@ -548,9 +559,8 @@ function comparerVflVsIr(ca, type, nbParts) {
 
 function calculerTjm(netSouhaite, type, joursCongesAnnuels, tauxOccupation, acre, vfl) {
   const tauxTotal = TAUX_COTISATIONS_2025[type] || 0.212;
-  const tauxVfl = VFL_TAUX_2025[type] || 0;
-  const tauxAcre = acre ? tauxTotal * (1 - ACRE_TAUX_REDUCTION_ANNEE_1) : tauxTotal;
-  const tauxChargesEffectif = acre ? tauxAcre : tauxTotal;
+  const tauxVfl = VFL_TAUX_2025[type] || 0.017; // C5 — fallback 1,7% (cohérent avec calculerCharges)
+  const tauxChargesEffectif = acre ? tauxTotal * (1 - ACRE_TAUX_REDUCTION_ANNEE_1) : tauxTotal; // C6+T2 — simplifié
 
   // CA nécessaire pour atteindre le net souhaité
   const tauxPrelevement = tauxChargesEffectif + (vfl ? tauxVfl : 0);
@@ -559,7 +569,6 @@ function calculerTjm(netSouhaite, type, joursCongesAnnuels, tauxOccupation, acre
 
   // Jours facturables
   const joursOuvrables = 365 - 104 - joursCongesAnnuels; // 365 - WE - congés
-  const joursConges_ = Math.max(0, Math.min(joursCongesAnnuels, 200));
   const joursFacturables = Math.max(1, Math.round(joursOuvrables * (tauxOccupation / 100)));
 
   const tjm = caAnnuelNecessaire / joursFacturables;
@@ -631,16 +640,6 @@ function projeterSeuilTva(caCumule, type, moisEcoules) {
 // ============================================================
 // CALCULATEUR ABATTEMENT FORFAITAIRE
 // ============================================================
-
-const ABATTEMENTS_2025 = {
-  vente_marchandises:    0.71,
-  meuble_tourisme:       0.71,
-  services_commerciaux:  0.50,
-  artisanal:             0.50,
-  liberal_bnc:           0.34,
-  liberal_cipav:         0.34,
-};
-const ABATTEMENT_MINIMUM_2025 = 305; // art. 50-0 CGI
 
 function calculerAbattement(ca, type) {
   const taux = ABATTEMENTS_2025[type] || 0.50;
