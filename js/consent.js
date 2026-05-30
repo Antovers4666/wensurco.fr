@@ -1,25 +1,24 @@
 /**
- * CalcAutoEntrepreneur.fr — Consentement RGPD
- * Charge les scripts tiers uniquement après consentement explicite (CNIL 17/09/2020)
+ * CalcAutoEntrepreneur.fr — Consentement RGPD (Google Consent Mode v2)
+ *
+ * Modèle "annonces pour tous" conforme :
+ *  - AdSense est chargé dans le <head> pour TOUS les visiteurs.
+ *  - Par défaut (Consent Mode défini dans le <head>), le consentement publicitaire
+ *    est "denied" => Google sert des annonces NON PERSONNALISÉES (sans cookie).
+ *  - À l'acceptation, on passe le consentement à "granted" => annonces personnalisées
+ *    + chargement de Google Analytics et Microsoft Clarity.
+ *  - Au refus, on reste en non personnalisé (pas d'Analytics/Clarity).
+ *
+ * gtag() et dataLayer sont déjà définis dans le <head> (bloc Consent Mode).
  */
 (function () {
-  function loadTrackingScripts() {
-    // Google AdSense
-    if (!document.querySelector('script[src*="adsbygoogle"]')) {
-      var ads = document.createElement('script');
-      ads.async = true;
-      ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2844746944687552';
-      ads.crossOrigin = 'anonymous';
-      document.head.appendChild(ads);
-    }
+  function loadAnalytics() {
     // Google Analytics 4
     if (!document.querySelector('script[src*="googletagmanager"]')) {
       var ga = document.createElement('script');
       ga.async = true;
       ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-4H7VPXJ6KS';
       document.head.appendChild(ga);
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () { dataLayer.push(arguments); };
       gtag('js', new Date());
       gtag('config', 'G-4H7VPXJ6KS');
     }
@@ -34,11 +33,24 @@
     }
   }
 
-  // Charger immédiatement si déjà consenti
-  if (localStorage.getItem('cookieConsent') === 'accepted') {
-    loadTrackingScripts();
+  // Acceptation : on accorde le consentement (pubs personnalisées + analytics)
+  function grantConsent() {
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
+    loadAnalytics();
   }
 
-  // Exposer pour le bandeau cookies
-  window.loadTrackingScripts = loadTrackingScripts;
+  // Si déjà consenti lors d'une visite précédente
+  if (localStorage.getItem('cookieConsent') === 'accepted') {
+    grantConsent();
+  }
+
+  // Le bandeau cookies appelle ceci au clic sur "Accepter"
+  window.loadTrackingScripts = grantConsent;
 })();
