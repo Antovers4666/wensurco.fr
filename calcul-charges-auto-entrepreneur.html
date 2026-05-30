@@ -464,9 +464,9 @@ function tryAutoCalc() {
   if (parseFloat(caInput.value) > 0) doCalc();
 }
 
-calcBtn.addEventListener('click', doCalc);
+calcBtn.addEventListener('click', () => doCalc(true));
 
-function doCalc() {
+function doCalc(scrollToResult = false) {
   const ca = CAE.parseNumber(caInput.value);
   const type = typeSelect.value;
   const periode = document.querySelector('input[name="periode"]:checked').value;
@@ -533,7 +533,8 @@ function doCalc() {
   // Show panel
   resultPlaceholder.classList.add('hidden');
   resultPanel.classList.add('visible');
-  resultPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  // Ne défiler que sur action explicite (clic bouton) — pas pendant la saisie ni au chargement
+  if (scrollToResult) resultPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 // Restore from URL
