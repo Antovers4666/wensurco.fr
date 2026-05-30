@@ -1,21 +1,23 @@
 /**
  * CalcAutoEntrepreneur.fr — Calculators Core
- * Taux et données officiels 2025
+ * Taux et données officiels 2026 (vérifiés URSSAF / economie.gouv.fr — mai 2026)
  */
 
 // ============================================================
-// CONSTANTES OFFICIELLES 2025
+// CONSTANTES OFFICIELLES 2026
 // ============================================================
 
-const ANNEE_EN_COURS = 2025;
+const ANNEE_EN_COURS = 2026;
 
+// NB : les noms de constantes conservent le suffixe _2025 pour compatibilité
+// (références internes + exports), mais les VALEURS sont celles de 2026.
 const TAUX_COTISATIONS_2025 = {
-  vente_marchandises:    0.123,   // 12,3%
-  services_commerciaux: 0.212,   // 21,2%
-  liberal_bnc:          0.246,   // 24,6%
-  liberal_cipav:        0.232,   // 23,2%
-  meuble_tourisme:      0.060,   // 6,0%
-  artisanal:            0.212,   // 21,2%
+  vente_marchandises:    0.123,   // 12,3% (inchangé 2026)
+  services_commerciaux: 0.212,   // 21,2% (inchangé 2026)
+  liberal_bnc:          0.256,   // 25,6% — hausse au 01/01/2026 (était 24,6% en 2025)
+  liberal_cipav:        0.232,   // 23,2% (inchangé 2026)
+  meuble_tourisme:      0.060,   // 6,0% (inchangé 2026)
+  artisanal:            0.212,   // 21,2% (inchangé 2026)
 };
 
 const TAUX_FORMATION_PROFESSIONNELLE_2025 = {
@@ -36,13 +38,15 @@ const PLAFONDS_CA_2025 = {
   artisanal:             77700,  // €
 };
 
+// Seuils de franchise en base de TVA 2026 (normal = seuil de franchise, majoré = seuil de tolérance)
 const PLAFONDS_TVA_2025 = {
-  vente_marchandises: { normal: 91900, majoré: 91900 },
-  services:           { normal: 36800, majoré: 39100 },
+  vente_marchandises: { normal: 85000, majoré: 93500 },
+  services:           { normal: 37500, majoré: 41250 },
 };
 
-// ACRE : réduction 50% première année uniquement (B1 — suppression code mort années 2 et 3)
-const ACRE_TAUX_REDUCTION_ANNEE_1 = 0.50;
+// ACRE : exonération de cotisations 1ère année.
+// 50% jusqu'au 30/06/2026, puis 25% à compter du 01/07/2026 (LFSS 2026 : taux minoré porté à 75% des taux normaux).
+const ACRE_TAUX_REDUCTION_ANNEE_1 = (new Date() >= new Date('2026-07-01')) ? 0.25 : 0.50;
 
 // Taux d'imposition VFL (Versement Libératoire Forfaitaire)
 const VFL_TAUX_2025 = {

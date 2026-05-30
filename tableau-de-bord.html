@@ -169,7 +169,7 @@
               </div>
               <div class="progress-markers">
                 <span class="progress-marker">0 €</span>
-                <span class="progress-marker" id="seuil-tva-services-val">Sur 36 800 €</span>
+                <span class="progress-marker" id="seuil-tva-services-val">Sur 37 500 €</span>
               </div>
             </div>
 
@@ -184,7 +184,7 @@
               </div>
               <div class="progress-markers">
                 <span class="progress-marker">0 €</span>
-                <span class="progress-marker" id="seuil-tva-vente-val">Sur 91 900 €</span>
+                <span class="progress-marker" id="seuil-tva-vente-val">Sur 85 000 €</span>
               </div>
             </div>
 
@@ -337,8 +337,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return acc;
     }, { services: 0, goods: 0 });
     checkAndNotifyThresholds(
-      Math.min((allAmounts.services / 36800) * 100, 100),
-      Math.min((allAmounts.goods / 91900) * 100, 100),
+      Math.min((allAmounts.services / 37500) * 100, 100),
+      Math.min((allAmounts.goods / 85000) * 100, 100),
       Math.min((allAmounts.services / 77700) * 100, 100)
     );
   });
@@ -446,20 +446,20 @@ function updateDashboard() {
 
   // Update Progress bars (TVA and CA ceilings)
   // 1. TVA services (threshold: 36,800 €)
-  const tvaServicesPct = Math.min((serviceCa / 36800) * 100, 100);
+  const tvaServicesPct = Math.min((serviceCa / 37500) * 100, 100);
   document.getElementById('seuil-tva-services-lbl').textContent = tvaServicesPct.toFixed(0) + ' %';
   const tvaServicesBar = document.getElementById('seuil-tva-services-bar');
   tvaServicesBar.style.width = tvaServicesPct + '%';
   setBarColorClass(tvaServicesBar, tvaServicesPct);
-  document.getElementById('seuil-tva-services-val').textContent = `${CAE.formatEuro(serviceCa)} / 36 800 €`;
+  document.getElementById('seuil-tva-services-val').textContent = `${CAE.formatEuro(serviceCa)} / 37 500 €`;
 
   // 2. TVA Goods (threshold: 91,900 €)
-  const tvaVentePct = Math.min((goodsCa / 91900) * 100, 100);
+  const tvaVentePct = Math.min((goodsCa / 85000) * 100, 100);
   document.getElementById('seuil-tva-vente-lbl').textContent = tvaVentePct.toFixed(0) + ' %';
   const tvaVenteBar = document.getElementById('seuil-tva-vente-bar');
   tvaVenteBar.style.width = tvaVentePct + '%';
   setBarColorClass(tvaVenteBar, tvaVentePct);
-  document.getElementById('seuil-tva-vente-val').textContent = `${CAE.formatEuro(goodsCa)} / 91 900 €`;
+  document.getElementById('seuil-tva-vente-val').textContent = `${CAE.formatEuro(goodsCa)} / 85 000 €`;
 
   // 3. CA Services Ceiling (threshold: 77,700 €)
   const caServicesPct = Math.min((serviceCa / 77700) * 100, 100);
@@ -489,15 +489,15 @@ function renderThresholdAlerts(tvaServicesPct, tvaVentePct, caServicesPct, servi
   const alerts = [];
 
   if (tvaServicesPct >= 100) {
-    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Prestations <strong>dépassé</strong> (${CAE.formatEuro(serviceCa)} / 36 800 €) — Vous devez facturer la TVA immédiatement.`, link: { href: 'tva-auto-entrepreneur.html', label: 'En savoir plus sur la TVA →' } });
+    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Prestations <strong>dépassé</strong> (${CAE.formatEuro(serviceCa)} / 37 500 €) — Vous devez facturer la TVA immédiatement.`, link: { href: 'tva-auto-entrepreneur.html', label: 'En savoir plus sur la TVA →' } });
   } else if (tvaServicesPct >= 90) {
-    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Prestations à <strong>${tvaServicesPct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(36800 - serviceCa)} avant assujettissement à la TVA.`, link: { href: 'tva-auto-entrepreneur.html', label: 'Comprendre la TVA →' } });
+    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Prestations à <strong>${tvaServicesPct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(37500 - serviceCa)} avant assujettissement à la TVA.`, link: { href: 'tva-auto-entrepreneur.html', label: 'Comprendre la TVA →' } });
   } else if (tvaServicesPct >= 75) {
-    alerts.push({ type: 'warning', msg: `⚠️ Seuil TVA Prestations à <strong>${tvaServicesPct.toFixed(0)} %</strong> — Anticipez votre passage à la TVA (reste ${CAE.formatEuro(36800 - serviceCa)}).` });
+    alerts.push({ type: 'warning', msg: `⚠️ Seuil TVA Prestations à <strong>${tvaServicesPct.toFixed(0)} %</strong> — Anticipez votre passage à la TVA (reste ${CAE.formatEuro(37500 - serviceCa)}).` });
   }
 
   if (tvaVentePct >= 90) {
-    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Ventes à <strong>${tvaVentePct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(91900 - goodsCa)} avant assujettissement.` });
+    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Ventes à <strong>${tvaVentePct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(85000 - goodsCa)} avant assujettissement.` });
   } else if (tvaVentePct >= 75) {
     alerts.push({ type: 'warning', msg: `⚠️ Seuil TVA Ventes à <strong>${tvaVentePct.toFixed(0)} %</strong> — Surveillez votre CA marchandises.` });
   }
