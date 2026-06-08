@@ -46,9 +46,18 @@ function auditFile(filePath) {
   else if (canon[1].endsWith('.html')) issues.push(`❌ Canonical avec .html : ${canon[1]}`);
 
   // Scripts tracking
-  if (!content.includes('G-4H7VPXJ6KS'))          issues.push('❌ Script GA4 manquant');
-  if (!content.includes('wxp28322ek'))             issues.push('❌ Script Clarity manquant');
+  // Modèle conforme : Consent Mode v2 dans le <head> + chargement différé de GA4/Clarity via js/consent.js
+  if (!content.includes("consent','default'"))
+    issues.push('❌ Bloc Consent Mode v2 manquant (gtag consent default)');
+  if (!content.includes('js/consent.js'))
+    issues.push('❌ js/consent.js manquant (chargement GA4/Clarity après consentement)');
   if (!content.includes('ca-pub-2844746944687552')) issues.push('❌ Script AdSense manquant');
+
+  // Durcissement RGPD : le tracking ne doit PAS être chargé en dur dans le <head> (pré-consentement)
+  if (content.includes('googletagmanager.com/gtag/js'))
+    issues.push('⚠️  GA4 chargé en dur dans le <head> (doit passer par js/consent.js)');
+  if (content.includes('clarity.ms/tag'))
+    issues.push('⚠️  Clarity chargé en dur dans le <head> (doit passer par js/consent.js)');
 
   // Navbar
   if (!content.includes('class="navbar"'))  issues.push('❌ Navbar manquante');
