@@ -84,3 +84,14 @@ Mise en place d'un espace complet de pilotage et gestion de la micro-entreprise,
 - **Déploiement** : https://6a1739614aa124ba62777d5e--autoentrepreneurcalc.netlify.app
 - **Mots-clés** : impôts, déclaration, fiscal, 2042, revenus
 - **Générateur** : automation/director.js (Anthropic Claude)
+
+---
+
+## 2026-06-08 09:04:05 — Article généré : Déclarer à l'URSSAF en Auto-Entrepreneur 2025 : Guide Pas à Pas
+
+- **Fichier** : `declaration-urssaf-pas-a-pas.html`
+- **Catégorie** : Gestion
+- **URL** : https://wensurco.fr/declaration-urssaf-pas-a-pas
+- **Déploiement** : https://wensurco.fr/declaration-urssaf-pas-a-pas
+- **Mots-clés** : URSSAF, déclaration, chiffre d'affaires, cotisations, mensuel
+- **Générateur** : automation/director.js (Anthropic Claude)
