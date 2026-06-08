@@ -1,0 +1,17 @@
+{
+    "permissions": {
+      "allow": [
+        "Bash(git clone *)",
+        "Bash(cp -r /tmp/* .claude/skills/*)",
+        "Bash(cp -r /tmp/*)",
+        "Bash(rm -rf /tmp/*)"
+      ]
+    },
+    "autoMode": {
+      "allow": [
+        "$defaults",
+        "Copying files from /tmp into .claude/skills/ to install community skills
+  explicitly requested by the user"
+      ]
+    }
+  }
