@@ -1,3 +1,5 @@
+> ⚠️ **Document d'archive** (bandeau ajouté le 2026-06-11) — les chiffres et états décrits reflètent la situation à leur date de rédaction. Ne pas utiliser comme référence courante : taux, plafonds et seuils TVA y sont périmés. Référence à jour : CLAUDE.md.
+
 # 📋 BRIEFING COMPLET — wensurco.fr / CalcAutoEntrepreneur
 *À lire en entier avant de répondre à quoi que ce soit.*
 

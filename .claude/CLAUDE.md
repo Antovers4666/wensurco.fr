@@ -17,14 +17,14 @@ Outils de calcul et guides pour auto-entrepreneurs et micro-entrepreneurs franç
 4. Toujours tester mentalement un calcul JS avant de l'écrire
 5. Conserver la structure de navigation actuelle du site
 
-## Taux URSSAF 2025 officiels
+## Taux URSSAF 2026 officiels (vérifiés juin 2026 — À REVÉRIFIER à chaque nouvelle année fiscale)
 - Vente de marchandises : 12,3%
 - Prestations de services BIC / artisanat : 21,2%
-- Professions libérales SSI : 24,6%
+- Professions libérales BNC SSI : 25,6% (était 24,6% jusqu'en 2025)
 
-## Plafonds micro-entreprise 2025
-- Vente de marchandises / hébergement : 188 700 €
-- Prestations de services / libéraux : 77 700 €
+## Plafonds micro-entreprise 2026 (vérifiés juin 2026 — À REVÉRIFIER à chaque nouvelle année fiscale)
+- Vente de marchandises / hébergement : 203 100 € (était 188 700 € jusqu'en 2025)
+- Prestations de services / libéraux : 83 600 € (était 77 700 € jusqu'en 2025)
 
 ## Fichier de mémoire partagée
 Tous les agents lisent et écrivent leurs conclusions dans .claude/MEMORY.md

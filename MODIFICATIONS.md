@@ -1,3 +1,5 @@
+> ⚠️ **Document d'archive** (bandeau ajouté le 2026-06-11) — les chiffres et états décrits reflètent la situation à leur date de rédaction. Ne pas utiliser comme référence courante : taux, plafonds et seuils TVA y sont périmés. Référence à jour : CLAUDE.md.
+
 # Journal des Modifications — wensurco.fr (CalcAutoEntrepreneur)
 
 Ce document consigne l'ensemble des modifications apportées au projet de manière autonome par l'IA Antigravity pour améliorer le design, le référencement (SEO), l'utilité globale et les performances du site.

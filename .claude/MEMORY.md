@@ -21,7 +21,7 @@
 - MINEUR : MOIS_NOMS déclaré après genererCalendrierDeclarations() dans calculators.js (ligne 360 vs 331). Pas de bug en pratique (hoisting non applicable aux const) si la fonction n'est jamais appelée à l'exécution immédiate.
 - MINEUR : verifierPlafond() — quand le CA dépasse à la fois le plafond micro ET le seuil TVA, seul le message "dépassement micro" s'affiche (la condition TVA n'est jamais atteinte car la condition > 100% micro prend priorité).
 - OK : Taux URSSAF 2025 dans calculators.js tous corrects (12,3% / 21,2% / 24,6% / 23,2% / 6%).
-- OK : Plafonds CA 2025 corrects (188 700 € et 77 700 €).
+- OK : Plafonds CA 2025 corrects (188 700 € et 77 700 €). **[Note 2026-06-11 : périmé — plafonds 2026 = 203 100 € / 83 600 €, appliqués sur tout le site.]**
 - OK : Calculs de base calculerCharges() et simulerRevenuNet() corrects.
 - OK : Gestion ACRE 50% en année 1 correcte.
 
@@ -253,7 +253,7 @@ QW7: aria-live result-panel | QW8: scope tableaux | QW9: target="_blank" sr-only
 - OK : 0 lien cassé sur l'ensemble des 53 pages HTML
 - OK : js/calculators.js, js/ui.js, js/consent.js présents
 - OK : Tous les taux URSSAF 2025 corrects dans calculators.js (12.3% / 21.2% / 24.6%)
-- OK : Plafonds 2025 corrects dans calculators.js (188 700 € / 77 700 €)
+- OK : Plafonds 2025 corrects dans calculators.js (188 700 € / 77 700 €) **[Note 2026-06-11 : périmé — calculators.js utilise désormais PLAFONDS_CA 2026 = 203 100 € / 83 600 €.]**
 - OK : consent.js présent dans `<head>` sur TOUTES les pages
 - OK : Cookie banner (cookie-banner div + acceptCookies() + refuseCookies()) sur toutes les pages
 - OK : Favicon présent sur toutes les pages

@@ -21,12 +21,13 @@ Maintenir l'exactitude des données réglementaires sur l'ensemble du site. Surv
 - Dater chaque mise à jour dans MEMORY.md avec la source citée
 - Ne jamais supprimer un taux sans le remplacer par la valeur officielle à jour
 
-## Taux URSSAF 2025 actuels
+## Taux URSSAF 2026 actuels
+(vérifiés juin 2026 — ces valeurs sont DATÉES et doivent être revérifiées sur les sources officielles à chaque nouvelle année fiscale avant toute mise à jour du site)
 - Vente de marchandises : 12,3 %
 - Prestations de services BIC / artisanat : 21,2 %
-- Professions libérales SSI : 24,6 %
-- Plafond vente / hébergement : 188 700 €
-- Plafond services / libéraux : 77 700 €
+- Professions libérales BNC SSI : 25,6 %
+- Plafond vente / hébergement : 203 100 €
+- Plafond services / libéraux : 83 600 €
 
 ## Skills assignés
 - fact-checker-ae

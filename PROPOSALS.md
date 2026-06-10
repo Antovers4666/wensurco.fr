@@ -1,3 +1,5 @@
+> ⚠️ **Document d'archive** (bandeau ajouté le 2026-06-11) — les chiffres et états décrits reflètent la situation à leur date de rédaction. Ne pas utiliser comme référence courante : taux, plafonds et seuils TVA y sont périmés. Référence à jour : CLAUDE.md.
+
 # 🚀 Propositions de Fonctionnalités Premium — wensurco.fr
 
 En tant que Directeur de projet, voici les axes majeurs et innovants que je propose pour transformer **wensurco.fr** en une plateforme incontournable (type SaaS grand public) pour les auto-entrepreneurs français, augmentant l'engagement, le trafic récurrent et la rentabilité.

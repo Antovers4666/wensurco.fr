@@ -16,12 +16,13 @@ Garantir que chaque chiffre, taux et date publié sur wensurco.fr est exact, à 
 - Signaler tout contenu contenant une valeur non vérifiable
 - Coordonner avec veilleur-reglementaire pour les mises à jour
 
-## Valeurs de référence 2025
+## Valeurs de référence 2026
+(vérifiées juin 2026 — ces valeurs sont DATÉES et doivent être revérifiées sur les sources officielles à chaque nouvelle année fiscale avant toute correction)
 - Vente de marchandises : 12,3 %
 - Prestations de services BIC / artisanat : 21,2 %
-- Professions libérales SSI : 24,6 %
-- Plafond vente / hébergement : 188 700 €
-- Plafond services / libéraux : 77 700 €
+- Professions libérales BNC SSI : 25,6 %
+- Plafond vente / hébergement : 203 100 €
+- Plafond services / libéraux : 83 600 €
 
 ## Sources valides
 - urssaf.fr
