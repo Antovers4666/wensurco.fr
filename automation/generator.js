@@ -39,32 +39,24 @@ const FOOTER = `<footer>
 
 const COOKIE_BANNER = `<div id="cookie-banner" class="cookie-banner" style="display:none;">
   <div class="cookie-inner">
-    <p>🍪 Ce site utilise des cookies publicitaires (Google AdSense). En continuant, vous acceptez. <a href="confidentialite.html">En savoir plus</a></p>
+    <p>🍪 Ce site utilise des cookies publicitaires (AdSense), d'analyse (Google Analytics) et de session (Clarity). Votre consentement est requis. <a href="confidentialite">En savoir plus</a></p>
     <div class="cookie-actions">
       <button onclick="acceptCookies()" class="btn btn-primary btn-sm">Accepter</button>
       <button onclick="refuseCookies()" class="btn btn-ghost btn-sm" style="color:#CBD5E1;">Refuser</button>
     </div>
   </div>
 </div>
-<script>(function(){if(!localStorage.getItem('cookieConsent'))document.getElementById('cookie-banner').style.display='flex';})();function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookie-banner').style.display='none';}function refuseCookies(){localStorage.setItem('cookieConsent','refused');document.getElementById('cookie-banner').style.display='none';}</script>`;
+<script>(function(){if(!localStorage.getItem('cookieConsent'))document.getElementById('cookie-banner').style.display='flex';})();function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookie-banner').style.display='none';if(window.loadTrackingScripts)loadTrackingScripts();}function refuseCookies(){localStorage.setItem('cookieConsent','refused');document.getElementById('cookie-banner').style.display='none';}</script>`;
 
-const HEAD_SCRIPTS = `  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2844746944687552" crossorigin="anonymous"></script>
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4H7VPXJ6KS"></script>
+const HEAD_SCRIPTS = `  <!-- Google Consent Mode v2 : refus par defaut (RGPD), annonces non personnalisees pour tous -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-4H7VPXJ6KS');
+    gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500});
   </script>
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wxp28322ek");
-  </script>`;
+  <!-- Google AdSense (charge pour tous ; personnalise apres consentement) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2844746944687552" crossorigin="anonymous"></script>
+  <script src="js/consent.js?v=20260530"></script>`;
 
 function getExistingPages() {
   return fs.readdirSync(PROJECT_ROOT)
