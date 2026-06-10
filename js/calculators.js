@@ -1,6 +1,6 @@
 /**
  * CalcAutoEntrepreneur.fr — Calculators Core
- * Taux et données officiels 2026 (vérifiés URSSAF / economie.gouv.fr — mai 2026)
+ * Taux et données officiels 2026 (vérifiés URSSAF / economie.gouv.fr — juin 2026)
  */
 
 // ============================================================
@@ -29,13 +29,13 @@ const TAUX_FORMATION_PROFESSIONNELLE_2025 = {
   artisanal:            0.003,   // 0,3%
 };
 
-const PLAFONDS_CA_2025 = {
-  vente_marchandises:   188700,  // €
-  services_commerciaux:  77700,  // €
-  liberal_bnc:           77700,  // €
-  liberal_cipav:         77700,  // €
-  meuble_tourisme:      188700,  // €
-  artisanal:             77700,  // €
+const PLAFONDS_CA = {
+  vente_marchandises:   203100,  // €
+  services_commerciaux:  83600,  // €
+  liberal_bnc:           83600,  // €
+  liberal_cipav:         83600,  // €
+  meuble_tourisme:      203100,  // €
+  artisanal:             83600,  // €
 };
 
 // Seuils de franchise en base de TVA 2026 (normal = seuil de franchise, majoré = seuil de tolérance)
@@ -94,7 +94,7 @@ const MAJORATION_ELECTRIQUE = 1.20;
 function calculerCharges(ca, type, acre = false, vfl = false) {
   if (!ca || ca <= 0) return null;
 
-  const plafond = PLAFONDS_CA_2025[type] || 77700;
+  const plafond = PLAFONDS_CA[type] || 83600;
   const tauxBase = TAUX_COTISATIONS_2025[type] || 0.212;
   const tauxFormation = TAUX_FORMATION_PROFESSIONNELLE_2025[type] || 0.002;
   const tauxVfl = VFL_TAUX_2025[type] || 0.017;
@@ -148,7 +148,7 @@ function calculerCharges(ca, type, acre = false, vfl = false) {
  * @returns {Object}
  */
 function verifierPlafond(ca, type, periode = 'annuel', moisEcoules = 12) {
-  const plafondAnnuel = PLAFONDS_CA_2025[type] || 77700;
+  const plafondAnnuel = PLAFONDS_CA[type] || 83600;
   const plafondTva = type === 'vente_marchandises'
     ? PLAFONDS_TVA_2025.vente_marchandises.normal
     : PLAFONDS_TVA_2025.services.normal;
@@ -578,7 +578,7 @@ function calculerTjm(netSouhaite, type, joursCongesAnnuels, tauxOccupation, acre
   const tjm = caAnnuelNecessaire / joursFacturables;
 
   // Vérification plafond micro
-  const plafond = PLAFONDS_CA_2025[type] || 77700;
+  const plafond = PLAFONDS_CA[type] || 83600;
   const depassePlafond = caAnnuelNecessaire > plafond;
 
   // Tableau de sensibilité selon taux d'occupation
@@ -606,7 +606,7 @@ function calculerTjm(netSouhaite, type, joursCongesAnnuels, tauxOccupation, acre
 // ============================================================
 
 function projeterSeuilTva(caCumule, type, moisEcoules) {
-  const seuilMicro = PLAFONDS_CA_2025[type] || 77700;
+  const seuilMicro = PLAFONDS_CA[type] || 83600;
   const estVente = type === 'vente_marchandises' || type === 'meuble_tourisme';
   const seuilTva = estVente ? PLAFONDS_TVA_2025.vente_marchandises.normal : PLAFONDS_TVA_2025.services.normal;
 
@@ -719,7 +719,7 @@ window.CAE = {
   formatNombre,
   parseNumber,
   TYPE_LABELS,
-  PLAFONDS_CA_2025,
+  PLAFONDS_CA,
   PLAFONDS_TVA_2025,
   TAUX_COTISATIONS_2025,
   VFL_TAUX_2025,

@@ -199,7 +199,7 @@
               </div>
               <div class="progress-markers">
                 <span class="progress-marker">0 €</span>
-                <span class="progress-marker" id="seuil-ca-services-val">Sur 77 700 €</span>
+                <span class="progress-marker" id="seuil-ca-services-val">Sur 83 600 €</span>
               </div>
             </div>
 
@@ -283,7 +283,7 @@
   </div>
 </footer>
 
-<script src="js/calculators.js?v=20260530"></script>
+<script src="js/calculators.js?v=20260610"></script>
 <div id="cookie-banner" class="cookie-banner" style="display:none;">
   <div class="cookie-inner">
     <p>🍪 Ce site utilise des cookies publicitaires (AdSense), d'analyse (Google Analytics) et de session (Clarity). Votre consentement est requis. <a href="confidentialite">En savoir plus</a></p>
@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkAndNotifyThresholds(
       Math.min((allAmounts.services / 37500) * 100, 100),
       Math.min((allAmounts.goods / 85000) * 100, 100),
-      Math.min((allAmounts.services / 77700) * 100, 100)
+      Math.min((allAmounts.services / 83600) * 100, 100)
     );
   });
 
@@ -461,13 +461,13 @@ function updateDashboard() {
   setBarColorClass(tvaVenteBar, tvaVentePct);
   document.getElementById('seuil-tva-vente-val').textContent = `${CAE.formatEuro(goodsCa)} / 85 000 €`;
 
-  // 3. CA Services Ceiling (threshold: 77,700 €)
-  const caServicesPct = Math.min((serviceCa / 77700) * 100, 100);
+  // 3. CA Services Ceiling (threshold: 83,600 €)
+  const caServicesPct = Math.min((serviceCa / 83600) * 100, 100);
   document.getElementById('seuil-ca-services-lbl').textContent = caServicesPct.toFixed(0) + ' %';
   const caServicesBar = document.getElementById('seuil-ca-services-bar');
   caServicesBar.style.width = caServicesPct + '%';
   setBarColorClass(caServicesBar, caServicesPct);
-  document.getElementById('seuil-ca-services-val').textContent = `${CAE.formatEuro(serviceCa)} / 77 700 €`;
+  document.getElementById('seuil-ca-services-val').textContent = `${CAE.formatEuro(serviceCa)} / 83 600 €`;
 
   // Alertes de seuil dynamiques
   renderThresholdAlerts(tvaServicesPct, tvaVentePct, caServicesPct, serviceCa, goodsCa);
@@ -505,7 +505,7 @@ function renderThresholdAlerts(tvaServicesPct, tvaVentePct, caServicesPct, servi
   if (caServicesPct >= 100) {
     alerts.push({ type: 'danger', msg: `🚨 Plafond micro-entreprise <strong>dépassé</strong> — Vous risquez la requalification. Consultez un expert-comptable urgemment.`, link: { href: 'comparateur-statuts.html', label: 'Comparer les statuts →' } });
   } else if (caServicesPct >= 90) {
-    alerts.push({ type: 'danger', msg: `🚨 Plafond micro-entreprise à <strong>${caServicesPct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(77700 - serviceCa)}. Anticipez une transition de statut.`, link: { href: 'comparateur-statuts.html', label: 'Comparer SASU / EURL →' } });
+    alerts.push({ type: 'danger', msg: `🚨 Plafond micro-entreprise à <strong>${caServicesPct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(83600 - serviceCa)}. Anticipez une transition de statut.`, link: { href: 'comparateur-statuts.html', label: 'Comparer SASU / EURL →' } });
   } else if (caServicesPct >= 75) {
     alerts.push({ type: 'warning', msg: `⚠️ Plafond micro-entreprise à <strong>${caServicesPct.toFixed(0)} %</strong> — Commencez à évaluer une transition vers SASU ou EURL.`, link: { href: 'comparateur-statuts.html', label: 'Voir le comparateur →' } });
   }

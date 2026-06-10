@@ -91,6 +91,7 @@ function auditFile(filePath) {
 function auditSite() {
   const htmlFiles = fs.readdirSync(PROJECT_ROOT)
     .filter(f => f.endsWith('.html'))
+    .filter(f => !/^google[0-9a-f]+\.html$/.test(f)) // fichier de vérification Search Console, pas une page
     .sort();
 
   const results = htmlFiles.map(f => auditFile(path.join(PROJECT_ROOT, f)));
