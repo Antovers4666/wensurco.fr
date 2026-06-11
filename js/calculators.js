@@ -6,6 +6,12 @@
 // ============================================================
 // CONSTANTES OFFICIELLES 2026
 // ============================================================
+// Source de vérité : data/baremes-officiels.json, exposée via
+// js/baremes-officiels.js (window.CAE_BAREMES, généré par npm run build:baremes).
+// Les littéraux ci-dessous sont des fallbacks figés si ce script manque ;
+// leur cohérence avec le JSON est contrôlée par automation/check-baremes.js.
+
+const __B = (typeof window !== 'undefined' && window.CAE_BAREMES) || null;
 
 const ANNEE_EN_COURS = 2026;
 
@@ -29,7 +35,7 @@ const TAUX_FORMATION_PROFESSIONNELLE_2025 = {
   artisanal:            0.003,   // 0,3%
 };
 
-const PLAFONDS_CA = {
+const PLAFONDS_CA = (__B && __B.plafonds_ca) || {
   vente_marchandises:   203100,  // €
   services_commerciaux:  83600,  // €
   liberal_bnc:           83600,  // €
@@ -39,7 +45,7 @@ const PLAFONDS_CA = {
 };
 
 // Seuils de franchise en base de TVA 2026 (normal = seuil de franchise, majoré = seuil de tolérance)
-const PLAFONDS_TVA_2025 = {
+const PLAFONDS_TVA_2025 = (__B && __B.tva) || {
   vente_marchandises: { normal: 85000, majoré: 93500 },
   services:           { normal: 37500, majoré: 41250 },
 };

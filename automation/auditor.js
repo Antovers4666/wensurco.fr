@@ -59,6 +59,17 @@ function auditFile(filePath) {
   if (content.includes('clarity.ms/tag'))
     issues.push('⚠️  Clarity chargé en dur dans le <head> (doit passer par js/consent.js)');
 
+  // Barèmes officiels : toute page qui charge calculators.js doit charger
+  // js/baremes-officiels.js AVANT (sinon fallbacks figés silencieux)
+  const posCalculators = content.indexOf('js/calculators.js');
+  if (posCalculators !== -1) {
+    const posBaremes = content.indexOf('js/baremes-officiels.js');
+    if (posBaremes === -1)
+      issues.push('❌ js/baremes-officiels.js manquant (page calculateur sans source de vérité barèmes)');
+    else if (posBaremes > posCalculators)
+      issues.push('❌ js/baremes-officiels.js chargé APRÈS js/calculators.js (doit être avant)');
+  }
+
   // Navbar
   if (!content.includes('class="navbar"'))  issues.push('❌ Navbar manquante');
   if (!content.includes('theme-toggle'))    issues.push('⚠️  Bouton dark mode manquant');
