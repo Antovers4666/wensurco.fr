@@ -302,3 +302,17 @@ Source : analyse approfondie 5 agents. Déjà fait & publié (commit 6744674) : 
 - **T5–T9** — Détails CSS/SEO mineurs (re-auditer pour la liste exacte).
 
 **Règles à respecter** : ne jamais toucher aux balises AdSense, pas de framework, taux URSSAF officiels (12,3% / 21,2% / 24,6%), canonical sans .html, une seule h1, contenu en français.
+
+---
+
+## [2026-06-11] — Chantier source de vérité barèmes (Claude, 8 lots, commits dcba4a9→…)
+
+**Fait :** `data/baremes-officiels.json` = source unique des chiffres officiels (7 familles : cotisations, CFP, plafonds CA, TVA, VFL+RFR, ACRE à paliers datés, abattements+305 €), avec sources/dates par valeur. Consommé par : calculators.js (via `js/baremes-officiels.js` généré par `npm run build:baremes`, chargé AVANT calculators.js sur les 16 pages calculateurs, fallbacks figés), generator.js (bloc prompt rendu depuis le JSON, fail-closed YMYL : refus si JSON absent/invalide/périmé/année N-1), tableau-de-bord (JS inline dé-hardcodé). Garde-fous : `npm run check:baremes` (bloquant en étape 1 du director), `npm run test:calc` (70 cas, 2 passes avec/sans barèmes), check ordre des scripts dans auditor. Veille : `npm run veille` (scraping fiches service-public calibrées F36232/F23267/F21746/F32318 + recoupement web_search Anthropic domaines officiels, rapport `automation/rapports-veille/AAAA-MM-JJ-*.md`, exit 1 si écart, N'ÉCRIT JAMAIS dans data/js/html) + GitHub Action mensuelle (cron le 2, issue si écart, secret ANTHROPIC_API_KEY à configurer).
+
+**Reste :**
+- ⚠️ 6 « ÉCART À VÉRIFIER » dans le rapport 2026-06-11 (à trancher humainement) : plafond meublé de tourisme classé (83 600 € selon economie.gouv vs 203 100 € sur le site), seuil RFR VFL (29 315 € vs 27 794 €), BNC 26,1 % (actualité URSSAF) vs 25,6 %, artisanal 25,6 % vs 21,2 %, CFP services 0,1 % vs 0,2 %, services BIC 24,6 % vs 21,2 % — certains sont probablement du bruit du recoupement web, d'autres (meublé, RFR) méritent vérification sérieuse.
+- Configurer le secret ANTHROPIC_API_KEY dans GitHub Actions.
+- Phase 2 du JSON (hors périmètre validé) : SMIC/seuil trimestre retraite, barème IR, barèmes kilométriques.
+- autoentrepreneur.urssaf.fr inexploitable en scraping brut (rendu JS) — couvert par le recoupement web uniquement.
+
+**Problèmes :** Aucun bloquant. Les noms `_2025` des constantes de calculators.js sont conservés (compatibilité) — renommage possible plus tard, jamais dans le même commit qu'un changement de valeur.
