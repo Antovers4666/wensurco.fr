@@ -8,7 +8,9 @@
     "audit": "node automation/director.js --audit",
     "ga4": "node automation/director.js --ga4",
     "dry-run": "node automation/director.js --dry-run",
-    "test:calc": "node automation/tests/test-calculators.js"
+    "test:calc": "node automation/tests/test-calculators.js",
+    "build:baremes": "node automation/build-baremes.js",
+    "check:baremes": "node automation/check-baremes.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.52.0",

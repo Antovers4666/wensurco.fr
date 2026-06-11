@@ -154,7 +154,7 @@
         <!-- Jauges de Seuils -->
         <div class="calc-panel">
           <div class="calc-panel-header">
-            <h2 style="margin:0;">🚨 Suivi des Seuils & Plafonds 2025</h2>
+            <h2 style="margin:0;">🚨 Suivi des Seuils & Plafonds 2026</h2>
           </div>
           <div class="calc-panel-body">
             
@@ -212,7 +212,7 @@
         <!-- Graphique CA Mensuel -->
         <div class="calc-panel">
           <div class="calc-panel-header">
-            <h2 style="margin:0;">📈 Chiffre d'Affaires Mensuel (2025)</h2>
+            <h2 style="margin:0;">📈 Chiffre d'Affaires Mensuel (2026)</h2>
           </div>
           <div class="calc-panel-body" style="padding:1.25rem;">
             <svg id="monthly-chart" width="100%" height="150" viewBox="0 0 400 150"></svg>
@@ -283,6 +283,7 @@
   </div>
 </footer>
 
+<script src="js/baremes-officiels.js?v=20260611"></script>
 <script src="js/calculators.js?v=20260610"></script>
 <div id="cookie-banner" class="cookie-banner" style="display:none;">
   <div class="cookie-inner">
@@ -296,6 +297,11 @@
 <script>(function(){if(!localStorage.getItem('cookieConsent'))document.getElementById('cookie-banner').style.display='flex';})();function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookie-banner').style.display='none';if(window.loadTrackingScripts)loadTrackingScripts();}function refuseCookies(){localStorage.setItem('cookieConsent','refused');document.getElementById('cookie-banner').style.display='none';}</script>
 <script src="js/ui.js?v=20260530"></script>
 <script>
+// Seuils officiels lus depuis window.CAE (source unique : data/baremes-officiels.json)
+const SEUIL_TVA_SERVICES = CAE.PLAFONDS_TVA_2025.services.normal;
+const SEUIL_TVA_VENTES   = CAE.PLAFONDS_TVA_2025.vente_marchandises.normal;
+const PLAFOND_CA_SERVICES = CAE.PLAFONDS_CA.services_commerciaux;
+
 // Livre de Recettes local
 let invoices = JSON.parse(localStorage.getItem('cae_invoices')) || [];
 
@@ -337,9 +343,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return acc;
     }, { services: 0, goods: 0 });
     checkAndNotifyThresholds(
-      Math.min((allAmounts.services / 37500) * 100, 100),
-      Math.min((allAmounts.goods / 85000) * 100, 100),
-      Math.min((allAmounts.services / 83600) * 100, 100)
+      Math.min((allAmounts.services / SEUIL_TVA_SERVICES) * 100, 100),
+      Math.min((allAmounts.goods / SEUIL_TVA_VENTES) * 100, 100),
+      Math.min((allAmounts.services / PLAFOND_CA_SERVICES) * 100, 100)
     );
   });
 
@@ -445,29 +451,29 @@ function updateDashboard() {
     : 'Net après charges (hors impôts)';
 
   // Update Progress bars (TVA and CA ceilings)
-  // 1. TVA services (threshold: 36,800 €)
-  const tvaServicesPct = Math.min((serviceCa / 37500) * 100, 100);
+  // 1. TVA services
+  const tvaServicesPct = Math.min((serviceCa / SEUIL_TVA_SERVICES) * 100, 100);
   document.getElementById('seuil-tva-services-lbl').textContent = tvaServicesPct.toFixed(0) + ' %';
   const tvaServicesBar = document.getElementById('seuil-tva-services-bar');
   tvaServicesBar.style.width = tvaServicesPct + '%';
   setBarColorClass(tvaServicesBar, tvaServicesPct);
-  document.getElementById('seuil-tva-services-val').textContent = `${CAE.formatEuro(serviceCa)} / 37 500 €`;
+  document.getElementById('seuil-tva-services-val').textContent = `${CAE.formatEuro(serviceCa)} / ${CAE.formatEuro(SEUIL_TVA_SERVICES)}`;
 
-  // 2. TVA Goods (threshold: 91,900 €)
-  const tvaVentePct = Math.min((goodsCa / 85000) * 100, 100);
+  // 2. TVA Goods
+  const tvaVentePct = Math.min((goodsCa / SEUIL_TVA_VENTES) * 100, 100);
   document.getElementById('seuil-tva-vente-lbl').textContent = tvaVentePct.toFixed(0) + ' %';
   const tvaVenteBar = document.getElementById('seuil-tva-vente-bar');
   tvaVenteBar.style.width = tvaVentePct + '%';
   setBarColorClass(tvaVenteBar, tvaVentePct);
-  document.getElementById('seuil-tva-vente-val').textContent = `${CAE.formatEuro(goodsCa)} / 85 000 €`;
+  document.getElementById('seuil-tva-vente-val').textContent = `${CAE.formatEuro(goodsCa)} / ${CAE.formatEuro(SEUIL_TVA_VENTES)}`;
 
-  // 3. CA Services Ceiling (threshold: 83,600 €)
-  const caServicesPct = Math.min((serviceCa / 83600) * 100, 100);
+  // 3. CA Services Ceiling
+  const caServicesPct = Math.min((serviceCa / PLAFOND_CA_SERVICES) * 100, 100);
   document.getElementById('seuil-ca-services-lbl').textContent = caServicesPct.toFixed(0) + ' %';
   const caServicesBar = document.getElementById('seuil-ca-services-bar');
   caServicesBar.style.width = caServicesPct + '%';
   setBarColorClass(caServicesBar, caServicesPct);
-  document.getElementById('seuil-ca-services-val').textContent = `${CAE.formatEuro(serviceCa)} / 83 600 €`;
+  document.getElementById('seuil-ca-services-val').textContent = `${CAE.formatEuro(serviceCa)} / ${CAE.formatEuro(PLAFOND_CA_SERVICES)}`;
 
   // Alertes de seuil dynamiques
   renderThresholdAlerts(tvaServicesPct, tvaVentePct, caServicesPct, serviceCa, goodsCa);
@@ -489,15 +495,15 @@ function renderThresholdAlerts(tvaServicesPct, tvaVentePct, caServicesPct, servi
   const alerts = [];
 
   if (tvaServicesPct >= 100) {
-    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Prestations <strong>dépassé</strong> (${CAE.formatEuro(serviceCa)} / 37 500 €) — Vous devez facturer la TVA immédiatement.`, link: { href: 'tva-auto-entrepreneur.html', label: 'En savoir plus sur la TVA →' } });
+    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Prestations <strong>dépassé</strong> (${CAE.formatEuro(serviceCa)} / ${CAE.formatEuro(SEUIL_TVA_SERVICES)}) — Vous devez facturer la TVA immédiatement.`, link: { href: 'tva-auto-entrepreneur.html', label: 'En savoir plus sur la TVA →' } });
   } else if (tvaServicesPct >= 90) {
-    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Prestations à <strong>${tvaServicesPct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(37500 - serviceCa)} avant assujettissement à la TVA.`, link: { href: 'tva-auto-entrepreneur.html', label: 'Comprendre la TVA →' } });
+    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Prestations à <strong>${tvaServicesPct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(SEUIL_TVA_SERVICES - serviceCa)} avant assujettissement à la TVA.`, link: { href: 'tva-auto-entrepreneur.html', label: 'Comprendre la TVA →' } });
   } else if (tvaServicesPct >= 75) {
-    alerts.push({ type: 'warning', msg: `⚠️ Seuil TVA Prestations à <strong>${tvaServicesPct.toFixed(0)} %</strong> — Anticipez votre passage à la TVA (reste ${CAE.formatEuro(37500 - serviceCa)}).` });
+    alerts.push({ type: 'warning', msg: `⚠️ Seuil TVA Prestations à <strong>${tvaServicesPct.toFixed(0)} %</strong> — Anticipez votre passage à la TVA (reste ${CAE.formatEuro(SEUIL_TVA_SERVICES - serviceCa)}).` });
   }
 
   if (tvaVentePct >= 90) {
-    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Ventes à <strong>${tvaVentePct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(85000 - goodsCa)} avant assujettissement.` });
+    alerts.push({ type: 'danger', msg: `🚨 Seuil TVA Ventes à <strong>${tvaVentePct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(SEUIL_TVA_VENTES - goodsCa)} avant assujettissement.` });
   } else if (tvaVentePct >= 75) {
     alerts.push({ type: 'warning', msg: `⚠️ Seuil TVA Ventes à <strong>${tvaVentePct.toFixed(0)} %</strong> — Surveillez votre CA marchandises.` });
   }
@@ -505,7 +511,7 @@ function renderThresholdAlerts(tvaServicesPct, tvaVentePct, caServicesPct, servi
   if (caServicesPct >= 100) {
     alerts.push({ type: 'danger', msg: `🚨 Plafond micro-entreprise <strong>dépassé</strong> — Vous risquez la requalification. Consultez un expert-comptable urgemment.`, link: { href: 'comparateur-statuts.html', label: 'Comparer les statuts →' } });
   } else if (caServicesPct >= 90) {
-    alerts.push({ type: 'danger', msg: `🚨 Plafond micro-entreprise à <strong>${caServicesPct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(83600 - serviceCa)}. Anticipez une transition de statut.`, link: { href: 'comparateur-statuts.html', label: 'Comparer SASU / EURL →' } });
+    alerts.push({ type: 'danger', msg: `🚨 Plafond micro-entreprise à <strong>${caServicesPct.toFixed(0)} %</strong> — Il vous reste ${CAE.formatEuro(PLAFOND_CA_SERVICES - serviceCa)}. Anticipez une transition de statut.`, link: { href: 'comparateur-statuts.html', label: 'Comparer SASU / EURL →' } });
   } else if (caServicesPct >= 75) {
     alerts.push({ type: 'warning', msg: `⚠️ Plafond micro-entreprise à <strong>${caServicesPct.toFixed(0)} %</strong> — Commencez à évaluer une transition vers SASU ou EURL.`, link: { href: 'comparateur-statuts.html', label: 'Voir le comparateur →' } });
   }
