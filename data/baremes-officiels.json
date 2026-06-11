@@ -1,0 +1,398 @@
+{
+  "meta": {
+    "schema_version": 1,
+    "version": "2026.06.1",
+    "annee_fiscale": 2026,
+    "derniere_verification_humaine": "2026-06-10",
+    "verifie_par": "Antoine",
+    "notes": "Source de vérité unique des chiffres officiels du site. Toute modification exige une vérification humaine sur les sources officielles, puis : npm run build:baremes && npm run test:calc. Le script de veille (npm run veille) détecte les écarts mais ne modifie JAMAIS ce fichier.",
+    "sources_prompt": [
+      "https://www.autoentrepreneur.urssaf.fr",
+      "https://entreprendre.service-public.fr",
+      "https://www.impots.gouv.fr",
+      "https://www.economie.gouv.fr"
+    ]
+  },
+  "cotisations_sociales": {
+    "intitule": "Taux de cotisations sociales micro-social (hors ACRE)",
+    "valeurs": {
+      "vente_marchandises": {
+        "valeur": 0.123,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" },
+          { "url": "https://www.autoentrepreneur.urssaf.fr/portail/accueil/sinformer-sur-le-statut/lessentiel-du-statut.html", "intitule": "URSSAF auto-entrepreneur — L'essentiel du statut" }
+        ],
+        "notes": "BIC vente de marchandises / hébergement (hors meublé de tourisme classé). Inchangé en 2026."
+      },
+      "services_commerciaux": {
+        "valeur": 0.212,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
+        ],
+        "notes": "Prestations de services BIC. Inchangé en 2026."
+      },
+      "liberal_bnc": {
+        "valeur": 0.256,
+        "en_vigueur_depuis": "2026-01-01",
+        "verifie_le": "2026-06-10",
+        "precision_prompt": "taux 2026 ; 24,6 % en 2025",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" },
+          { "url": "https://www.autoentrepreneur.urssaf.fr/portail/accueil/sinformer-sur-le-statut/lessentiel-du-statut.html", "intitule": "URSSAF auto-entrepreneur — L'essentiel du statut" }
+        ],
+        "notes": "Professions libérales BNC (SSI). Hausse LFSS au 01/01/2026 : était 24,6 % en 2025, 23,1 % en 2024."
+      },
+      "liberal_cipav": {
+        "valeur": 0.232,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
+        ],
+        "notes": "Professions libérales réglementées affiliées CIPAV. Inchangé en 2026."
+      },
+      "meuble_tourisme": {
+        "valeur": 0.060,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
+        ],
+        "notes": "Location de meublés de tourisme classés. Inchangé en 2026."
+      },
+      "artisanal": {
+        "valeur": 0.212,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
+        ],
+        "notes": "Prestations de services artisanales (BIC). Inchangé en 2026."
+      }
+    }
+  },
+  "formation_professionnelle": {
+    "intitule": "Contribution à la formation professionnelle (CFP)",
+    "valeurs": {
+      "vente_marchandises": {
+        "valeur": 0.001,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
+        ],
+        "notes": "0,1 % — commerçants."
+      },
+      "services_commerciaux": {
+        "valeur": 0.002,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
+        ],
+        "notes": "0,2 % — prestations de services et professions libérales."
+      },
+      "liberal_bnc": {
+        "valeur": 0.002,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
+        ],
+        "notes": "0,2 %."
+      },
+      "liberal_cipav": {
+        "valeur": 0.002,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
+        ],
+        "notes": "0,2 %."
+      },
+      "meuble_tourisme": {
+        "valeur": 0.001,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
+        ],
+        "notes": "0,1 % — assimilé activité commerciale."
+      },
+      "artisanal": {
+        "valeur": 0.003,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
+        ],
+        "notes": "0,3 % — artisans."
+      }
+    }
+  },
+  "plafonds_ca": {
+    "intitule": "Plafonds de chiffre d'affaires micro-entreprise",
+    "valeurs": {
+      "vente_marchandises": {
+        "valeur": 203100,
+        "en_vigueur_depuis": "2026-01-01",
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise (seuils de CA)" }
+        ],
+        "notes": "Vente de marchandises / hébergement. Était 188 700 € jusqu'en 2025 (revalorisation triennale)."
+      },
+      "services_commerciaux": {
+        "valeur": 83600,
+        "en_vigueur_depuis": "2026-01-01",
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise (seuils de CA)" }
+        ],
+        "notes": "Prestations de services. Était 77 700 € jusqu'en 2025."
+      },
+      "liberal_bnc": {
+        "valeur": 83600,
+        "en_vigueur_depuis": "2026-01-01",
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise (seuils de CA)" }
+        ],
+        "notes": "Était 77 700 € jusqu'en 2025."
+      },
+      "liberal_cipav": {
+        "valeur": 83600,
+        "en_vigueur_depuis": "2026-01-01",
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise (seuils de CA)" }
+        ],
+        "notes": "Était 77 700 € jusqu'en 2025."
+      },
+      "meuble_tourisme": {
+        "valeur": 203100,
+        "en_vigueur_depuis": "2026-01-01",
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise (seuils de CA)" }
+        ],
+        "notes": "Meublé de tourisme classé : suit le plafond ventes/hébergement."
+      },
+      "artisanal": {
+        "valeur": 83600,
+        "en_vigueur_depuis": "2026-01-01",
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise (seuils de CA)" }
+        ],
+        "notes": "Était 77 700 € jusqu'en 2025."
+      }
+    }
+  },
+  "tva_franchise": {
+    "intitule": "Franchise en base de TVA (seuil normal / seuil majoré de tolérance)",
+    "valeurs": {
+      "ventes_normal": {
+        "valeur": 85000,
+        "en_vigueur_depuis": "2025-01-01",
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F21746", "intitule": "Service-Public Pro — Franchise en base de TVA" }
+        ],
+        "notes": "Ventes de marchandises / hébergement."
+      },
+      "ventes_majore": {
+        "valeur": 93500,
+        "en_vigueur_depuis": "2025-01-01",
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F21746", "intitule": "Service-Public Pro — Franchise en base de TVA" }
+        ],
+        "notes": "Seuil majoré (tolérance) ventes."
+      },
+      "services_normal": {
+        "valeur": 37500,
+        "en_vigueur_depuis": "2025-01-01",
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F21746", "intitule": "Service-Public Pro — Franchise en base de TVA" }
+        ],
+        "notes": "Prestations de services."
+      },
+      "services_majore": {
+        "valeur": 41250,
+        "en_vigueur_depuis": "2025-01-01",
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F21746", "intitule": "Service-Public Pro — Franchise en base de TVA" }
+        ],
+        "notes": "Seuil majoré (tolérance) services."
+      }
+    }
+  },
+  "vfl": {
+    "intitule": "Versement libératoire de l'impôt sur le revenu",
+    "valeurs": {
+      "vente_marchandises": {
+        "valeur": 0.010,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Versement libératoire du micro-entrepreneur" }
+        ],
+        "notes": "1 % du CA — ventes / hébergement."
+      },
+      "services_commerciaux": {
+        "valeur": 0.017,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Versement libératoire du micro-entrepreneur" }
+        ],
+        "notes": "1,7 % du CA — services BIC."
+      },
+      "liberal_bnc": {
+        "valeur": 0.022,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Versement libératoire du micro-entrepreneur" }
+        ],
+        "notes": "2,2 % du CA — BNC."
+      },
+      "liberal_cipav": {
+        "valeur": 0.022,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Versement libératoire du micro-entrepreneur" }
+        ],
+        "notes": "2,2 % du CA — BNC CIPAV."
+      },
+      "meuble_tourisme": {
+        "valeur": 0.010,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Versement libératoire du micro-entrepreneur" }
+        ],
+        "notes": "1 % du CA."
+      },
+      "artisanal": {
+        "valeur": 0.017,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Versement libératoire du micro-entrepreneur" }
+        ],
+        "notes": "1,7 % du CA."
+      },
+      "seuil_rfr_par_part": {
+        "valeur": 27794,
+        "en_vigueur_depuis": "2025-01-01",
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://www.impots.gouv.fr", "intitule": "impots.gouv.fr — Conditions d'accès au versement libératoire (RFR N-2)" }
+        ],
+        "notes": "RFR N-2 maximum par part de quotient familial. À revérifier sur le BOFiP chaque année."
+      }
+    }
+  },
+  "acre": {
+    "intitule": "ACRE — exonération partielle de cotisations sociales, première année",
+    "paliers_reduction": [
+      {
+        "du": null,
+        "au": "2026-06-30",
+        "valeur": 0.50,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23282", "intitule": "Service-Public Pro — ACRE : exonération de cotisations sociales" }
+        ],
+        "notes": "Exonération de 50 % des cotisations la première année."
+      },
+      {
+        "du": "2026-07-01",
+        "au": null,
+        "valeur": 0.25,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F23282", "intitule": "Service-Public Pro — ACRE : exonération de cotisations sociales" }
+        ],
+        "notes": "LFSS 2026 : taux minoré porté à 75 % des taux normaux, soit une exonération réduite à 25 %."
+      }
+    ]
+  },
+  "abattements_fiscaux": {
+    "intitule": "Abattements forfaitaires micro-fiscal (art. 50-0 et 102 ter CGI)",
+    "valeurs": {
+      "vente_marchandises": {
+        "valeur": 0.71,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise" }
+        ],
+        "notes": "71 % — ventes / hébergement (micro-BIC)."
+      },
+      "services_commerciaux": {
+        "valeur": 0.50,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise" }
+        ],
+        "notes": "50 % — services BIC (micro-BIC)."
+      },
+      "liberal_bnc": {
+        "valeur": 0.34,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise" }
+        ],
+        "notes": "34 % — BNC (micro-BNC)."
+      },
+      "liberal_cipav": {
+        "valeur": 0.34,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise" }
+        ],
+        "notes": "34 % — BNC (micro-BNC)."
+      },
+      "meuble_tourisme": {
+        "valeur": 0.71,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise" }
+        ],
+        "notes": "71 % — meublé de tourisme classé."
+      },
+      "artisanal": {
+        "valeur": 0.50,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise" }
+        ],
+        "notes": "50 % — services artisanaux (micro-BIC)."
+      },
+      "minimum": {
+        "valeur": 305,
+        "en_vigueur_depuis": null,
+        "verifie_le": "2026-06-10",
+        "sources": [
+          { "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041471510", "intitule": "Légifrance — Article 50-0 du CGI" }
+        ],
+        "notes": "Abattement minimum en euros (art. 50-0 CGI)."
+      }
+    }
+  }
+}

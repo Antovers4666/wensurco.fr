@@ -35,33 +35,8 @@ function chargerCAE(baremes) {
   return fenetre.CAE;
 }
 
-// Aplatissement du JSON (enveloppes {valeur, sources, ...}) vers la forme
-// window.CAE_BAREMES produite par automation/build-baremes.js
-function aplatirBaremes(json) {
-  const valeursDe = (famille) => {
-    const sortie = {};
-    for (const [cle, enveloppe] of Object.entries(json[famille].valeurs)) {
-      sortie[cle] = enveloppe.valeur;
-    }
-    return sortie;
-  };
-  const tva = valeursDe('tva_franchise');
-  return {
-    meta: { version: json.meta.version, derniere_verification_humaine: json.meta.derniere_verification_humaine },
-    taux_cotisations: valeursDe('cotisations_sociales'),
-    formation_pro: valeursDe('formation_professionnelle'),
-    plafonds_ca: valeursDe('plafonds_ca'),
-    tva: {
-      vente_marchandises: { normal: tva.ventes_normal, majoré: tva.ventes_majore },
-      services: { normal: tva.services_normal, majoré: tva.services_majore },
-    },
-    vfl: (() => { const v = valeursDe('vfl'); delete v.seuil_rfr_par_part; return v; })(),
-    seuil_rfr_vfl: json.vfl.valeurs.seuil_rfr_par_part.valeur,
-    acre_paliers: json.acre.paliers_reduction.map(p => ({ du: p.du, au: p.au, valeur: p.valeur })),
-    abattements: (() => { const a = valeursDe('abattements_fiscaux'); delete a.minimum; return a; })(),
-    abattement_minimum: json.abattements_fiscaux.valeurs.minimum.valeur,
-  };
-}
+// Aplatissement partagé avec build-baremes/check-baremes (une seule implémentation)
+const { aplatirBaremes } = require('../baremes');
 
 // ------------------------------------------------------------
 // Mini-runner
@@ -310,7 +285,12 @@ function comparerPasses(caeA, caeB) {
   ];
   for (const [fonction, args] of sondes) {
     test(`[A≡B] ${fonction}(${args.join(', ')}) identique avec et sans barèmes injectés`, () => {
-      assert.deepStrictEqual(caeB[fonction](...args), caeA[fonction](...args));
+      // Round-trip JSON : les objets viennent de deux sandboxes vm distinctes
+      // (prototypes différents), seul le contenu nous intéresse.
+      assert.deepStrictEqual(
+        JSON.parse(JSON.stringify(caeB[fonction](...args))),
+        JSON.parse(JSON.stringify(caeA[fonction](...args)))
+      );
     });
   }
 }
@@ -323,8 +303,13 @@ const caeFallback = chargerCAE(null);
 suite(caeFallback, 'fallback');
 
 if (fs.existsSync(FICHIER_BAREMES_JSON)) {
-  const json = JSON.parse(fs.readFileSync(FICHIER_BAREMES_JSON, 'utf8'));
-  const caeNominal = chargerCAE(aplatirBaremes(json));
+  const { ok, baremes, erreurs } = require('../baremes').loadBaremes();
+  if (!ok) {
+    console.error('✗ data/baremes-officiels.json invalide :');
+    for (const e of erreurs) console.error(`  - ${e}`);
+    process.exit(1);
+  }
+  const caeNominal = chargerCAE(aplatirBaremes(baremes));
   suite(caeNominal, 'nominal');
   comparerPasses(caeFallback, caeNominal);
 } else {
