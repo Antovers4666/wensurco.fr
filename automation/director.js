@@ -122,6 +122,20 @@ async function main() {
     process.exit(1);
   }
 
+  // Fraîcheur de la veille réglementaire (non bloquant)
+  const dossierVeille = path.join(__dirname, 'rapports-veille');
+  const rapportsVeille = fs.existsSync(dossierVeille)
+    ? fs.readdirSync(dossierVeille).filter(f => f.endsWith('.md')).sort()
+    : [];
+  if (rapportsVeille.length === 0) {
+    log.warn('Aucun rapport de veille barèmes — lancez "npm run veille".');
+  } else {
+    const dernier = rapportsVeille[rapportsVeille.length - 1];
+    const ageJours = Math.floor((Date.now() - new Date(dernier.slice(0, 10))) / 86400000);
+    if (ageJours > 35) log.warn(`Dernière veille barèmes il y a ${ageJours} jours (${dernier}) — lancez "npm run veille".`);
+    else log.info(`Dernière veille barèmes : ${dernier} (il y a ${ageJours} jour(s)).`);
+  }
+
   const { results, failures, warnings, total } = auditSite();
   printAuditReport(results);
   markAudited();
