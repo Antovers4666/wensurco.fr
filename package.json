@@ -10,7 +10,8 @@
     "dry-run": "node automation/director.js --dry-run",
     "test:calc": "node automation/tests/test-calculators.js",
     "build:baremes": "node automation/build-baremes.js",
-    "check:baremes": "node automation/check-baremes.js"
+    "check:baremes": "node automation/check-baremes.js",
+    "veille": "node automation/veille-baremes.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.52.0",

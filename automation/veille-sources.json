@@ -1,0 +1,54 @@
+{
+  "notes": "Configuration du scraping de veille (automation/veille-baremes.js). Les URLs et fenêtres d'extraction sont des données : si une page officielle change de structure, éditer ce fichier, pas le script. Calibré le 2026-06-11 sur le contenu réel des fiches. autoentrepreneur.urssaf.fr est exclu (page rendue en JS, fetch brut vide) — couvert par le recoupement web.",
+  "sources": [
+    {
+      "id": "sp-cotisations",
+      "url": "https://entreprendre.service-public.fr/vosdroits/F36232",
+      "intitule": "Service-Public Entreprendre — Cotisations sociales d'un micro-entrepreneur",
+      "motifs": [
+        { "famille": "cotisations_sociales", "cle": "vente_marchandises", "type": "pct", "fenetre": "vente de marchandises|achat[- ]revente" },
+        { "famille": "cotisations_sociales", "cle": "services_commerciaux", "type": "pct", "fenetre": "prestations? de services? commerciale" },
+        { "famille": "cotisations_sociales", "cle": "liberal_bnc", "type": "pct", "fenetre": "lib[ée]rales? non r[ée]glement[ée]e" },
+        { "famille": "cotisations_sociales", "cle": "liberal_cipav", "type": "pct", "fenetre": "Cipav" },
+        { "famille": "cotisations_sociales", "cle": "meuble_tourisme", "type": "pct", "fenetre": "meubl[ée]s? de tourisme" },
+        { "famille": "cotisations_sociales", "cle": "artisanal", "type": "pct", "fenetre": "prestations? de services? artisanale" }
+      ]
+    },
+    {
+      "id": "sp-regime-fiscal",
+      "url": "https://entreprendre.service-public.fr/vosdroits/F23267",
+      "intitule": "Service-Public Entreprendre — Régime fiscal de la micro-entreprise",
+      "motifs": [
+        { "famille": "plafonds_ca", "cle": "vente_marchandises", "type": "eur", "fenetre": "vente de marchandises|fourniture de denr[ée]es|h[ée]bergement" },
+        { "famille": "plafonds_ca", "cle": "services_commerciaux", "type": "eur", "fenetre": "prestations? de services" },
+        { "famille": "plafonds_ca", "cle": "meuble_tourisme", "type": "eur", "fenetre": "meubl[ée]s? de tourisme|h[ée]bergement" },
+        { "famille": "vfl", "cle": "vente_marchandises", "type": "pct", "fenetre": "versement lib[ée]ratoire" },
+        { "famille": "abattements_fiscaux", "cle": "vente_marchandises", "type": "pct", "fenetre": "abattement" },
+        { "famille": "abattements_fiscaux", "cle": "services_commerciaux", "type": "pct", "fenetre": "abattement" },
+        { "famille": "abattements_fiscaux", "cle": "liberal_bnc", "type": "pct", "fenetre": "abattement" },
+        { "famille": "abattements_fiscaux", "cle": "minimum", "type": "eur", "fenetre": "abattement" },
+        { "famille": "vfl", "cle": "services_commerciaux", "type": "pct", "fenetre": "versement lib[ée]ratoire" },
+        { "famille": "vfl", "cle": "liberal_bnc", "type": "pct", "fenetre": "versement lib[ée]ratoire" }
+      ]
+    },
+    {
+      "id": "sp-tva",
+      "url": "https://entreprendre.service-public.fr/vosdroits/F21746",
+      "intitule": "Service-Public Entreprendre — Franchise en base de TVA",
+      "motifs": [
+        { "famille": "tva_franchise", "cle": "ventes_normal", "type": "eur", "fenetre": "livraisons? de biens|ventes?" },
+        { "famille": "tva_franchise", "cle": "ventes_majore", "type": "eur", "fenetre": "major[ée]" },
+        { "famille": "tva_franchise", "cle": "services_normal", "type": "eur", "fenetre": "prestations? de services" },
+        { "famille": "tva_franchise", "cle": "services_majore", "type": "eur", "fenetre": "major[ée]" }
+      ]
+    },
+    {
+      "id": "sp-acre",
+      "url": "https://entreprendre.service-public.fr/vosdroits/F32318",
+      "intitule": "Service-Public Entreprendre — Aide à la création ou à la reprise d'une entreprise (Acre)",
+      "motifs": [
+        { "famille": "acre", "cle": "palier_applicable", "type": "pct", "fenetre": "exon[ée]ration" }
+      ]
+    }
+  ]
+}
