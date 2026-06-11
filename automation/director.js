@@ -108,7 +108,20 @@ async function main() {
   } = process.env;
 
   // ── ÉTAPE 1 : AUDIT ──────────────────────────────────────────────────────
-  log.step('1/7  AUDIT — Analyse des fichiers HTML existants');
+  log.step('1/7  AUDIT — Cohérence barèmes + analyse des fichiers HTML');
+
+  // Cohérence data/baremes-officiels.json ↔ calculators.js / JS généré.
+  // Bloquant : on ne publie pas sur un site désynchronisé de sa source de vérité.
+  const { spawnSync } = require('child_process');
+  const check = spawnSync(process.execPath, [path.join(__dirname, 'check-baremes.js')], { encoding: 'utf-8' });
+  for (const ligne of `${check.stdout || ''}${check.stderr || ''}`.trim().split('\n')) {
+    if (ligne) log.info(ligne);
+  }
+  if (check.status !== 0) {
+    log.error('check-baremes a détecté une dérive ou une erreur — pipeline arrêté.');
+    process.exit(1);
+  }
+
   const { results, failures, warnings, total } = auditSite();
   printAuditReport(results);
   markAudited();

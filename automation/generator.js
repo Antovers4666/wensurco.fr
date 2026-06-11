@@ -2,6 +2,9 @@
 const fs   = require('fs');
 const path = require('path');
 
+const log = require('./logger');
+const { loadBaremes, evaluerFraicheur, renderPromptBlock } = require('./baremes');
+
 const PROJECT_ROOT = path.join(__dirname, '..');
 
 // ─── Blocs réutilisables ──────────────────────────────────────────────────────
@@ -72,6 +75,23 @@ async function generateArticle(topic, apiKey) {
   const today     = new Date().toISOString().split('T')[0];
   const CURRENT_YEAR = new Date().getFullYear();
 
+  // Garde-fou YMYL : les chiffres du prompt viennent EXCLUSIVEMENT de
+  // data/baremes-officiels.json. Fail-closed : aucun bloc de secours hardcodé.
+  const { ok, baremes, erreurs } = loadBaremes();
+  if (!ok) {
+    throw new Error(`data/baremes-officiels.json manquant ou invalide — génération refusée (YMYL). Détail : ${erreurs.join(' ; ')}`);
+  }
+  const fraicheur = evaluerFraicheur(baremes);
+  if (fraicheur.niveau === 'refus') {
+    throw new Error(`Barèmes non revalidés — génération refusée (YMYL) : ${fraicheur.message}`);
+  }
+  if (fraicheur.niveau === 'warn') {
+    log.warn(`Barèmes : ${fraicheur.message}`);
+  }
+  const BLOC_DONNEES_OFFICIELLES = renderPromptBlock(baremes);
+  log.info(`Bloc données officielles généré depuis data/baremes-officiels.json (version ${baremes.meta.version}, vérifié le ${baremes.meta.derniere_verification_humaine})`);
+  for (const ligne of BLOC_DONNEES_OFFICIELLES.split('\n')) log.info(`  | ${ligne}`);
+
   const systemPrompt = `Tu es un rédacteur senior spécialisé dans la micro-entreprise française, doublé d'un expert SEO. Tu rédiges pour wensurco.fr (CalcAutoEntrepreneur), un site d'outils gratuits pour auto-entrepreneurs français. Tes articles traitent de sujets YMYL (fiscalité, cotisations sociales) : l'exactitude des chiffres et les sources officielles sont non négociables.
 
 ═══════════════════════════════════════════
@@ -90,24 +110,7 @@ RÈGLES ABSOLUES — À RESPECTER SANS EXCEPTION
 ═══════════════════════════════════════════
 DONNÉES OFFICIELLES VÉRIFIÉES (seule source de chiffres autorisée)
 ═══════════════════════════════════════════
-COTISATIONS SOCIALES ${CURRENT_YEAR} (taux micro-social, hors ACRE) :
-- Vente de marchandises (BIC) : 12,3 %
-- Prestations de services BIC / artisanat : 21,2 %
-- Professions libérales BNC (SSI) : 25,6 % (taux 2026 ; 24,6 % en 2025)
-- Professions libérales CIPAV : 23,2 %
-PLAFONDS DE CHIFFRE D'AFFAIRES ${CURRENT_YEAR} :
-- Vente de marchandises / hébergement : 203 100 €
-- Prestations de services / professions libérales : 83 600 €
-FRANCHISE EN BASE DE TVA (seuils ${CURRENT_YEAR}) :
-- Ventes : 85 000 € (seuil majoré 93 500 €)
-- Services : 37 500 € (seuil majoré 41 250 €)
-ACRE : exonération de 50 % des cotisations sociales la première année (conditions sur autoentrepreneur.urssaf.fr)
-VERSEMENT LIBÉRATOIRE DE L'IMPÔT SUR LE REVENU : 1 % ventes / 1,7 % services BIC / 2,2 % BNC
-SOURCES OFFICIELLES À CITER (liens sortants encouragés) :
-- https://www.autoentrepreneur.urssaf.fr
-- https://entreprendre.service-public.fr
-- https://www.impots.gouv.fr
-- https://www.economie.gouv.fr
+${BLOC_DONNEES_OFFICIELLES}
 
 ═══════════════════════════════════════════
 INTENTION DE RECHERCHE & SEO ON-PAGE
