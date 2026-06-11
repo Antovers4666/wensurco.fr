@@ -247,6 +247,13 @@ function suite(CAE, etiquette) {
     assert.strictEqual(CAE.calculerTrimestresRetraite(20000, 'liberal_cipav').nbTrimestres, null);
   });
 
+  // --- acreReductionPourDate (bascule LFSS 2026) ---
+  t('acreReductionPourDate : 50 % au 30/06/2026, 25 % au 01/07/2026', () => {
+    assert.strictEqual(CAE.acreReductionPourDate(new Date('2026-06-30T12:00:00')), 0.50);
+    assert.strictEqual(CAE.acreReductionPourDate(new Date('2026-07-01T12:00:00')), 0.25);
+    assert.strictEqual(CAE.acreReductionPourDate(new Date('2027-03-01T12:00:00')), 0.25);
+  });
+
   // --- calendrier / utilitaires ---
   t('genererCalendrierDeclarations trimestriel : 4 échéances', () => {
     assert.strictEqual(CAE.genererCalendrierDeclarations('trimestriel').length, 4);

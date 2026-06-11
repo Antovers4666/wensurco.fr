@@ -17,7 +17,7 @@ const ANNEE_EN_COURS = 2026;
 
 // NB : les noms de constantes conservent le suffixe _2025 pour compatibilité
 // (références internes + exports), mais les VALEURS sont celles de 2026.
-const TAUX_COTISATIONS_2025 = {
+const TAUX_COTISATIONS_2025 = (__B && __B.taux_cotisations) || {
   vente_marchandises:    0.123,   // 12,3% (inchangé 2026)
   services_commerciaux: 0.212,   // 21,2% (inchangé 2026)
   liberal_bnc:          0.256,   // 25,6% — hausse au 01/01/2026 (était 24,6% en 2025)
@@ -26,7 +26,7 @@ const TAUX_COTISATIONS_2025 = {
   artisanal:            0.212,   // 21,2% (inchangé 2026)
 };
 
-const TAUX_FORMATION_PROFESSIONNELLE_2025 = {
+const TAUX_FORMATION_PROFESSIONNELLE_2025 = (__B && __B.formation_pro) || {
   vente_marchandises:    0.001,   // 0,1%
   services_commerciaux: 0.002,   // 0,2%
   liberal_bnc:          0.002,   // 0,2%
@@ -50,12 +50,22 @@ const PLAFONDS_TVA_2025 = (__B && __B.tva) || {
   services:           { normal: 37500, majoré: 41250 },
 };
 
-// ACRE : exonération de cotisations 1ère année.
-// 50% jusqu'au 30/06/2026, puis 25% à compter du 01/07/2026 (LFSS 2026 : taux minoré porté à 75% des taux normaux).
-const ACRE_TAUX_REDUCTION_ANNEE_1 = (new Date() >= new Date('2026-07-01')) ? 0.25 : 0.50;
+// ACRE : exonération de cotisations 1ère année — paliers datés.
+// Fallback figé : 50% jusqu'au 30/06/2026, puis 25% (LFSS 2026 : taux minoré porté à 75% des taux normaux).
+function acreReductionPourDate(date = new Date()) {
+  if (__B && __B.acre_paliers) {
+    for (const p of __B.acre_paliers) {
+      const apresDebut = p.du === null || date >= new Date(p.du);
+      const avantFin = p.au === null || date <= new Date(p.au + 'T23:59:59');
+      if (apresDebut && avantFin) return p.valeur;
+    }
+  }
+  return (date >= new Date('2026-07-01')) ? 0.25 : 0.50;
+}
+const ACRE_TAUX_REDUCTION_ANNEE_1 = acreReductionPourDate();
 
 // Taux d'imposition VFL (Versement Libératoire Forfaitaire)
-const VFL_TAUX_2025 = {
+const VFL_TAUX_2025 = (__B && __B.vfl) || {
   vente_marchandises:    0.010,   // 1%
   services_commerciaux: 0.017,   // 1,7%
   liberal_bnc:          0.022,   // 2,2%
@@ -488,7 +498,7 @@ function calculerCfe(ca, communeTaux = 'moyen') {
 }
 
 // C6 — Déclarés ici avant toute fonction qui les utilise
-const ABATTEMENTS_2025 = {
+const ABATTEMENTS_2025 = (__B && __B.abattements) || {
   vente_marchandises:    0.71,
   meuble_tourisme:       0.71,
   services_commerciaux:  0.50,
@@ -496,7 +506,7 @@ const ABATTEMENTS_2025 = {
   liberal_bnc:           0.34,
   liberal_cipav:         0.34,
 };
-const ABATTEMENT_MINIMUM_2025 = 305; // art. 50-0 CGI
+const ABATTEMENT_MINIMUM_2025 = (__B && __B.abattement_minimum) || 305; // art. 50-0 CGI
 
 // ============================================================
 // SIMULATEUR VFL vs IR (Versement Libératoire)
@@ -512,7 +522,7 @@ const BAREME_IR_2024 = [
   { jusqu_a: Infinity, taux: 0.45 },
 ];
 
-const SEUIL_RFR_VFL_2025_PAR_PART = 27794; // RFR N-2 par part — à vérifier BOFiP
+const SEUIL_RFR_VFL_2025_PAR_PART = (__B && __B.seuil_rfr_vfl) || 27794; // RFR N-2 par part — à vérifier BOFiP
 
 function calculerImpositionIR(revenuImposable, nbParts) {
   // Quotient familial
@@ -720,6 +730,7 @@ window.CAE = {
   projeterSeuilTva,
   calculerAbattement,
   calculerTrimestresRetraite,
+  acreReductionPourDate,
   formatEuro,
   formatPct,
   formatNombre,
