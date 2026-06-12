@@ -1,9 +1,9 @@
 {
   "meta": {
     "schema_version": 1,
-    "version": "2026.06.1",
+    "version": "2026.06.2",
     "annee_fiscale": 2026,
-    "derniere_verification_humaine": "2026-06-10",
+    "derniere_verification_humaine": "2026-06-12",
     "verifie_par": "Antoine",
     "notes": "Source de vérité unique des chiffres officiels du site. Toute modification exige une vérification humaine sur les sources officielles, puis : npm run build:baremes && npm run test:calc. Le script de veille (npm run veille) détecte les écarts mais ne modifie JAMAIS ce fichier.",
     "sources_prompt": [
@@ -55,15 +55,6 @@
         ],
         "notes": "Professions libérales réglementées affiliées CIPAV. Inchangé en 2026."
       },
-      "meuble_tourisme": {
-        "valeur": 0.060,
-        "en_vigueur_depuis": null,
-        "verifie_le": "2026-06-10",
-        "sources": [
-          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
-        ],
-        "notes": "Location de meublés de tourisme classés. Inchangé en 2026."
-      },
       "artisanal": {
         "valeur": 0.212,
         "en_vigueur_depuis": null,
@@ -114,15 +105,6 @@
         ],
         "notes": "0,2 %."
       },
-      "meuble_tourisme": {
-        "valeur": 0.001,
-        "en_vigueur_depuis": null,
-        "verifie_le": "2026-06-10",
-        "sources": [
-          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Cotisations et contributions sociales du micro-entrepreneur" }
-        ],
-        "notes": "0,1 % — assimilé activité commerciale."
-      },
       "artisanal": {
         "valeur": 0.003,
         "en_vigueur_depuis": null,
@@ -172,15 +154,6 @@
           { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise (seuils de CA)" }
         ],
         "notes": "Était 77 700 € jusqu'en 2025."
-      },
-      "meuble_tourisme": {
-        "valeur": 203100,
-        "en_vigueur_depuis": "2026-01-01",
-        "verifie_le": "2026-06-10",
-        "sources": [
-          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise (seuils de CA)" }
-        ],
-        "notes": "Meublé de tourisme classé : suit le plafond ventes/hébergement."
       },
       "artisanal": {
         "valeur": 83600,
@@ -273,15 +246,6 @@
         ],
         "notes": "2,2 % du CA — BNC CIPAV."
       },
-      "meuble_tourisme": {
-        "valeur": 0.010,
-        "en_vigueur_depuis": null,
-        "verifie_le": "2026-06-10",
-        "sources": [
-          { "url": "https://entreprendre.service-public.fr/vosdroits/F23267", "intitule": "Service-Public Pro — Versement libératoire du micro-entrepreneur" }
-        ],
-        "notes": "1 % du CA."
-      },
       "artisanal": {
         "valeur": 0.017,
         "en_vigueur_depuis": null,
@@ -365,15 +329,6 @@
           { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise" }
         ],
         "notes": "34 % — BNC (micro-BNC)."
-      },
-      "meuble_tourisme": {
-        "valeur": 0.71,
-        "en_vigueur_depuis": null,
-        "verifie_le": "2026-06-10",
-        "sources": [
-          { "url": "https://entreprendre.service-public.fr/vosdroits/F32353", "intitule": "Service-Public Pro — Régime fiscal de la micro-entreprise" }
-        ],
-        "notes": "71 % — meublé de tourisme classé."
       },
       "artisanal": {
         "valeur": 0.50,

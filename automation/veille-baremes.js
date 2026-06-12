@@ -59,7 +59,6 @@ function construireSurveillance(baremes) {
     services_commerciaux: 'prestations de services BIC',
     liberal_bnc: 'professions libérales BNC (SSI)',
     liberal_cipav: 'professions libérales CIPAV',
-    meuble_tourisme: 'meublés de tourisme classés',
     artisanal: 'prestations de services artisanales',
   };
   const pousser = (famille, cle, libelle, type, ref) =>
@@ -73,7 +72,6 @@ function construireSurveillance(baremes) {
   }
   pousser('plafonds_ca', 'vente_marchandises', 'plafond de chiffre d\'affaires micro-entreprise — ventes / hébergement', 'eur', baremes.plafonds_ca.valeurs.vente_marchandises.valeur);
   pousser('plafonds_ca', 'services_commerciaux', 'plafond de chiffre d\'affaires micro-entreprise — prestations de services et libéraux', 'eur', baremes.plafonds_ca.valeurs.services_commerciaux.valeur);
-  pousser('plafonds_ca', 'meuble_tourisme', 'plafond de chiffre d\'affaires micro-entreprise — meublés de tourisme classés', 'eur', baremes.plafonds_ca.valeurs.meuble_tourisme.valeur);
   pousser('tva_franchise', 'ventes_normal', 'seuil de franchise en base de TVA — ventes (seuil normal)', 'eur', baremes.tva_franchise.valeurs.ventes_normal.valeur);
   pousser('tva_franchise', 'ventes_majore', 'seuil majoré de franchise en base de TVA — ventes', 'eur', baremes.tva_franchise.valeurs.ventes_majore.valeur);
   pousser('tva_franchise', 'services_normal', 'seuil de franchise en base de TVA — prestations de services (seuil normal)', 'eur', baremes.tva_franchise.valeurs.services_normal.valeur);

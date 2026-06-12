@@ -22,7 +22,6 @@ const TAUX_COTISATIONS_2025 = (__B && __B.taux_cotisations) || {
   services_commerciaux: 0.212,   // 21,2% (inchangé 2026)
   liberal_bnc:          0.256,   // 25,6% — hausse au 01/01/2026 (était 24,6% en 2025)
   liberal_cipav:        0.232,   // 23,2% (inchangé 2026)
-  meuble_tourisme:      0.060,   // 6,0% (inchangé 2026)
   artisanal:            0.212,   // 21,2% (inchangé 2026)
 };
 
@@ -31,7 +30,6 @@ const TAUX_FORMATION_PROFESSIONNELLE_2025 = (__B && __B.formation_pro) || {
   services_commerciaux: 0.002,   // 0,2%
   liberal_bnc:          0.002,   // 0,2%
   liberal_cipav:        0.002,   // 0,2%
-  meuble_tourisme:      0.001,   // 0,1%
   artisanal:            0.003,   // 0,3%
 };
 
@@ -40,7 +38,6 @@ const PLAFONDS_CA = (__B && __B.plafonds_ca) || {
   services_commerciaux:  83600,  // €
   liberal_bnc:           83600,  // €
   liberal_cipav:         83600,  // €
-  meuble_tourisme:      203100,  // €
   artisanal:             83600,  // €
 };
 
@@ -70,7 +67,6 @@ const VFL_TAUX_2025 = (__B && __B.vfl) || {
   services_commerciaux: 0.017,   // 1,7%
   liberal_bnc:          0.022,   // 2,2%
   liberal_cipav:        0.022,   // 2,2%
-  meuble_tourisme:      0.010,   // 1%
   artisanal:            0.017,   // 1,7%
 };
 
@@ -410,7 +406,6 @@ const TYPE_LABELS = {
   services_commerciaux: 'Prestations de services (BIC)',
   liberal_bnc:          'Profession libérale (BNC - SSI)',
   liberal_cipav:        'Profession libérale (CIPAV)',
-  meuble_tourisme:      'Location meublée de tourisme',
   artisanal:            'Artisanat / services artisanaux',
 };
 
@@ -500,7 +495,6 @@ function calculerCfe(ca, communeTaux = 'moyen') {
 // C6 — Déclarés ici avant toute fonction qui les utilise
 const ABATTEMENTS_2025 = (__B && __B.abattements) || {
   vente_marchandises:    0.71,
-  meuble_tourisme:       0.71,
   services_commerciaux:  0.50,
   artisanal:             0.50,
   liberal_bnc:           0.34,
@@ -623,7 +617,7 @@ function calculerTjm(netSouhaite, type, joursCongesAnnuels, tauxOccupation, acre
 
 function projeterSeuilTva(caCumule, type, moisEcoules) {
   const seuilMicro = PLAFONDS_CA[type] || 83600;
-  const estVente = type === 'vente_marchandises' || type === 'meuble_tourisme';
+  const estVente = type === 'vente_marchandises';
   const seuilTva = estVente ? PLAFONDS_TVA_2025.vente_marchandises.normal : PLAFONDS_TVA_2025.services.normal;
 
   const tendanceMensuelle = moisEcoules > 0 ? caCumule / moisEcoules : 0;

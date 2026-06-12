@@ -10,7 +10,6 @@
         { "famille": "cotisations_sociales", "cle": "services_commerciaux", "type": "pct", "fenetre": "prestations? de services? commerciale" },
         { "famille": "cotisations_sociales", "cle": "liberal_bnc", "type": "pct", "fenetre": "lib[ée]rales? non r[ée]glement[ée]e" },
         { "famille": "cotisations_sociales", "cle": "liberal_cipav", "type": "pct", "fenetre": "Cipav" },
-        { "famille": "cotisations_sociales", "cle": "meuble_tourisme", "type": "pct", "fenetre": "meubl[ée]s? de tourisme" },
         { "famille": "cotisations_sociales", "cle": "artisanal", "type": "pct", "fenetre": "prestations? de services? artisanale" }
       ]
     },
@@ -21,7 +20,6 @@
       "motifs": [
         { "famille": "plafonds_ca", "cle": "vente_marchandises", "type": "eur", "fenetre": "vente de marchandises|fourniture de denr[ée]es|h[ée]bergement" },
         { "famille": "plafonds_ca", "cle": "services_commerciaux", "type": "eur", "fenetre": "prestations? de services" },
-        { "famille": "plafonds_ca", "cle": "meuble_tourisme", "type": "eur", "fenetre": "meubl[ée]s? de tourisme|h[ée]bergement" },
         { "famille": "vfl", "cle": "vente_marchandises", "type": "pct", "fenetre": "versement lib[ée]ratoire" },
         { "famille": "abattements_fiscaux", "cle": "vente_marchandises", "type": "pct", "fenetre": "abattement" },
         { "famille": "abattements_fiscaux", "cle": "services_commerciaux", "type": "pct", "fenetre": "abattement" },

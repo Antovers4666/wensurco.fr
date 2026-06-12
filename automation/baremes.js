@@ -18,7 +18,7 @@ const FRAICHEUR_REFUS_JOURS = 270;  // au-delà : refus de générer
 
 const TYPES_ACTIVITE = [
   'vente_marchandises', 'services_commerciaux', 'liberal_bnc',
-  'liberal_cipav', 'meuble_tourisme', 'artisanal',
+  'liberal_cipav', 'artisanal',
 ];
 
 const FAMILLES_VALEURS = [
