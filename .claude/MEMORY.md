@@ -311,7 +311,7 @@ Source : analyse approfondie 5 agents. Déjà fait & publié (commit 6744674) : 
 
 **Reste :**
 - ~~⚠️ 6 « ÉCART À VÉRIFIER » dans le rapport 2026-06-11~~ → tranchés le 2026-06-12, voir entrée ci-dessous.
-- Configurer le secret ANTHROPIC_API_KEY dans GitHub Actions.
+- ~~Configurer le secret ANTHROPIC_API_KEY dans GitHub Actions~~ → fait le 2026-06-12 ; run manuel validé (26/26 confirmés, secret + `npm ci` + actions v5/v8 Node 24, commits 16ac68d + 39905a0). Branche « ouverture d'issue » non encore exercée en réel (nécessite un écart).
 - Phase 2 du JSON (hors périmètre validé) : SMIC/seuil trimestre retraite, barème IR, barèmes kilométriques.
 - autoentrepreneur.urssaf.fr inexploitable en scraping brut (rendu JS) — couvert par le recoupement web uniquement.
 
