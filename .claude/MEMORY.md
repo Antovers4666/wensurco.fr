@@ -310,9 +310,20 @@ Source : analyse approfondie 5 agents. Déjà fait & publié (commit 6744674) : 
 **Fait :** `data/baremes-officiels.json` = source unique des chiffres officiels (7 familles : cotisations, CFP, plafonds CA, TVA, VFL+RFR, ACRE à paliers datés, abattements+305 €), avec sources/dates par valeur. Consommé par : calculators.js (via `js/baremes-officiels.js` généré par `npm run build:baremes`, chargé AVANT calculators.js sur les 16 pages calculateurs, fallbacks figés), generator.js (bloc prompt rendu depuis le JSON, fail-closed YMYL : refus si JSON absent/invalide/périmé/année N-1), tableau-de-bord (JS inline dé-hardcodé). Garde-fous : `npm run check:baremes` (bloquant en étape 1 du director), `npm run test:calc` (70 cas, 2 passes avec/sans barèmes), check ordre des scripts dans auditor. Veille : `npm run veille` (scraping fiches service-public calibrées F36232/F23267/F21746/F32318 + recoupement web_search Anthropic domaines officiels, rapport `automation/rapports-veille/AAAA-MM-JJ-*.md`, exit 1 si écart, N'ÉCRIT JAMAIS dans data/js/html) + GitHub Action mensuelle (cron le 2, issue si écart, secret ANTHROPIC_API_KEY à configurer).
 
 **Reste :**
-- ⚠️ 6 « ÉCART À VÉRIFIER » dans le rapport 2026-06-11 (à trancher humainement) : plafond meublé de tourisme classé (83 600 € selon economie.gouv vs 203 100 € sur le site), seuil RFR VFL (29 315 € vs 27 794 €), BNC 26,1 % (actualité URSSAF) vs 25,6 %, artisanal 25,6 % vs 21,2 %, CFP services 0,1 % vs 0,2 %, services BIC 24,6 % vs 21,2 % — certains sont probablement du bruit du recoupement web, d'autres (meublé, RFR) méritent vérification sérieuse.
+- ~~⚠️ 6 « ÉCART À VÉRIFIER » dans le rapport 2026-06-11~~ → tranchés le 2026-06-12, voir entrée ci-dessous.
 - Configurer le secret ANTHROPIC_API_KEY dans GitHub Actions.
 - Phase 2 du JSON (hors périmètre validé) : SMIC/seuil trimestre retraite, barème IR, barèmes kilométriques.
 - autoentrepreneur.urssaf.fr inexploitable en scraping brut (rendu JS) — couvert par le recoupement web uniquement.
 
 **Problèmes :** Aucun bloquant. Les noms `_2025` des constantes de calculators.js sont conservés (compatibilité) — renommage possible plus tard, jamais dans le même commit qu'un changement de valeur.
+
+---
+
+## [2026-06-12] — Résolution des 6 écarts de veille (décisions Antoine, commits 5c426fc + 02f5e12)
+
+**Décisions humaines :** meuble_tourisme RETIRÉ du périmètre (régime immobilier, hors cible auto-entrepreneur wensurco) ; seuil RFR VFL corrigé 27 794 € → **29 315 €** par part (2026, RFR N-2 = revenus 2024, vérifié URSSAF officiel) ; BNC 25,6 % / services 21,2 % / artisanal 21,2 % / CFP : SANS changement — bruit du recoupement web (le 26,1 % BNC a été annulé par le décret 2025-943).
+
+**Fait :**
+- `5c426fc` — retrait atomique de la mécanique meuble_tourisme : 5 entrées du JSON (version 2026.06.2), `TYPES_ACTIVITE` (désormais 5 types), fallbacks + `TYPE_LABELS` + `estVente` dans calculators.js, veille (label, `pousser` plafonds, 2 motifs scraping), `<option>` + ligne 6 % de calcul-charges. La veille surveille désormais 26 valeurs (au lieu de 29). Les 5 mentions éditoriales descriptives (faq, guide-2025, abattement, declaration-impots ×2, declaration-urssaf) sont CONSERVÉES volontairement : factuellement vraies, pas de calcul interactif.
+- `02f5e12` — RFR 29 315 € : JSON (version 2026.06.3, source URSSAF), fallback calculators.js, attendu test, textes dérivés (declaration-impots 1/2/2,5 parts = 29 315/58 630/73 287,50 € ; versement-liberatoire schema FAQ + années).
+- `?v=20260612` mono-version sur les 16 pages. Vérifié après chaque commit : 70 tests OK ×2 passes, check-baremes exit 0, audit 0 erreur, veille --sans-web 19 confirmés / 0 écart.
