@@ -39,7 +39,7 @@
   {"@context":"https://schema.org","@type":"Article","headline":"Versement Libératoire Auto-Entrepreneur 2025 : VFL ou IR classique ?","datePublished":"2025-05-29","dateModified":"2025-05-29","author":{"@type":"Organization","name":"CalcAutoEntrepreneur.fr"},"publisher":{"@type":"Organization","name":"CalcAutoEntrepreneur.fr","url":"https://wensurco.fr"}}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce que le versement libératoire de l'impôt ?","acceptedAnswer":{"@type":"Answer","text":"Le versement libératoire (VFL) est une option fiscale qui permet à l'auto-entrepreneur de payer son impôt sur le revenu en même temps que ses cotisations sociales, à chaque déclaration de CA. Le taux est fixe : 1% pour la vente, 1,7% pour les services BIC, 2,2% pour les libéraux. Il libère de l'impôt sur le revenu pour ces revenus."}},{"@type":"Question","name":"Quand opter pour le versement libératoire ?","acceptedAnswer":{"@type":"Answer","text":"L'option doit être exercée avant le 30 septembre N-1 pour être applicable l'année N. Pour les créateurs d'entreprise, l'option peut être exercée lors de la déclaration de début d'activité ou dans les 3 mois suivants."}},{"@type":"Question","name":"Quelles sont les conditions pour accéder au VFL ?","acceptedAnswer":{"@type":"Answer","text":"Le revenu fiscal de référence (RFR) de l'année N-2 ne doit pas dépasser le seuil légal par part de quotient familial (27 794 € par part en 2025, à vérifier). Ce seuil exclut les hauts revenus de l'option."}}]}
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce que le versement libératoire de l'impôt ?","acceptedAnswer":{"@type":"Answer","text":"Le versement libératoire (VFL) est une option fiscale qui permet à l'auto-entrepreneur de payer son impôt sur le revenu en même temps que ses cotisations sociales, à chaque déclaration de CA. Le taux est fixe : 1% pour la vente, 1,7% pour les services BIC, 2,2% pour les libéraux. Il libère de l'impôt sur le revenu pour ces revenus."}},{"@type":"Question","name":"Quand opter pour le versement libératoire ?","acceptedAnswer":{"@type":"Answer","text":"L'option doit être exercée avant le 30 septembre N-1 pour être applicable l'année N. Pour les créateurs d'entreprise, l'option peut être exercée lors de la déclaration de début d'activité ou dans les 3 mois suivants."}},{"@type":"Question","name":"Quelles sont les conditions pour accéder au VFL ?","acceptedAnswer":{"@type":"Answer","text":"Le revenu fiscal de référence (RFR) de l'année N-2 ne doit pas dépasser le seuil légal par part de quotient familial (29 315 € par part en 2026). Ce seuil exclut les hauts revenus de l'option."}}]}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://wensurco.fr/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://wensurco.fr/"},{"@type":"ListItem","position":3,"name":"Versement libératoire","item":"https://wensurco.fr/versement-liberatoire-auto-entrepreneur"}]}
@@ -210,8 +210,8 @@
         <li>Le VFL est particulièrement intéressant pour les auto-entrepreneurs en <strong>deuxième activité</strong> dont le foyer est déjà dans la tranche à 30% ou 41%</li>
       </ul>
 
-      <h2 id="vfl-conditions">Conditions d'accès au VFL 2025</h2>
-      <p>Pour opter pour le VFL, votre <strong>revenu fiscal de référence (RFR) de 2023</strong> (N-2 pour 2025) ne doit pas dépasser le seuil légal par part de quotient familial. Ce seuil est réajusté chaque année — vérifiez-le sur le site <a href="https://www.impots.gouv.fr" target="_blank" rel="noopener">impots.gouv.fr</a> ou dans votre avis d'imposition.</p>
+      <h2 id="vfl-conditions">Conditions d'accès au VFL 2026</h2>
+      <p>Pour opter pour le VFL, votre <strong>revenu fiscal de référence (RFR) de 2024</strong> (N-2 pour 2026) ne doit pas dépasser le seuil légal par part de quotient familial. Ce seuil est réajusté chaque année — vérifiez-le sur le site <a href="https://www.impots.gouv.fr" target="_blank" rel="noopener">impots.gouv.fr</a> ou dans votre avis d'imposition.</p>
 
       <h2 id="vfl-comment-opter">Comment opter pour le VFL ?</h2>
       <ol>
@@ -294,7 +294,7 @@ function doVfl() {
     recoVal.textContent = 'IR classique';
     recoSub.textContent = `L'IR classique vous fait économiser ${CAE.formatEuro(Math.abs(avantage))} vs le VFL`;
   }
-  document.getElementById('vfl-condition-note').innerHTML = `<strong>Condition d'accès VFL :</strong> Votre RFR 2023 (N-2) doit être ≤ ${CAE.formatEuro(r.seuilRfrAcces * parts)} pour ${parts} part(s). Vérifiez sur votre avis d'imposition 2024.`;
+  document.getElementById('vfl-condition-note').innerHTML = `<strong>Condition d'accès VFL :</strong> Votre RFR 2024 (N-2) doit être ≤ ${CAE.formatEuro(r.seuilRfrAcces * parts)} pour ${parts} part(s). Vérifiez sur votre avis d'imposition 2025.`;
   document.getElementById('vfl-placeholder').classList.add('hidden');
   document.getElementById('vfl-result').classList.add('visible');
 }

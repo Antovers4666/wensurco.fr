@@ -1,9 +1,9 @@
 /* FICHIER GÉNÉRÉ — NE PAS ÉDITER À LA MAIN.
- * Source : data/baremes-officiels.json (version 2026.06.2, vérifié le 2026-06-12)
+ * Source : data/baremes-officiels.json (version 2026.06.3, vérifié le 2026-06-12)
  * Régénérer : npm run build:baremes */
 window.CAE_BAREMES = {
   "meta": {
-    "version": "2026.06.2",
+    "version": "2026.06.3",
     "annee_fiscale": 2026,
     "derniere_verification_humaine": "2026-06-12"
   },
@@ -45,7 +45,7 @@ window.CAE_BAREMES = {
     "liberal_cipav": 0.022,
     "artisanal": 0.017
   },
-  "seuil_rfr_vfl": 27794,
+  "seuil_rfr_vfl": 29315,
   "acre_paliers": [
     {
       "du": null,

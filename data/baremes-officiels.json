@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema_version": 1,
-    "version": "2026.06.2",
+    "version": "2026.06.3",
     "annee_fiscale": 2026,
     "derniere_verification_humaine": "2026-06-12",
     "verifie_par": "Antoine",
@@ -256,13 +256,14 @@
         "notes": "1,7 % du CA."
       },
       "seuil_rfr_par_part": {
-        "valeur": 27794,
-        "en_vigueur_depuis": "2025-01-01",
-        "verifie_le": "2026-06-10",
+        "valeur": 29315,
+        "en_vigueur_depuis": "2026-01-01",
+        "verifie_le": "2026-06-12",
         "sources": [
+          { "url": "https://www.autoentrepreneur.urssaf.fr/portail/accueil/sinformer-sur-le-statut/toutes-les-actualites/modalites-dadhesion-au-verseme-2.html", "intitule": "URSSAF Auto-entrepreneur — Modalités d'adhésion au versement libératoire (seuil RFR)" },
           { "url": "https://www.impots.gouv.fr", "intitule": "impots.gouv.fr — Conditions d'accès au versement libératoire (RFR N-2)" }
         ],
-        "notes": "RFR N-2 maximum par part de quotient familial. À revérifier sur le BOFiP chaque année."
+        "notes": "RFR N-2 (revenus 2024) maximum par part de quotient familial pour 2026. Était 27 794 € en 2025. À revérifier sur le BOFiP chaque année."
       }
     }
   },

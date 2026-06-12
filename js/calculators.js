@@ -505,7 +505,7 @@ const ABATTEMENT_MINIMUM_2025 = (__B && __B.abattement_minimum) || 305; // art. 
 // ============================================================
 // SIMULATEUR VFL vs IR (Versement Libératoire)
 // Barème IR 2024 sur revenus 2024 — source : legifrance.gouv.fr
-// Seuil accès VFL 2025 : RFR N-2 ≤ 27 794 € par part (à vérifier BOFiP chaque année)
+// Seuil accès VFL 2026 : RFR N-2 ≤ 29 315 € par part (à vérifier BOFiP chaque année)
 // ============================================================
 
 const BAREME_IR_2024 = [
@@ -516,7 +516,7 @@ const BAREME_IR_2024 = [
   { jusqu_a: Infinity, taux: 0.45 },
 ];
 
-const SEUIL_RFR_VFL_2025_PAR_PART = (__B && __B.seuil_rfr_vfl) || 27794; // RFR N-2 par part — à vérifier BOFiP
+const SEUIL_RFR_VFL_2025_PAR_PART = (__B && __B.seuil_rfr_vfl) || 29315; // RFR N-2 par part — à vérifier BOFiP
 
 function calculerImpositionIR(revenuImposable, nbParts) {
   // Quotient familial

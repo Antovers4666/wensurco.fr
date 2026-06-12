@@ -185,7 +185,7 @@ function suite(CAE, etiquette) {
     assert.strictEqual(r.ir.baseImposable, 39600);
     assert.strictEqual(r.ir.impot, 5166);
     assert.strictEqual(r.meilleureOption, 'vfl');
-    assert.strictEqual(r.seuilRfrAcces, 27794);
+    assert.strictEqual(r.seuilRfrAcces, 29315);
   });
 
   t('calculerImpositionIR : 11 294 € pour 1 part → 0 € (tranche à 0 %)', () => {
