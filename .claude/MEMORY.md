@@ -327,3 +327,14 @@ Source : analyse approfondie 5 agents. Déjà fait & publié (commit 6744674) : 
 - `5c426fc` — retrait atomique de la mécanique meuble_tourisme : 5 entrées du JSON (version 2026.06.2), `TYPES_ACTIVITE` (désormais 5 types), fallbacks + `TYPE_LABELS` + `estVente` dans calculators.js, veille (label, `pousser` plafonds, 2 motifs scraping), `<option>` + ligne 6 % de calcul-charges. La veille surveille désormais 26 valeurs (au lieu de 29). Les 5 mentions éditoriales descriptives (faq, guide-2025, abattement, declaration-impots ×2, declaration-urssaf) sont CONSERVÉES volontairement : factuellement vraies, pas de calcul interactif.
 - `02f5e12` — RFR 29 315 € : JSON (version 2026.06.3, source URSSAF), fallback calculators.js, attendu test, textes dérivés (declaration-impots 1/2/2,5 parts = 29 315/58 630/73 287,50 € ; versement-liberatoire schema FAQ + années).
 - `?v=20260612` mono-version sur les 16 pages. Vérifié après chaque commit : 70 tests OK ×2 passes, check-baremes exit 0, audit 0 erreur, veille --sans-web 19 confirmés / 0 écart.
+
+---
+
+## [2026-06-14] — Tolérance « bruit connu » dans la veille + chaîne d'alerte validée en réel (commit 7c90435)
+
+**Fait :**
+- **Mécanisme de tolérance** (`7c90435`) : `automation/veille-sources.json` → bloc `tolerances_connues` `[{ id, valeur_bruit, raison }]`. Dans `veille-baremes.js`, `comparer()` refactoré en fonctions pures `deciderStatut()`/`estToleree()` (exportées, `require.main` guard). Une divergence **mono-signal** qui tombe **exactement** sur un bruit documenté → statut `ÉCART TOLÉRÉ (bruit connu)` : affiché dans le rapport (tableau + section 🟡 dédiée) mais **sans exit 1 ni issue**. Tout autre valeur, et tout écart 2-signaux concordants, reste une vraie alerte. Premier cas documenté : `formation_professionnelle.services_commerciaux` (CFP services 0,2 % ; le web agrégé renvoie souvent 0,1 % = taux des activités commerciales).
+- **Tests** : nouveau `automation/tests/test-veille.js` (`npm run test:veille`, 8 cas déterministes hors réseau) prouvant le bruit toléré ET qu'une autre valeur (0,3 %) alerte encore. `npm run test:calc` toujours 70 OK.
+- **Chaîne d'alerte testée en conditions réelles** : branche jetable `test-veille-alerte` avec cotis vente faussée 12,3→12,9 %, workflow déclenché via API (`workflow_dispatch`) → **issue #1 ouverte** (« écart détecté ») avec dans le MÊME rapport l'écart faussé (12,9 vs 12,3) ET la tolérance CFP en 🟡 → preuve que la tolérance n'avale pas les vrais écarts. Branche supprimée, issue #1 fermée (not_planned) avec commentaire, `main` jamais touchée.
+
+**Note exploitation :** le run mensuel réel du 2026-06-14 est sorti `25 confirmés · 0 écart · 🟡 1 toléré · exit 0` (le web a renvoyé 0,1 % CFP, désormais toléré). La branche « ouverture d'issue » est donc validée pour de bon. Secret `ANTHROPIC_API_KEY` + `npm ci` + actions Node 24 OK depuis le 2026-06-12.
