@@ -9,6 +9,7 @@
     "ga4": "node automation/director.js --ga4",
     "dry-run": "node automation/director.js --dry-run",
     "test:calc": "node automation/tests/test-calculators.js",
+    "test:veille": "node automation/tests/test-veille.js",
     "build:baremes": "node automation/build-baremes.js",
     "check:baremes": "node automation/check-baremes.js",
     "veille": "node automation/veille-baremes.js"

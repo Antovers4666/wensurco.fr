@@ -285,7 +285,45 @@ Règles impératives :
 
 function arrondir(v) { return Math.round(v * 10000) / 10000; }
 
-function comparer(surveillance, scrape, web) {
+// Tolérances « bruit connu » : liste en config (automation/veille-sources.json →
+// tolerances_connues), chaque entrée { id, valeur_bruit, raison }.
+function chargerTolerances() {
+  try {
+    const config = JSON.parse(fs.readFileSync(FICHIER_SOURCES, 'utf8'));
+    return Array.isArray(config.tolerances_connues) ? config.tolerances_connues : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+// Une divergence est « tolérée » seulement si elle correspond EXACTEMENT à un bruit
+// documenté (même id ET même valeur). N'importe quelle autre valeur reste une alerte.
+function estToleree(item, valeurDivergente, tolerances) {
+  if (!Array.isArray(tolerances) || valeurDivergente === null || valeurDivergente === undefined) return false;
+  return tolerances.some(t => t.id === item.id && arrondir(t.valeur_bruit) === arrondir(valeurDivergente));
+}
+
+// Décision de statut — fonction pure (testable hors réseau).
+function deciderStatut({ valScrape, valWeb, ref, scrapeAbsent, scrapeErreur, item, tolerances }) {
+  const confirme = [valScrape, valWeb].filter(v => v !== null && v === ref).length;
+  const divergents = [valScrape, valWeb].filter(v => v !== null && v !== ref);
+
+  if (scrapeErreur && valWeb === null) return { statut: 'ERREUR', tolere: false };
+  if (divergents.length === 2 && divergents[0] === divergents[1]) return { statut: 'ÉCART CONFIRMÉ', tolere: false };
+  if (divergents.length >= 1 || scrapeAbsent) {
+    // Bruit connu : UNE seule source diverge, exactement sur une valeur documentée.
+    // Jamais quand les deux sources divergent (écart confirmé) ni quand la valeur a
+    // disparu de sa page calibrée (scrapeAbsent) — on ne tolère qu'un faux positif identifié.
+    if (divergents.length === 1 && !scrapeAbsent && estToleree(item, divergents[0], tolerances)) {
+      return { statut: 'ÉCART TOLÉRÉ (bruit connu)', tolere: true };
+    }
+    return { statut: 'ÉCART À VÉRIFIER', tolere: false };
+  }
+  if (confirme >= 1) return { statut: 'CONFIRMÉ', tolere: false };
+  return { statut: 'INTROUVABLE', tolere: false };
+}
+
+function comparer(surveillance, scrape, web, tolerances = []) {
   return surveillance.map(item => {
     const s = scrape.signaux[item.id];
     const w = web.signaux[item.id];
@@ -293,19 +331,15 @@ function comparer(surveillance, scrape, web) {
     const valScrape = s && !s.erreur && s.valeur !== null && s.valeur !== undefined ? arrondir(s.valeur) : null;
     const valWeb = w && w.valeur !== null && w.valeur !== undefined ? arrondir(w.valeur) : null;
     const ref = arrondir(item.ref);
-
-    const confirme = [valScrape, valWeb].filter(v => v !== null && v === ref).length;
-    const divergents = [valScrape, valWeb].filter(v => v !== null && v !== ref);
     const scrapeAbsent = Boolean(s && s.absent); // valeur disparue de sa page calibrée
 
-    let statut;
-    if (s && s.erreur && valWeb === null) statut = 'ERREUR';
-    else if (divergents.length === 2 && divergents[0] === divergents[1]) statut = 'ÉCART CONFIRMÉ';
-    else if (divergents.length >= 1 || scrapeAbsent) statut = 'ÉCART À VÉRIFIER';
-    else if (confirme >= 1) statut = 'CONFIRMÉ';
-    else statut = 'INTROUVABLE';
+    const { statut, tolere } = deciderStatut({
+      valScrape, valWeb, ref, scrapeAbsent,
+      scrapeErreur: Boolean(s && s.erreur), item, tolerances,
+    });
+    const tol = tolere ? tolerances.find(t => t.id === item.id) : null;
 
-    return { item, valScrape, valWeb, ref, statut, sourceScrape: s && s.source, urlWeb: w && w.url, detailScrape: s && (s.erreur || s.detail) };
+    return { item, valScrape, valWeb, ref, statut, tolere, raisonTolerance: tol && tol.raison, sourceScrape: s && s.source, urlWeb: w && w.url, detailScrape: s && (s.erreur || s.detail) };
   });
 }
 
@@ -318,7 +352,8 @@ function formatVal(item, v) {
 
 function genererRapport({ baremes, resultats, scrape, web, maintenant }) {
   const compte = (st) => resultats.filter(r => r.statut === st).length;
-  const ecarts = resultats.filter(r => r.statut.startsWith('ÉCART'));
+  const ecarts = resultats.filter(r => r.statut.startsWith('ÉCART') && !r.tolere);
+  const toleres = resultats.filter(r => r.tolere);
   const lignes = [];
 
   lignes.push(`# Veille barèmes officiels — ${maintenant.toISOString().slice(0, 10)}`);
@@ -333,13 +368,15 @@ function genererRapport({ baremes, resultats, scrape, web, maintenant }) {
   const nbEcart = ecarts.length;
   const nbIntrouvable = compte('INTROUVABLE');
   const nbErreur = compte('ERREUR');
-  lignes.push(`## Synthèse : ✅ ${compte('CONFIRMÉ')} confirmé(s) · ⚠️ ${nbEcart} écart(s) · ❓ ${nbIntrouvable} introuvable(s) · 💥 ${nbErreur} erreur(s)`);
+  lignes.push(`## Synthèse : ✅ ${compte('CONFIRMÉ')} confirmé(s) · ⚠️ ${nbEcart} écart(s)${toleres.length ? ` · 🟡 ${toleres.length} toléré(s)` : ''} · ❓ ${nbIntrouvable} introuvable(s) · 💥 ${nbErreur} erreur(s)`);
   lignes.push('');
   lignes.push(nbEcart > 0
     ? '**⚠️ Au moins un écart détecté : vérification humaine requise avant toute mise à jour.**'
-    : nbIntrouvable + nbErreur === 0
-      ? '**✅ Toutes les valeurs du site sont confirmées par les sources officielles.**'
-      : '**Aucun écart détecté, mais certaines valeurs n\'ont pas pu être vérifiées (voir tableau).**');
+    : toleres.length > 0
+      ? `**✅ Aucun écart réel. ${toleres.length} écart(s) toléré(s) (bruit connu documenté) — aucune action requise.**`
+      : nbIntrouvable + nbErreur === 0
+        ? '**✅ Toutes les valeurs du site sont confirmées par les sources officielles.**'
+        : '**Aucun écart détecté, mais certaines valeurs n\'ont pas pu être vérifiées (voir tableau).**');
   lignes.push('');
 
   lignes.push('## Détail valeur par valeur');
@@ -359,6 +396,19 @@ function genererRapport({ baremes, resultats, scrape, web, maintenant }) {
       lignes.push(`- Valeur actuelle du site : **${formatVal(r.item, r.ref)}**`);
       if (r.valScrape !== null && r.valScrape !== r.ref) lignes.push(`- Scraping : **${formatVal(r.item, r.valScrape)}** (source : ${r.sourceScrape})`);
       if (r.valWeb !== null && r.valWeb !== r.ref) lignes.push(`- Recherche web : **${formatVal(r.item, r.valWeb)}**${r.urlWeb ? ` (source : ${r.urlWeb})` : ''}`);
+      lignes.push('');
+    }
+  }
+
+  if (toleres.length > 0) {
+    lignes.push('## 🟡 Écarts tolérés (bruit connu — aucune action requise)');
+    lignes.push('');
+    for (const r of toleres) {
+      const divergent = (r.valWeb !== null && r.valWeb !== r.ref) ? r.valWeb : r.valScrape;
+      lignes.push(`### ${r.item.id} — ${r.item.libelle}`);
+      lignes.push(`- Valeur du site (référence) : **${formatVal(r.item, r.ref)}**`);
+      lignes.push(`- Valeur divergente d'une seule source : **${formatVal(r.item, divergent)}**`);
+      if (r.raisonTolerance) lignes.push(`- Raison documentée : ${r.raisonTolerance}`);
       lignes.push('');
     }
   }
@@ -428,7 +478,8 @@ async function main() {
     }
   }
 
-  const resultats = comparer(surveillance, scrape, web);
+  const tolerances = chargerTolerances();
+  const resultats = comparer(surveillance, scrape, web, tolerances);
 
   // Rapport
   fs.mkdirSync(DOSSIER_RAPPORTS, { recursive: true });
@@ -441,12 +492,13 @@ async function main() {
   fs.writeFileSync(FICHIER_ETAT, JSON.stringify(etat, null, 2) + '\n', 'utf8');
 
   // Console + code de sortie
-  const nbEcart = resultats.filter(r => r.statut.startsWith('ÉCART')).length;
+  const nbEcart = resultats.filter(r => r.statut.startsWith('ÉCART') && !r.tolere).length;
+  const nbTolere = resultats.filter(r => r.tolere).length;
   const nbIntrouvable = resultats.filter(r => r.statut === 'INTROUVABLE').length;
   const nbErreur = resultats.filter(r => r.statut === 'ERREUR').length;
   const nbConfirme = resultats.filter(r => r.statut === 'CONFIRMÉ').length;
 
-  console.log(`\nRésultat : ✅ ${nbConfirme} confirmé(s) · ⚠️ ${nbEcart} écart(s) · ❓ ${nbIntrouvable} introuvable(s) · 💥 ${nbErreur} erreur(s)`);
+  console.log(`\nRésultat : ✅ ${nbConfirme} confirmé(s) · ⚠️ ${nbEcart} écart(s)${nbTolere ? ` · 🟡 ${nbTolere} toléré(s)` : ''} · ❓ ${nbIntrouvable} introuvable(s) · 💥 ${nbErreur} erreur(s)`);
   console.log(`Rapport : ${path.relative(path.join(__dirname, '..'), fichierRapport)}`);
 
   if (nbErreur === resultats.length) {
@@ -465,7 +517,12 @@ async function main() {
   process.exit(0);
 }
 
-main().catch(err => {
-  console.error(`✗ Erreur fatale veille : ${err.message}`);
-  process.exit(2);
-});
+if (require.main === module) {
+  main().catch(err => {
+    console.error(`✗ Erreur fatale veille : ${err.message}`);
+    process.exit(2);
+  });
+}
+
+// Exports pour les tests (automation/tests/test-veille.js) — aucun effet de bord à l'import.
+module.exports = { deciderStatut, estToleree, arrondir, chargerTolerances, comparer, construireSurveillance };

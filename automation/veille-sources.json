@@ -1,5 +1,5 @@
 {
-  "notes": "Configuration du scraping de veille (automation/veille-baremes.js). Les URLs et fenêtres d'extraction sont des données : si une page officielle change de structure, éditer ce fichier, pas le script. Calibré le 2026-06-11 sur le contenu réel des fiches. autoentrepreneur.urssaf.fr est exclu (page rendue en JS, fetch brut vide) — couvert par le recoupement web.",
+  "notes": "Configuration du scraping de veille (automation/veille-baremes.js). Les URLs et fenêtres d'extraction sont des données : si une page officielle change de structure, éditer ce fichier, pas le script. Calibré le 2026-06-11 sur le contenu réel des fiches. autoentrepreneur.urssaf.fr est exclu (page rendue en JS, fetch brut vide) — couvert par le recoupement web. Le bloc tolerances_connues recense les faux positifs documentés (divergence mono-signal récurrente, sans changement réel) : ils apparaissent dans le rapport en statut « ÉCART TOLÉRÉ (bruit connu) » mais ne déclenchent ni exit 1 ni issue. Toute autre valeur que le bruit documenté reste une vraie alerte.",
   "sources": [
     {
       "id": "sp-cotisations",
@@ -47,6 +47,13 @@
       "motifs": [
         { "famille": "acre", "cle": "palier_applicable", "type": "pct", "fenetre": "exon[ée]ration" }
       ]
+    }
+  ],
+  "tolerances_connues": [
+    {
+      "id": "formation_professionnelle.services_commerciaux",
+      "valeur_bruit": 0.001,
+      "raison": "CFP des prestations de services = 0,2 %. Les pages URSSAF agrégées (« l'essentiel du statut ») affichent souvent 0,1 % — le taux des activités commerciales/vente — d'où une divergence mono-signal récurrente sans changement réglementaire réel. Documenté le 2026-06-12 ; toute autre valeur (ex. 0,3 %) reste une alerte."
     }
   ]
 }
